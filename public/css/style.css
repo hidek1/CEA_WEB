@@ -1,0 +1,214 @@
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+}
+
+.bodybg{
+	background:url('../images/bodybg.jpg');
+}
+
+.cea_img{
+	margin-top:10px;
+	padding-top:10px;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.navcustom {
+    margin-left: 20px;
+    margin-top: 2px;
+}
+nav.navbar.navbar-expand-lg.navbar-light.navcustom a{
+   color:#fff;
+}
+nav.navbar.navbar-expand-lg.navbar-light.navcustom a:hover {
+    background:#111;
+	color:fff;
+	
+}
+
+.panel-body {
+    padding: 15px;
+	background:#f1f1f1;
+}
+.ceabldg_img{
+	width:531px;
+	height:327px;
+	border-radius:10px;
+}
+.panel-default {
+    border-color: #ddd;
+	padding:15px;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.bt {
+    font-weight: bold;
+    text-decoration: none;
+    font-family: Arial;
+    box-shadow: inset #fafafa 0px -19px 8px -1px, #a8a8a8 0px 4px 0px;
+    o-box-shadow: inset #fafafa 0px -19px 8px -1px,#a8a8a8 0px 4px 0px;
+    -moz-box-shadow: inset #fafafa 0px -19px 8px -1px,#a8a8a8 0px 4px 0px;
+    -webkit-box-shadow: inset #fafafa 0px -19px 8px -1px, #a8a8a8 0px 4px 0px;
+    background: #eeeeee;
+    background: -o-linear-gradient(90deg, #eeeeee, #e1e1e1);
+    background: -moz-linear-gradient( center top, #eeeeee 5%, #e1e1e1 100% );
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #eeeeee), color-stop(1, #e1e1e1) );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#e1e1e1');
+    background: -webkit-linear-gradient(#eeeeee, #e1e1e1);
+    background: -ms-linear-gradient(#eeeeee, #e1e1e1);
+    background: linear-gradient(#eeeeee, #e1e1e1);
+    text-indent: 0px;
+    line-height: 0px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 12px;
+    color: #696969;
+    width: 80px;
+    height: 0px;
+    padding: 12px 14px;
+    border-color: #e1e1e1;
+    border-width: 1px;
+    border-style: solid;
+}
+.pa_20px {
+    padding: 20px 0px;
+}
+.cea20px{
+	width:150px;
+	height:127px;
+}
+.font_c_w {
+    color: #fff;
+}
+.text-left {
+    text-align: left;
+}
+p {
+    margin: 0 0 10px;
+}
+.c_box_01 {
+    width: 100%;
+    padding-bottom: 8px;
+    float: left;
+}
+.left_50 {
+    float: left;
+    width: 50%;
+}
+.left_pr10 {
+    float: left;
+    padding-right: 10px;
+}
+.left {
+    float: left;
+}
+
+.nav_menu_bg{
+	background: url('../images/menu_bg.png')repeat-x;
+	
+}
+
+
+
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
