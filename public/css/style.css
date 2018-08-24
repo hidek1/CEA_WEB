@@ -250,6 +250,10 @@ p {
   padding-bottom: 30px;
 }
 
+.make_center {
+  margin: 0 auto;
+}
+
 
 table {
   border-collapse: collapse;

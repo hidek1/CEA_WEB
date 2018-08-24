@@ -23,3 +23,12 @@ Route::get('/index_ja_camp_description', function () {
 Route::get('/index_ja_jr_camp', function () {
     return view('index_ja_jr_camp');
 });
+Route::get('/index_ja_family_camp', function () {
+    return view('index_ja_family_camp');
+});
+Route::get('/index_ja_community_members', function () {
+    return view('index_ja_community_members');
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

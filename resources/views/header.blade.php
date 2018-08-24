@@ -29,6 +29,12 @@
             <li class="nav-item">
             <a class="nav-link" href="#">お問い合わせ</a>
             </li>
+{{--             <li class="nav-item">
+            <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">新規会員登録</a>
+            </li> --}}
             </ul>
             </div>
           </nav>
