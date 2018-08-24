@@ -20,3 +20,6 @@ Route::get('/index_ja', function () {
 Route::get('/index_ja_camp_description', function () {
     return view('index_ja_camp_description');
 });
+Route::get('/index_ja_jr_camp', function () {
+    return view('index_ja_jr_camp');
+});
