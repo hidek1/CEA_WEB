@@ -12,12 +12,10 @@
   <script type="text/javascript" src="{{asset('js/jquery-migrate-1.4.1.js')}}"></script>
   @yield('css')
 </head>
-<body>
+<body class='bodybg'>
   @include('header')
-  <div class="container" style="padding-top: 120px; ">
-    <div class="row">
+  <div style="padding-top: 30px; padding-bottom: 30px;">
       @yield('content')
-    </div>
   </div>
   @include('footer')
   <script type='text/javascript'>

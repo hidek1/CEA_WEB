@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/index_ja', function () {
+    return view('index_ja');
+});
+Route::get('/index_ja_camp_description', function () {
+    return view('index_ja_camp_description');
+});
