@@ -212,6 +212,11 @@ p {
   margin-bottom: 50px;
 }
 
+.form_title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
 .sub_title3 {
   padding-bottom: 50px;
 }
@@ -253,7 +258,6 @@ p {
 .make_center {
   margin: 0 auto;
 }
-
 
 table {
   border-collapse: collapse;

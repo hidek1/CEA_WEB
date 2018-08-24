@@ -29,6 +29,9 @@ Route::get('/index_ja_family_camp', function () {
 Route::get('/index_ja_community_members', function () {
     return view('index_ja_community_members');
 });
+Route::get('/contact', function () {
+    return view('contact');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

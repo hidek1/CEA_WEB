@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">名前</label>
+                            <label for="name" class="col-md-12 control-label">名前</label>
 
                             <div class="col-md-10">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">メールアドレス</label>
+                            <label for="email" class="col-md-12 control-label">メールアドレス</label>
 
                             <div class="col-md-10">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">パスワード</label>
+                            <label for="password" class="col-md-12 control-label">パスワード</label>
 
                             <div class="col-md-10">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">パスワードを確認する</label>
+                            <label for="password-confirm" class="col-md-12 control-label">パスワードを確認する</label>
 
                             <div class="col-md-10">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
