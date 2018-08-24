@@ -115,11 +115,7 @@ p {
 
 .nav_menu_bg{
 	background: url('../images/menu_bg.png')repeat-x;
-	
 }
-
-
-
 
 /* Slideshow container */
 .slideshow-container {
@@ -198,6 +194,66 @@ p {
   animation-duration: 1.5s;
 }
 
+.main_title {
+  padding-bottom: 30px;
+}
+
+.sub_title {
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+  border-bottom: solid 3px black;
+/*線の種類（実線） 太さ 色*/
+}
+
+.color_cell {
+  background-color: lightgreen;
+}
+
+.center_cell {
+  text-align: center;
+  font-size: 20px;
+}
+
+.lists {
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.describe_pic {
+  padding: 10px 5px;
+  text-align: center;
+}
+
+.pic_row {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.num_title {
+  padding-top: 30px;
+  padding-bottom: 5px;
+}
+
+.img_b {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: solid 1px;
+  padding: 0.5em;
+}
+
+th {
+  border: solid 1px;
+  padding: 0.5em;
+}
+
 @-webkit-keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
@@ -212,3 +268,4 @@ p {
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
 }
+
