@@ -205,6 +205,17 @@ p {
 /*線の種類（実線） 太さ 色*/
 }
 
+.sub_title2 {
+  border-bottom: double 5px #FFC778;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.sub_title3 {
+  padding-bottom: 50px;
+}
+
 .color_cell {
   background-color: lightgreen;
 }
