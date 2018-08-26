@@ -259,6 +259,10 @@ p {
   margin: 0 auto;
 }
 
+.member_title {
+  text-align: center;
+}
+
 table {
   border-collapse: collapse;
 }

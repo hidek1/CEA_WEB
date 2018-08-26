@@ -4,9 +4,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3 make_center">
+            <h3>コミュニティーページの説明</h3>
             <div class="panel panel-default">
                 <div class="panel-heading">ログイン</div>
-
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}

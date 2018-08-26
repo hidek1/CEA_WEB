@@ -6,32 +6,32 @@
       <div class="container">
         <div class="col-lg-11 text-center">
           <nav class="navbar navbar-expand-lg navbar-light navcustom">
-            <a class="navbar-brand" href="#"></a>
+            <a class="navbar-brand" href="/index_ja">ホーム</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: whitesmoke;">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                 <li>
-                <a class="nav-link" href="#">キャンプの説明 </a>
+                <a class="nav-link" href="/index_ja_camp_description">キャンプの説明 </a>
                 </li>
                 <li>
-                <a class="nav-link" href="#">ジュニアキャンプ </a>
+                <a class="nav-link" href="/index_ja_jr_camp">ジュニアキャンプ </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">ファミリーキャンプ</a>
+                <a class="nav-link" href="/index_ja_family_camp">ファミリーキャンプ</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">動画</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">コミュニティ</a>
+                <a class="nav-link" href="/login">コミュニティ</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">代理店様用</a>
+                <a class="nav-link" href="/index_ja_registration_agency">代理店様用</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">お問い合わせ</a>
+                <a class="nav-link" href="/index_ja_contact">お問い合わせ</a>
                 </li>
     {{--             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">ログイン</a>

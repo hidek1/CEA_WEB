@@ -29,8 +29,11 @@ Route::get('/index_ja_family_camp', function () {
 Route::get('/index_ja_community_members', function () {
     return view('index_ja_community_members');
 });
-Route::get('/contact', function () {
-    return view('contact');
+Route::get('/index_ja_contact', function () {
+    return view('index_ja_contact');
+});
+Route::get('/index_ja_registration_agency', function () {
+    return view('index_ja_registration_agency');
 });
 Auth::routes();
 
