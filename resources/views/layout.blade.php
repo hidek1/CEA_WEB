@@ -14,7 +14,7 @@
 </head>
 <body class='bodybg'>
   @include('header')
-  <div style="padding-top: 30px; padding-bottom: 30px;">
+  <div class="container">
       @yield('content')
   </div>
   @include('footer')
