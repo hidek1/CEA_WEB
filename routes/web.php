@@ -45,3 +45,7 @@ Route::get('/index_ja_movie', function () {
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
