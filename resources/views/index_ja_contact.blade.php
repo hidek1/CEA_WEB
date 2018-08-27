@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('content')
-<h2 class="form_title">お問い合わせフォーム</h2>
   <div class="container">
+    <h2 class="form_title">お問い合わせフォーム</h2>
     <form action="confirm.php" method="post" name="Form1">
         <div class="form-group">
             <label>お名前　<span class="label label-danger">必須</span></label>

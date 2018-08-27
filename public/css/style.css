@@ -93,6 +93,9 @@ nav.navbar.navbar-expand-lg.navbar-light.navcustom a:hover {
 .text-left {
     text-align: left;
 }
+.text-center {
+    text-align: center;
+}
 p {
     margin: 0 0 10px;
 }
@@ -252,6 +255,11 @@ p {
 
 .make_center {
   margin: 0 auto;
+}
+
+.form_title {
+  text-align: center;
+  padding-bottom: 30px;
 }
 
 
