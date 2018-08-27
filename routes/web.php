@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
 Route::get('/', function () {
     return view('index');
 });
@@ -42,6 +44,8 @@ Route::get('/index_ja_movie', function () {
 });
 
 
-Auth::routes();
-
-
+Route::get('/main','MainController@index');
+Route::post('/main/checklogin', 'MainController@checklogin');
+Route::get('main/successlogin', 'MainController@successlogin');
+Route::get('main/logout', 'MainController@logout');
+Route::get('/home', 'HomeController@index')->name('home');
