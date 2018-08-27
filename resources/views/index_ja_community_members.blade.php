@@ -16,21 +16,21 @@
           <!-- 画像部分 -->
             <div class="carousel-inner" role="listbox">
               <div class="item">
-                <img src="images/Junior group4.jpg" title="Image01" alt="Image01">
+                <img src="images/Junior group4.jpg" title="Image01" alt="Image01" width="100%">
                   <div class="carousel-caption">
                     <h4>Image 01</h4>
                     <p>Example</p>
                   </div>
               </div>
               <div class="item active">
-                <img src="images/Junior group4.jpg" title="Image02" alt="Image02">
+                <img src="images/Junior group4.jpg" title="Image02" alt="Image02" width="100%">
                   <div class="carousel-caption">
                     <h4>Image 01</h4>
                     <p>Example</p>
                   </div>
               </div>
               <div class="item">
-                <img src="images/Junior group4.jpg" title="Image03" alt="Image03">
+                <img src="images/Junior group4.jpg" title="Image03" alt="Image03" width="100%">
                   <div class="carousel-caption">
                     <h4>Image 01</h4>
                     <p>Example</p>
@@ -62,21 +62,21 @@
           <!-- 画像部分 -->
             <div class="carousel-inner" role="listbox">
               <div class="item">
-                <img src="images/Junior group4.jpg" title="Image01" alt="Image01">
+                <img src="images/Junior group4.jpg" title="Image01" alt="Image01"  width="100%">
                   <div class="carousel-caption">
                     <h4>Image 01</h4>
                     <p>Example</p>
                   </div>
               </div>
               <div class="item active">
-                <img src="images/Junior group4.jpg" title="Image02" alt="Image02">
+                <img src="images/Junior group4.jpg" title="Image02" alt="Image02"  width="100%">
                   <div class="carousel-caption">
                     <h4>Image 01</h4>
                     <p>Example</p>
                   </div>
               </div>
               <div class="item">
-                <img src="images/Junior group4.jpg" title="Image03" alt="Image03">
+                <img src="images/Junior group4.jpg" title="Image03" alt="Image03"  width="100%">
                   <div class="carousel-caption">
                     <h4>Image 01</h4>
                     <p>Example</p>
