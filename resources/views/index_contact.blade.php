@@ -17,23 +17,6 @@
     {!! Form::open(['url' => 'contact/confirm',
                 'class' => 'form-horizontal']) !!}
 
-    <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-        {!! Form::label('type', 'お問い合わせ種類:', ['class' => 'col-sm-12 control-label']) !!}
-        <div class="col-sm-10">
-            @foreach($types as $key => $value)
-                <label class="checkbox-inline">
-                    {!! Form::checkbox('type[]', $value) !!}
-                    {{ $value }}
-                </label>
-            @endforeach
-            @if ($errors->has('type'))
-                <span class="help-block">
-                <strong>{{ $errors->first('type') }}</strong>
-            </span>
-            @endif
-        </div>
-    </div>
-
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
         {!! Form::label('name', 'お名前:', ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-10">
@@ -55,6 +38,23 @@
                 <span class="help-block">
                     <strong>{{ $errors->first('email') }}</strong>
                 </span>
+            @endif
+        </div>
+    </div>
+
+    <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+        {!! Form::label('type', 'お問い合わせ種類:', ['class' => 'col-sm-12 control-label']) !!}
+        <div class="col-sm-10">
+            @foreach($types as $key => $value)
+                <label class="checkbox-inline">
+                    {!! Form::checkbox('type[]', $value) !!}
+                    {{ $value }}
+                </label>
+            @endforeach
+            @if ($errors->has('type'))
+                <span class="help-block">
+                <strong>{{ $errors->first('type') }}</strong>
+            </span>
             @endif
         </div>
     </div>

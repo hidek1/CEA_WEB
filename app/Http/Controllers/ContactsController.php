@@ -11,6 +11,42 @@ class ContactsController extends Controller
     {
         $types = Contact::$types;
  
-        return view('index_ja_contact', compact('types'));
+        return view('index_contact', compact('types'));
+    }
+
+    public function confirm(ContactRequest $request)
+    {
+        $contact = new Contact($request->all());
+     
+        // 「お問い合わせ種類（checkbox）」を配列から文字列に
+        $type = '';
+        if (isset($request->type)) {
+            $type = implode(', ',$request->type);
+        }
+     
+        return view('index_contact_confirm', compact('contact', 'type'));
+    }
+
+    public function complete(ContactRequest $request)
+    {
+        $input = $request->except('action');
+         
+        if ($request->action === '戻る') {
+            return redirect()->action('ContactsController@index')->withInput($input);
+        }
+     
+        // チェックボックス（配列）を「,」区切りの文字列に
+        if (isset($request->type)) {
+            $request->merge(['type' => implode(', ', $request->type)]);
+        }
+     
+        // データを保存
+        Contact::create($request->all());
+     
+        // 二重送信防止
+        $request->session()->regenerateToken();
+             
+        return view('index_contact_complete');
     }
 }
+
