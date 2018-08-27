@@ -22,7 +22,7 @@
                 <a class="nav-link" href="/index_ja_family_camp">ファミリーキャンプ</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">動画</a>
+                <a class="nav-link" href="/index_ja_movie">動画</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="/login">コミュニティ</a>

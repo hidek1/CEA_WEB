@@ -38,6 +38,9 @@ Route::get('/index_ja_registration_agency', function () {
 Route::get('/ja_password_forget', function () {
     return view('ja_password_forget');
 });
+Route::get('/index_ja_movie', function () {
+    return view('index_ja_movie');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

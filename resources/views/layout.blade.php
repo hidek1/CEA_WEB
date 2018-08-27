@@ -13,7 +13,7 @@
   <script type="text/javascript" src="{{asset('js/jquery-migrate-1.4.1.js')}}"></script>
 </head>
 <body class='bodybg'>
-  @include('header')
+  @include('header_ja')
   <div style="padding-top: 30px; padding-bottom: 30px;">
       @yield('content')
   </div>
