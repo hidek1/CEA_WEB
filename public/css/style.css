@@ -212,6 +212,11 @@ p {
   margin-bottom: 50px;
 }
 
+.form_title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
 .sub_title3 {
   padding-bottom: 50px;
 }
@@ -250,6 +255,13 @@ p {
   padding-bottom: 30px;
 }
 
+.make_center {
+  margin: 0 auto;
+}
+
+.member_title {
+  text-align: center;
+}
 
 table {
   border-collapse: collapse;
