@@ -13,25 +13,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                 <li>
-                <a class="nav-link" href="/index_ja_camp_description">キャンプの説明 </a>
+                <a class="nav-link" href="/index_camp_description">キャンプの説明 </a>
                 </li>
                 <li>
-                <a class="nav-link" href="/index_ja_jr_camp">ジュニアキャンプ </a>
+                <a class="nav-link" href="/index_jr_camp">ジュニアキャンプ </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/index_ja_family_camp">ファミリーキャンプ</a>
+                <a class="nav-link" href="/index_family_camp">ファミリーキャンプ</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/index_ja_movie">動画</a>
+                <a class="nav-link" href="/index_movie">動画</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="/main">コミュニティ</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/index_ja_registration_agency">代理店様用</a>
+                <a class="nav-link" href="/index_registration_agency">代理店様用</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/index_ja_contact">お問い合わせ</a>
+                <a class="nav-link" href="/index_contact">お問い合わせ</a>
                 </li>
     {{--             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">ログイン</a>

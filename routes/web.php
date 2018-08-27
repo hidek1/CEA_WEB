@@ -15,30 +15,34 @@ Auth::routes();
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/index_ja', function () {
-    return view('index_ja');
+Route::get('/index', function () {
+    return view('index');
 });
-Route::get('/index_ja_camp_description', function () {
-    return view('index_ja_camp_description');
+Route::get('/index_camp_description', function () {
+    return view('index_camp_description');
 });
-Route::get('/index_ja_jr_camp', function () {
-    return view('index_ja_jr_camp');
+Route::get('/index_jr_camp', function () {
+    return view('index_jr_camp');
 });
-Route::get('/index_ja_family_camp', function () {
-    return view('index_ja_family_camp');
+Route::get('/index_family_camp', function () {
+    return view('index_family_camp');
 });
-Route::get('/index_ja_community_members', function () {
-    return view('index_ja_community_members');
+Route::get('/index_community_members', function () {
+    return view('index_community_members');
 });
-Route::get('/index_ja_contact', 'ContactsController@index');
-Route::get('/index_ja_registration_agency', function () {
-    return view('index_ja_registration_agency');
+
+Route::get('/index_contact', 'ContactsController@index');
+Route::post('contact/confirm', 'ContactsController@confirm');
+Route::post('contact/complete', 'ContactsController@complete');
+
+Route::get('/index_registration_agency', function () {
+    return view('index_registration_agency');
 });
-Route::get('/ja_password_forget', function () {
-    return view('ja_password_forget');
+Route::get('/password_forget', function () {
+    return view('password_forget');
 });
-Route::get('/index_ja_movie', function () {
-    return view('index_ja_movie');
+Route::get('/index_movie', function () {
+    return view('index_movie');
 });
 
 
