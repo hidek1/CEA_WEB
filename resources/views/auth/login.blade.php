@@ -55,7 +55,7 @@
                                     ログイン
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link" href="/ja_password_forget">
                                     パスワードをお忘れの方
                                 </a>
                             </div>
