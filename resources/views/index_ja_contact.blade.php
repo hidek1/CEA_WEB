@@ -3,43 +3,79 @@
 @section('content')
   <div class="container">
     <h2 class="form_title">お問い合わせフォーム</h2>
-    <form action="confirm.php" method="post" name="Form1">
-        <div class="form-group">
-            <label>お名前　<span class="label label-danger">必須</span></label>
-            <input type="text" class="form-control" placeholder="フォーム太朗" name="name" required>
-            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-            <div class="help-block with-errors"></div>
+     {{-- エラーの表示 --}}
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
-        <div class="form-group">
-            <label>メールアドレス　<span class="label label-danger">必須</span></label>
-            <input type="email" class="form-control" placeholder="xxxxxx@yahoo.co.jp" name="email" required>
-            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-            <div class="help-block with-errors"></div>
+    @endif
+
+    {!! Form::open(['url' => 'contact/confirm',
+                'class' => 'form-horizontal']) !!}
+
+    <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+        {!! Form::label('type', 'お問い合わせ種類:', ['class' => 'col-sm-12 control-label']) !!}
+        <div class="col-sm-10">
+            @foreach($types as $key => $value)
+                <label class="checkbox-inline">
+                    {!! Form::checkbox('type[]', $value) !!}
+                    {{ $value }}
+                </label>
+            @endforeach
+            @if ($errors->has('type'))
+                <span class="help-block">
+                <strong>{{ $errors->first('type') }}</strong>
+            </span>
+            @endif
         </div>
-        <label>件名</label><br>
-        <label class="radio-inline">
-            <input type="radio" name="subjectR" value="checkboxA" onClick="changeDisabled()"> Jr Campについて
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="subjectR" value="checkboxB" onClick="changeDisabled()"> family campについて
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="subjectR" value="others" onClick="changeDisabled()"> その他(下記の件名にご記入ください)
-        </label>
-        <div class="form-group" style="margin-top:10px;">
-            <input type="text" class="form-control" placeholder="〇〇について" name="subject" onClick="changeDisabled()">
+    </div>
+
+    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+        {!! Form::label('name', 'お名前:', ['class' => 'col-sm-12 control-label']) !!}
+        <div class="col-sm-10">
+            {!! Form::text('name', null, ['class' => 'form-control']) !!}
+
+            @if ($errors->has('name'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('name') }}</strong>
+                </span>
+            @endif
         </div>
-        <div class="form-group">
-            <label>お問い合わせ内容　<span class="label label-danger">必須</span></label>
-            <textarea placeholder="お問い合わせ内容" rows="10" class="form-control" name="main" required></textarea>
-    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-    <div class="help-block with-errors"></div>
+    </div>
+
+    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+        {!! Form::label('email', 'メールアドレス:', ['class' => 'col-sm-12 control-label']) !!}
+        <div class="col-sm-10">
+            {!! Form::email('email', null, ['class' => 'form-control']) !!}
+            @if ($errors->has('email'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+            @endif
         </div>
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3 make_center">
-            <button type="submit" class="btn btn-warning btn-lg btn-block">送信</button>
-          </div>
+    </div>
+
+    <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
+        {!! Form::label('body', '内容:', ['class' => 'col-sm-12 control-label']) !!}
+        <div class="col-sm-10">
+            {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+            @if ($errors->has('body'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('body') }}</strong>
+                </span>
+            @endif
         </div>
-    </form>
-  </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-sm-12">
+            {!! Form::submit('確認', ['class' => 'btn btn-primary']) !!}
+        </div>
+    </div>
+
+    {!! Form::close() !!}
 @endsection

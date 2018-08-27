@@ -4,6 +4,15 @@
 	box-sizing: border-box;
 }
 
+#slide{
+position:relative;
+}
+#slide img{
+position:absolute;
+left:0;
+top:0;
+}
+
 .bodybg{
 	background:url('../images/bodybg.jpg');
 }
@@ -305,6 +314,10 @@ th {
   text-align:center;
 }
 
+.movie_title {
+  margin: 0 auto;
+  margin-top: 10%;
+}
 /* Caption text */
 .text {
   color: #f2f2f2;
