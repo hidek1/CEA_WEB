@@ -18,7 +18,7 @@
       <img src="images/cea_logo.png" class="cea_img">
     </div>
   </div>
-  <div style="padding-top: 30px; ">
+  <div class="container">
       @yield('content')
   </div>
   <footer class="page-footer font-small indigo">
