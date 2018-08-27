@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('index');
 });
@@ -41,6 +40,8 @@ Route::get('/ja_password_forget', function () {
 Route::get('/index_ja_movie', function () {
     return view('index_ja_movie');
 });
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
