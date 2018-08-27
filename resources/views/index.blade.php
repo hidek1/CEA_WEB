@@ -35,7 +35,7 @@
                                     <img src="images/cea_logo.png" class="cea20px">
                                 </div>
                                 <div class="col-sm-7">
-                                    <p class="font_c_w text-left"><strong>WEBSITE</strong>&nbsp;please click your country.</p>
+                                    <p class="font_c_w text-left"><strong>Winter Camp 2018</strong>&nbsp;please click your country.</p>
                                  <div class="c_box_01">
                                       <div class="left_50"><div class="left_pr10"><img src="images/c_ja.png"></div><div class="left"><a href="index_ja" class="bt" target="_english_cia">Japan</a></div></div>
                                       <div class="left_50"><div class="left_pr10"><img src="https://www.ciacamp.com/kr/img/intro/c_ta.png"></div><div class="left"><a href="#" class="bt" target="_taiwan_cia">Taiwan</a></div></div>
