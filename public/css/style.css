@@ -272,6 +272,15 @@ p {
   padding-top: 30px;
 }
 
+.complete_view_title {
+  text-align: center;
+  padding-bottom: 150px;
+  padding-top: 150px;
+}
+
+.button_width {
+  width: 20%;
+}
 
 table {
   border-collapse: collapse;

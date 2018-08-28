@@ -6,7 +6,7 @@
       <div class="container">
         <div class="col-lg-11 text-center">
           <nav class="navbar navbar-expand-lg navbar-light navcustom">
-            <a class="navbar-brand" href="/index_ja">ホーム</a>
+            <a class="navbar-brand" href="/index_home">ホーム</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: whitesmoke;">
             <span class="navbar-toggler-icon"></span>
             </button>
