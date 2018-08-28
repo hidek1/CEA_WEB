@@ -47,6 +47,28 @@ class ContactsController extends Controller
         $request->session()->regenerateToken();
              
         return view('index_contact_complete');
-    }
+
+            // 送信メール
+        \Mail::send(new \App\Mail\Contact([
+            'to' => $request->email,
+            'to_name' => $request->name,
+            'from' => 'hidekazu5200@icloud.com',
+            'from_name' => 'MySite',
+            'subject' => 'お問い合わせありがとうございました。',
+            'type' => $request->type,
+            'body' => $request->body
+        ]));
+     
+        // 受信メール
+        \Mail::send(new \App\Mail\Contact([
+            'to' => 'hidekazu5200@icloud.com',
+            'to_name' => 'MySite',
+            'from' => $request->email,
+            'from_name' => $request->name,
+            'subject' => 'サイトからのお問い合わせ',
+            'type' => $request->type,
+            'body' => $request->body
+        ], 'from'));
+        }
 }
 

@@ -15,8 +15,8 @@ Auth::routes();
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/index', function () {
-    return view('index');
+Route::get('/index_home', function () {
+    return view('index_home');
 });
 Route::get('/index_camp_description', function () {
     return view('index_camp_description');
