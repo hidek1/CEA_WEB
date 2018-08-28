@@ -13,7 +13,7 @@ class ContactRequest extends FormRequest
     {
         return [
             'type' => 'required',
-            'type.*' => 'in:Jr Campについて', 'family campについて', 'その他',
+            'type.*' => 'in:Jr Campについて,family campについて,その他',
             'name' => 'required|max:225',
             'email' => 'required|email',
             'body' => 'required|max:1000'
