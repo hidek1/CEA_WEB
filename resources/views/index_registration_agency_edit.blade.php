@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('content')
-  <div class="container">
-    <h2 class="form_title">代理店様用入力フォーム</h2>
+    <div class="container">
+    <h2 class="form_title">代理店様情報編集</h2>
     <div class="make_center">
      {{-- エラーの表示 --}}
     @if ($errors->any())
@@ -15,13 +15,13 @@
         </div>
     @endif
     
-    {!! Form::open(['url' => 'registration_agency/confirm',
+    {!! Form::model($regi_agency, ['method' => 'PATCH', 'url' => ['registration_agency', $regi_agency->id],
                 'class' => 'form-horizontal']) !!}
     
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
         {!! Form::label('agency_name', '代理店', ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
-            {!! Form::text('agency_name', null, ['class' => 'form-control']) !!}
+            {!! Form::text('agency_name', $regi_agency->agency_name, ['class' => 'form-control']) !!}
 
             @if ($errors->has('agency_name'))
                 <span class="help-block">
@@ -36,7 +36,7 @@
         <div class="col-sm-12">
             @foreach($programs as $key => $value)
                 <label class="checkbox-inline">
-                    {!! Form::radio('program', $value) !!}
+                    {!! Form::radio('program', $value, $regi_agency->program == $value ? true: false) !!}
                     {{ $value }}
                 </label>
             @endforeach
@@ -47,17 +47,13 @@
             @endif
         </div>
     </div>
-    <!--結果出力用-->
-<p id="p01"></p>
-<p id="p02"></p>
-<p id="p03"></p>
 
     <div class="form-group{{ $errors->has('term') ? ' has-error' : '' }}">
         {!! Form::label('term', '期間', ['class' => 'col-sm-2 control-label']) !!}
         <div class="col-sm-12">
             @foreach($terms as $key => $value)
                 <label class="checkbox-inline">
-                    {!! Form::radio('term', $value) !!}
+                    {!! Form::radio('term', $value, $regi_agency->term == $value ? true: false) !!}
                     {{ $value }}
                 </label>
             @endforeach
@@ -72,7 +68,7 @@
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
         {!! Form::label('student_name', '生徒氏名', ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
-            {!! Form::text('student_name', null, ['class' => 'form-control']) !!}
+            {!! Form::text('student_name',  $regi_agency->student_name, ['class' => 'form-control']) !!}
 
             @if ($errors->has('student_name'))
                 <span class="help-block">
@@ -85,7 +81,7 @@
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
         {!! Form::label('parent_name', '保護者氏名　*ファミリーキャンプのみ', ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
-            {!! Form::text('parent_name', null, ['class' => 'form-control']) !!}
+            {!! Form::text('parent_name', $regi_agency->parent_name, ['class' => 'form-control']) !!}
 
             @if ($errors->has('parent_name'))
                 <span class="help-block">
@@ -98,7 +94,7 @@
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
         {!! Form::label('nationality', '国籍', ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
-            {!! Form::text('nationality', null, ['class' => 'form-control']) !!}
+            {!! Form::text('nationality', $regi_agency->nationality, ['class' => 'form-control']) !!}
 
             @if ($errors->has('nationality'))
                 <span class="help-block">
@@ -111,7 +107,7 @@
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
         {!! Form::label('student_age', '年齢(生徒)', ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
-            {!! Form::text('student_age', null, ['class' => 'form-control']) !!}
+            {!! Form::text('student_age', $regi_agency->student_age, ['class' => 'form-control']) !!}
 
             @if ($errors->has('student_age'))
                 <span class="help-block">
@@ -124,7 +120,7 @@
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
         {!! Form::label('parent_age', '年齢（保護者）　*ファミリーキャンプのみ', ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
-            {!! Form::text('parent_age', null, ['class' => 'form-control']) !!}
+            {!! Form::text('parent_age', $regi_agency->parent_age, ['class' => 'form-control']) !!}
 
             @if ($errors->has('parent_age'))
                 <span class="help-block">
@@ -137,7 +133,7 @@
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
         {!! Form::label('residence', '住所', ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
-            {!! Form::text('residence', null, ['class' => 'form-control']) !!}
+            {!! Form::text('residence', $regi_agency->residence, ['class' => 'form-control']) !!}
 
             @if ($errors->has('residence'))
                 <span class="help-block">
@@ -150,7 +146,7 @@
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
         {!! Form::label('phone_number', '電話番号', ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
-            {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
+            {!! Form::text('phone_number', $regi_agency->phone_number, ['class' => 'form-control']) !!}
 
             @if ($errors->has('phone_number'))
                 <span class="help-block">
@@ -163,7 +159,7 @@
     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
         {!! Form::label('email', 'メールアドレス', ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
-            {!! Form::email('email', null, ['class' => 'form-control']) !!}
+            {!! Form::email('email', $regi_agency->email, ['class' => 'form-control']) !!}
             @if ($errors->has('email'))
                 <span class="help-block">
                     <strong>{{ $errors->first('email') }}</strong>
@@ -174,40 +170,11 @@
     
     <div class="form-group">
         <div class="col-sm-12" style="text-align: center;">
-            {!! Form::submit('確認', ['class' => 'btn btn-primary button_width']) !!}
+            {!! Form::submit('edit', ['class' => 'btn btn-primary button_width']) !!}
         </div>
     </div>
 
     {!! Form::close() !!}
     </div>
   </div>
-
-<script>
-$('input[name="program"]').change(function() {
-    var result1 = $(this).val();
-    if (result1 == "{{ $programs[0] }}") {
-        console.log( "jr" );
-    } else if (result1 == "{{ $programs[1] }}") {
-        console.log( "family" );
-    }
-    $('input[name="term"]').change(function() {
-    var result2 = $(this).val();
-    if (result1 == "{{ $programs[0] }}" && result2 == "{{ $terms[0] }}") {
-        console.log( result1 );
-    } else if (result1 == "{{ $terms[0] }}" && result2 == "{{ $terms[1] }}") {
-        console.log( "3 weeks" );
-    } else if (result1 == "{{ $terms[0] }}" && result2 == "{{ $terms[2] }}") {
-        console.log( "4 weeks" );
-    } else if (result1 == "{{ $terms[1] }}" && result2 == "{{ $terms[0] }}") {
-        console.log( "3 weeks" );
-    } else if (result1 == "{{ $terms[1] }}" && result2 == "{{ $terms[1] }}") {
-        console.log( "4 weeks" );
-    } else if (result1 == "{{ $terms[1] }}" && result2 == "{{ $terms[2] }}") {
-        console.log( "3 weeks" );
-    }
-})
-})
-
-
-</script>
 @endsection
