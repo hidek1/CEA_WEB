@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>Cebu English Academy</title>
   <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
@@ -15,7 +15,7 @@
 <body class='bodybg'>
   <div id="header">
     <div class="col-lg-12 text-center">
-      <img src="images/cea_logo.png" class="cea_img">
+      <img src="{{ asset('images/cea_logo.png') }}" class="cea_img">
     </div>
   </div>
   <div class="container">

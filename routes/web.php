@@ -30,10 +30,11 @@ Route::get('/index_family_camp', function () {
 Route::get('/index_community_members', function () {
     return view('index_community_members');
 });
-
+/*
 Route::get('/index_contact', 'ContactsController@index');
 Route::post('contact/confirm', 'ContactsController@confirm');
 Route::post('contact/complete', 'ContactsController@complete');
+*/
 
 Route::get('/index_registration_agency', 'RegiAgencyController@index');
 Route::post('registration_agency/confirm', 'RegiAgencyController@confirm');
@@ -50,9 +51,15 @@ Route::get('/index_movie', function () {
     return view('index_movie');
 });
 
-
+// this route for login page and log out
 Route::get('/main','MainController@index');
 Route::post('/main/checklogin', 'MainController@checklogin');
 Route::get('main/successlogin', 'MainController@successlogin');
 Route::get('main/logout', 'MainController@logout');
+
+
+// display all contacts
+Route::get('/allcontacts', 'ContactsController@listallcontact');
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/contact', 'contactController');
