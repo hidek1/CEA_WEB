@@ -27,7 +27,6 @@
                             <td>{{ $contact->body }}</td>
                         </tr>
                     </table>
- 
                     {!! Form::open(['url' => 'contact/complete',
                                     'class' => 'form-horizontal',
                                     'id' => 'post-input']) !!}
