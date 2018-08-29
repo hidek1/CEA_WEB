@@ -36,9 +36,14 @@ Route::post('contact/confirm', 'ContactsController@confirm');
 Route::post('contact/complete', 'ContactsController@complete');
 */
 
-Route::get('/index_registration_agency', function () {
-    return view('index_registration_agency');
-});
+Route::get('/index_registration_agency', 'RegiAgencyController@index');
+Route::post('registration_agency/confirm', 'RegiAgencyController@confirm');
+Route::post('registration_agency/complete', 'RegiAgencyController@complete');
+Route::get('registration_agency/list', 'RegiAgencyController@list');
+Route::get('registration_agency/{id}/edit', 'RegiAgencyController@edit');
+Route::patch('registration_agency/{id}', 'RegiAgencyController@update');
+Route::delete('registration_agency/{id}', 'RegiAgencyController@destroy');
+
 Route::get('/password_forget', function () {
     return view('password_forget');
 });
