@@ -22,11 +22,10 @@ class MainController extends Controller
     		'password' => $request->get('password')
     	);
     	if(Auth::attempt($user_data)){
-    		return redirect('main/successlogin');
+    		return redirect('/index_community_members');
     	}
     	else{
-    		return back()->width('errors', 'Wrong Login Details');
-    		//return Redirect::back()->withErrors(['errors', 'Wrong login details']);
+    		return back()->with('error', 'Invalid/ incorrect username and password');
     	}
     }
 
@@ -38,4 +37,6 @@ class MainController extends Controller
     	Auth::logout();
     	return redirect('main');
     }
+
+    
 }

@@ -1,16 +1,16 @@
 @extends('layout')
 @section('content')
 	<div class="row">
+		
+		
+		<div class="col-md-8">
 		@if($message = Session::get('error'))
-			<div class="alert alert-danger alert-block">
+			<div class="alert alert-danger alert-block text-center">
 				<button type="button" class="close" data-dismiss="alert">x</button>
 				<strong>{{$message}}</strong>
 			</div>
 		@endif
 
-		
-		<div class="col-md-5">
-		
 			@if(count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
@@ -21,7 +21,11 @@
 			</div>
 		@endif
 			@if(!isset(Auth::user()->email))
-				<h3>LogIn System</h3>
+				<div class="panel panel-info" style="padding:20px;">
+                   
+                        <div class="panel-title" style="padding:10px;">Sign In</div>
+                        <div style="float:right; font-size: 80%; position: relative; margin-right:10px;"><a href="{{ url('password/reset') }}">Forgot password?</a></div>
+                   
 				<form method="POST" action="{{ url('/main/checklogin')}}">	
 					{{csrf_field()}}
 					<div class="form-group">
@@ -39,7 +43,7 @@
 					</div>
 				</form>
 				@else
-				<h3>Sorry you dont have access this page</h3>
+				<h3>Sorry Page not found</h3>
 
 			 @endif
 		</div>

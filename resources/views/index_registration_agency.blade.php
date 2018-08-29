@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <h2 class="form_title">代理店様用入力フォーム</h2>
-    <form action="confirm.php" method="post" name="Form1">
+    <form action="confirm.php" method="post" >
         <div class="form-group">
             <label>代理店　<span class="label label-danger">必須</span></label>
             <input type="text" class="form-control" placeholder="11111" name="name" required>

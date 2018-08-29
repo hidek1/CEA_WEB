@@ -24,14 +24,21 @@
                 <li class="nav-item">
                 <a class="nav-link" href="/index_movie">動画</a>
                 </li>
+                @if(isset(Auth::user()->email))
                 <li class="nav-item">
-                <a class="nav-link" href="/main">コミュニティ</a>
+                    <a href="{{ url('main/logout') }}">Logout</a>
                 </li>
+                @else
+                <li class="nav-item">
+                <a class="nav-link" href="/main">Login</a>
+                </li>
+                @endif
+                
                 <li class="nav-item">
                 <a class="nav-link" href="/index_registration_agency">代理店様用</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/index_contact">お問い合わせ</a>
+                <a class="nav-link" href="/contact/create">お問い合わせ</a>
                 </li>
     {{--             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">ログイン</a>

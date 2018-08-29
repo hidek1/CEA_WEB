@@ -29,13 +29,13 @@
          <div class="slideshow-container">
 
       <div class="mySlides2 fade">
-        <img src="images/mantoman.jpg" style="width:80%">
+        <img src="{{ asset('images/mantoman.jpg') }}" style="width:80%">
       </div>
       <div class="mySlides2 fade">
-        <img src="images/mantoman2.jpg" style="width:80%">
+        <img src="{{ asset('images/mantoman2.jpg') }}" style="width:80%">
       </div>
       <div class="mySlides2 fade">
-        <img src="images/Junior group5.jpeg" style="width:80%">
+        <img src="{{ asset('images/Junior group5.jpeg') }}" style="width:80%">
       </div>
       <div style="text-align:center">
         <span class="dot"></span> 
@@ -47,7 +47,7 @@
     </div>
     <div class="col-xs-4 col-md-4 col-lg-4">
       <h4 class="member_title">卒業スピーチ</h4>
-      <video src=""   controls width="100%">
+      <video src="{{ asset('videos/CEA-student1.mp4') }}"   controls width="100%">
       </video>
     </div>
   </div>
