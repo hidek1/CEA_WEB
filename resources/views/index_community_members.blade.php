@@ -1,11 +1,60 @@
 @extends('layout')
 
+@section('css')
+  <style type="text/css">
+  .slider {
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+    position: relative;
+    display: inline
+  }
+
+  .slider .slideSet {
+    position: absolute;
+  }
+   
+  .slideSet {
+    width: 2500px; /* 削除 */
+  }
+   
+  .slide {
+    width: 100%;
+    height:auto;
+    overflow:hidden;
+    float: left;
+    display: inline
+  }
+  .slider-prev,
+  .slider-next {
+    margin-top: -15px;
+    padding: 0;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 50%;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .slider-prev {
+    left: -5px;
+  }
+
+  .slider-next {
+    right: -5px;
+  }
+  </style>
+  <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.css')}}">
+@endsection
+
 @section('content')
 <div class="container">
   <div class="row pic_row">
-    <div class="col-xs-4 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">デイリーエッセイ</h4>
-           <div class="slideshow-container">
+      <div class="slideshow-container">
 
       <div class="mySlides fade">
         <img src="images/mantoman.jpg" style="width:80%">
@@ -24,71 +73,63 @@
 
     </div>
     </div>
-    <div class="col-xs-4 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">写真</h4>
-         <div class="slideshow-container">
-
-      <div class="mySlides2 fade">
-        <img src="{{ asset('images/mantoman.jpg') }}" style="width:80%">
+      <div class="slider">
+      <div class="slideSet">
+        <div class="slide"><img src="images/mantoman.jpg" style="width:100%;"></div>
+        <div class="slide"><img src="images/mantoman2.jpg" style="width:100%"></div>
+        <div class="slide"><img src="images/Junior group5.jpeg" style="width:100%"></div>
       </div>
-      <div class="mySlides2 fade">
-        <img src="{{ asset('images/mantoman2.jpg') }}" style="width:80%">
-      </div>
-      <div class="mySlides2 fade">
-        <img src="{{ asset('images/Junior group5.jpeg') }}" style="width:80%">
-      </div>
-      <div style="text-align:center">
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-      </div>
-
     </div>
+  <button class="slider-prev"><i class="fa fa-arrow-circle-left"></i></button>
+  <button class="slider-next"><i class="fa fa-arrow-circle-right"></i></button>
     </div>
-    <div class="col-xs-4 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">卒業スピーチ</h4>
-      <video src="{{ asset('videos/CEA-student1.mp4') }}"   controls width="100%">
+      <video src="{{ asset('videos/student-interview-1.mp4') }}"   controls width="100%">
       </video>
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  var slideIndex = 0;
-    showSlides1();
-    showSlides2();
-  function showSlides1() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-         slides[i].style.display = "none";  
-      }
-    slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides1, 2000); // Change image every 2 seconds
+<script>
+(function(){
+  var slideWidth = $('.slide').outerWidth();  // .slideの幅を取得して代入
+  var slideNum = $('.slide').length;  // .slideの数を取得して代入
+  var slideSetWidth = slideWidth * slideNum;  // .slideの幅×数で求めた値を代入
+  $('.slideSet').css('width', slideSetWidth); // .slideSetのスタイルシートにwidth: slideSetWidthを指定
+
+  var slideCurrent = 0; // 現在地を示す変数
+
+  // アニメーションを実行する独自関数
+  var sliding = function(){
+    // slideCurrentが0以下だったら
+    if( slideCurrent < 0 ){
+      slideCurrent = slideNum - 1;
+
+    // slideCurrentがslideNumを超えたら
+    }else if( slideCurrent > slideNum - 1 ){  // slideCUrrent >= slideNumでも可
+      slideCurrent = 0;
+
+    }
+
+    $('.slideSet').stop().animate({
+      left: slideCurrent * -slideWidth
+    });
   }
-    var slideIndex = 0;
-    showSlides();
-  function showSlides2() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides2");
-    var dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-         slides[i].style.display = "none";  
-      }
-    slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides2, 2000); // Change image every 2 seconds
-  }
+
+  // 前へボタンが押されたとき
+  $('.slider-prev').click(function(){
+    slideCurrent--;
+    sliding();
+  });
+
+  // 次へボタンが押されたとき
+  $('.slider-next').click(function(){
+    slideCurrent++;
+    sliding();
+  });
+}());
+
 </script>
 @endsection
