@@ -63,3 +63,4 @@ Route::get('/allcontacts', 'ContactsController@listallcontact');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/contact', 'contactController');
+Route::get('/dashboard', 'dashboardController@index');
