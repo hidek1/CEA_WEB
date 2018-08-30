@@ -4,29 +4,30 @@
  <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Agency</h1>
+                    
+                    <h3 class="page-header"><a href="/index_registration_agency">Add Agency</a></h3>
                 </div>
                 <!-- /.col-lg-12 -->
             
             <!-- /.row -->
-       
-    <table class="table ">
-        <tr>
-            <th>agency_name</th>
-            <th>program</th>
-            <th>term</th>
-            <th>student_name</th>
-            <th>parent_name</th>
-            <th>nationality</th>
-            <th>student_age</th>
-            <th>parent_age</th>
-            <th>residence</th>
-            <th>phone_number</th>
-            <th>email</th>
-            <th>edit</th>
-            <th>delete</th>
+
+    <table class="table">
+        <tr style="background:#ccc; padding:10px; ">
+            <th>Agency Name</th>
+            <th>Program</th>
+            <th>Term</th>
+            <th>Student Name</th>
+            <th>Parent Name</th>
+            <th>Nationality</th>
+            <th>Student Age</th>
+            <th>Parent Age</th>
+            <th>Residence</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th colspan="2">Action</th>
+            
         </tr>
-    @foreach($regi_agencys  $regi_agency)
+    @foreach($angencylist as $i =>  $regi_agency)
         <tr>
             <td>{{ $regi_agency->agency_name }}</td>
             <td>{{ $regi_agency->program }}</td>
@@ -46,6 +47,7 @@
         </tr>
     @endforeach
     </table>
+   
     </div>
 </div>
     <script>

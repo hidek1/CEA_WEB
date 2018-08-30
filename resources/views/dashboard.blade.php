@@ -10,9 +10,11 @@
     <meta name="author" content="">
 
     <title>Dashboard</title>
+    <!-- Stylesheet -->
+
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
     <link href="{{ asset('vendor/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
@@ -24,7 +26,7 @@
     <link href="{{ asset('vendor/morrisjs/morris.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="{{asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
      
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +53,16 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                         <li>
+                            <a href="/dashboardangecylist"><i class="fa fa-dashboard fa-fw"></i> Agency </a>
+                        </li>
+                        <li>
+                            <a href="/dashboardcontactslist"><i class="fa fa-dashboard fa-fw"></i> Contacts </a>
+                        </li>
+                         <li>
+                            <a href="/image-upload"><i class="fa fa-bar-chart-o fa-fw"></i> Upload Image </a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>

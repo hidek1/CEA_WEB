@@ -38,5 +38,4 @@ class MainController extends Controller
     	return redirect('main');
     }
 
-    
 }

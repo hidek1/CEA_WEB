@@ -20,7 +20,6 @@
   @include('footer')
   <script type='text/javascript'>
   $(document).ready(function(){
-
   });
   </script>
   @yield('js')

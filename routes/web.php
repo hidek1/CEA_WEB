@@ -47,6 +47,7 @@ Route::delete('registration_agency/{id}', 'RegiAgencyController@destroy');
 Route::get('/password_forget', function () {
     return view('password_forget');
 });
+
 Route::get('/index_movie', function () {
     return view('index_movie');
 });
@@ -63,4 +64,12 @@ Route::get('/allcontacts', 'ContactsController@listallcontact');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/contact', 'contactController');
+// for dashboard page url
 Route::get('/dashboard', 'dashboardController@index');
+
+Route::get('/dashboardangecylist', 'dashboardController@agencylist');
+Route::get('/dashboardcontactslist', 'dashboardController@contactlist');
+
+// upload image
+Route::get('image-upload',['as'=>'image.upload','uses'=>'ImageUploadController@imageUpload']);
+Route::post('image-upload',['as'=>'image.upload.post','uses'=>'ImageUploadController@imageUploadPost']);
