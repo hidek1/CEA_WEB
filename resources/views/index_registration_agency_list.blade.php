@@ -1,8 +1,16 @@
-@extends('layout')
+@extends('dashboard')
  
 @section('content')
-<div class="row">
-    <table>
+ <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Agency</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            
+            <!-- /.row -->
+       
+    <table class="table ">
         <tr>
             <th>agency_name</th>
             <th>program</th>
@@ -18,7 +26,7 @@
             <th>edit</th>
             <th>delete</th>
         </tr>
-    @foreach($regi_agencys as $regi_agency)
+    @foreach($regi_agencys  $regi_agency)
         <tr>
             <td>{{ $regi_agency->agency_name }}</td>
             <td>{{ $regi_agency->program }}</td>
@@ -38,6 +46,7 @@
         </tr>
     @endforeach
     </table>
+    </div>
 </div>
     <script>
 

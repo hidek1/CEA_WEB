@@ -11,7 +11,6 @@ class RegiAgencyController extends Controller
     {
         $programs = RegiAgency::$programs;
         $terms = RegiAgency::$terms;
- 
         return view('index_registration_agency', compact('programs', 'terms'));
     }
 
