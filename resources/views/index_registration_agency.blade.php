@@ -47,10 +47,6 @@
             @endif
         </div>
     </div>
-    <!--結果出力用-->
-<p id="p01"></p>
-<p id="p02"></p>
-<p id="p03"></p>
 
     <div class="form-group{{ $errors->has('term') ? ' has-error' : '' }}">
         {!! Form::label('term', '期間', ['class' => 'col-sm-2 control-label']) !!}
@@ -67,6 +63,11 @@
         </span>
             @endif
         </div>
+    </div>
+
+    <label for="program" class="col-sm-2 control-label">値段</label>
+    <div class="col-sm-12">
+            円
     </div>
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
