@@ -1,89 +1,122 @@
 @extends('layout')
 
 @section('css')
-  <style type="text/css">
-  .slider {
-    width: 100%;
-    height:auto;
-    overflow: hidden;
-    position: relative;
-    display: inline
-  }
+<style type="text/css">
+.slider {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
 
-  .slider .slideSet {
+.slider .slideSet1 {
+  position: absolute;
+}
+
+.slideSet2 {
+  position: absolute;
+}
+
+.slider .slide1 {
+  width: 300px;
+  height: 200px;
+  float: left;
+}
+
+.slide2 {
+  width: 300px;
+  height: 200px;
+  float: left;
+}
+
+.slider-prev1,
+.slider-next1 {
+  margin-top: -15px;
+  padding: 0;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 50%;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.slider-prev1 {
+  left: 0px;
+}
+
+.slider-next1 {
+  right: 0px;
+}
+
+.slider-prev2,
+.slider-next2 {
+  margin-top: -15px;
+  padding: 0;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 50%;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.slider-prev2 {
+  left: 0px;
+}
+
+.slider-next2 {
+  right: 0px;
+}
+
+#largeImg{
+/*    display: none;  // dismiss*/
+    z-index: 1;
+}
+
+#back-curtain{
+    background: rgba(0, 0, 0, 0.5); // ③透過率５０％
+    display: none;
     position: absolute;
-  }
-   
-  .slideSet {
-    width: 2500px; /* 削除 */
-  }
-   
-  .slide {
-    width: 100%;
-    height:auto;
-    overflow:hidden;
-    float: left;
-    display: inline
-  }
-  .slider-prev,
-  .slider-next {
-    margin-top: -15px;
-    padding: 0;
-    background: none;
-    border: none;
-    position: absolute;
-    top: 50%;
-    font-size: 30px;
-    line-height: 1;
-    cursor: pointer;
-  }
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
 
-  .slider-prev {
-    left: -5px;
-  }
-
-  .slider-next {
-    right: -5px;
-  }
-  </style>
-  <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.css')}}">
+</style>
+<link rel="stylesheet" type="text/css" href="{{asset('https://use.fontawesome.com/releases/v5.0.6/css/all.css')}}">
 @endsection
 
 @section('content')
+<div id="back-curtain"></div>
+<div id="largeImg"><img width="800" src="images/mantoman.jpg"></div>
 <div class="container">
   <div class="row pic_row">
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">デイリーエッセイ</h4>
-      <div class="slideshow-container">
-
-      <div class="mySlides fade">
-        <img src="images/mantoman.jpg" style="width:80%">
+      <div class="slider">
+      <div class="slideSet1">
+        <div class="slide1 gallery1"><img class="img-responsive" src="images/mantoman.jpg" style="width:100%;"></div>
+        <div class="slide1"><img class="img-responsive" src="images/mantoman2.jpg" style="width:100%"></div>
+        <div class="slide1"><img class="img-responsive" src="images/Junior group5.jpeg" style="width:100%"></div>
       </div>
-      <div class="mySlides fade">
-        <img src="images/mantoman2.jpg" style="width:80%">
+      <button class="slider-prev1"><i class="fas fa-angle-left"></i></button>
+      <button class="slider-next1"><i class="fas fa-angle-right"></i></button>
       </div>
-      <div class="mySlides fade">
-        <img src="images/Junior group5.jpeg" style="width:80%">
-      </div>
-      <div style="text-align:center">
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-      </div>
-
-    </div>
     </div>
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">写真</h4>
       <div class="slider">
-      <div class="slideSet">
-        <div class="slide"><img src="images/mantoman.jpg" style="width:100%;"></div>
-        <div class="slide"><img src="images/mantoman2.jpg" style="width:100%"></div>
-        <div class="slide"><img src="images/Junior group5.jpeg" style="width:100%"></div>
+      <div class="slideSet2">
+        <div class="slide2"><img src="images/mantoman.jpg" style="width:100%;"></div>
+        <div class="slide2"><img src="images/mantoman2.jpg" style="width:100%"></div>
+        <div class="slide2"><img src="images/Junior group5.jpeg" style="width:100%"></div>
       </div>
+      <button class="slider-prev2"><i class="fas fa-angle-left"></i></button>
+      <button class="slider-next2"><i class="fas fa-angle-right"></i></button>
     </div>
-  <button class="slider-prev"><i class="fa fa-arrow-circle-left"></i></button>
-  <button class="slider-next"><i class="fa fa-arrow-circle-right"></i></button>
     </div>
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">卒業スピーチ</h4>
@@ -93,43 +126,125 @@
   </div>
 </div>
 <script>
+var img_width;
+var img_height;
+var img_ratio;
+ 
+jQuery.event.add(window, "load", function(){
+    var el = $('#largeImg img');
+        var img = new Image();
+        img.src = el.attr('src');
+        img_width = img.width; 
+        img_height = img.height;
+    img_ratio = img_height/img_width;  
+    });
+ 
+$('.gallery1 img').click(function(e) {
+    e.preventDefault();
+ 
+    disp();
+    $('#largeImg img').fadeIn();
+});
+
+jQuery.event.add(window, "resize", function(){disp();});
+ 
+$('#back-curtain, #largeImg').click(function() {
+    $('#largeImg img').fadeOut('slow', function() {$('#back-curtain').hide();});
+});
+ 
+function disp(){
+    $('#back-curtain')
+        .css({
+            'width' : $(window).width(),  
+            'height': $(window).height() 
+        })
+        .show();
+ 
+    var win_ratio = $(window).height() / $(window).width();
+    var w;  var h;
+    const margin=50;
+ 
+    if(img_ratio > win_ratio ){ 
+        h= $(window).height()-2*margin;
+        if( h < $(window).height() ) h=$(window).height()-2*margin;
+        w=h/img_ratio;
+    }else{             
+        w=$(window).width()-2*margin;
+        if( w < $(window).width() ) w=$(window).width()-2*margin;
+        h=w * img_ratio;
+    }
+ 
+    $('#largeImg img').css({
+        'position': 'absolute',
+        'left': ($(window).width()-w)/2+'px',
+        'top' : ($(window).height()-h)/2+'px',
+        'width' :w+'px',
+        'height':h+'px',
+        'z-index':2
+    });
+     
+}
 (function(){
-  var slideWidth = $('.slide').outerWidth();  // .slideの幅を取得して代入
-  var slideNum = $('.slide').length;  // .slideの数を取得して代入
-  var slideSetWidth = slideWidth * slideNum;  // .slideの幅×数で求めた値を代入
-  $('.slideSet').css('width', slideSetWidth); // .slideSetのスタイルシートにwidth: slideSetWidthを指定
+  var slideWidth1 = $('.slide1').outerWidth();  
+  var slideNum1 = $('.slide1').length; 
+  var slideSetWidth1 = slideWidth1 * slideNum1; 
+  $('.slideSet1').css('width', slideSetWidth1);
 
-  var slideCurrent = 0; // 現在地を示す変数
+  var slideCurrent1 = 0;
 
-  // アニメーションを実行する独自関数
-  var sliding = function(){
-    // slideCurrentが0以下だったら
-    if( slideCurrent < 0 ){
-      slideCurrent = slideNum - 1;
+  var slideWidth2 = $('.slide2').outerWidth();
+  var slideNum2 = $('.slide2').length;
+  var slideSetWidth2 = slideWidth2 * slideNum2;
+  $('.slideSet2').css('width', slideSetWidth2);
 
-    // slideCurrentがslideNumを超えたら
-    }else if( slideCurrent > slideNum - 1 ){  // slideCUrrent >= slideNumでも可
-      slideCurrent = 0;
+  var slideCurrent2 = 0;
+
+  var sliding1 = function(){
+    if( slideCurrent1 < 0 ){
+      slideCurrent1 = slideNum1 - 1;
+
+    }else if( slideCurrent1 > slideNum1 - 1 ){  
+      slideCurrent1 = 0;
 
     }
 
-    $('.slideSet').stop().animate({
-      left: slideCurrent * -slideWidth
+    $('.slideSet1').stop().animate({
+      left: slideCurrent1 * -slideWidth1
     });
   }
 
-  // 前へボタンが押されたとき
-  $('.slider-prev').click(function(){
-    slideCurrent--;
-    sliding();
+  $('.slider-prev1').click(function(){
+    slideCurrent1--;
+    sliding1();
   });
 
-  // 次へボタンが押されたとき
-  $('.slider-next').click(function(){
-    slideCurrent++;
-    sliding();
+  $('.slider-next1').click(function(){
+    slideCurrent1++;
+    sliding1();
+  });
+
+  var sliding2 = function(){
+    if( slideCurrent2 < 0 ){
+      slideCurrent2 = slideNum2 - 1;
+    }else if( slideCurrent2 > slideNum2 - 1 ){ 
+      slideCurrent2 = 0;
+
+    }
+
+    $('.slideSet2').stop().animate({
+      left: slideCurrent2 * -slideWidth2
+    });
+  }
+
+  $('.slider-prev2').click(function(){
+    slideCurrent2--;
+    sliding2();
+  });
+
+  $('.slider-next2').click(function(){
+    slideCurrent2++;
+    sliding2();
   });
 }());
-
 </script>
 @endsection
