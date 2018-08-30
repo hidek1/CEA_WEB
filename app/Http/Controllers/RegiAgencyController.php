@@ -29,10 +29,9 @@ class RegiAgencyController extends Controller
         if ($request->action === '戻る') {
             return redirect()->action('RegiAgencyController@index')->withInput($input);
         }
-        // データを保存
+        
         RegiAgency::create($request->all());
      
-        // 二重送信防止
         $request->session()->regenerateToken();
              
         return view('index_registration_agency_complete');
