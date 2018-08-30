@@ -10,7 +10,8 @@ class contactController extends Controller
 	 public function index()  {
 
         $contacts = Contact::paginate(3);
-        return view("/contact")->with('contacts',$contacts);
+        //return view("/contact")->with('contacts',$contacts);
+        return $contacts;
     }
        public function store(Request $request){
             
