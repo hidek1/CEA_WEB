@@ -1,6 +1,14 @@
 @extends('layout')
 
 @section('content')
+  <div class="col-md-8">
+      <div class="alert dismiss alert-success">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+          @if(session("message"))
+              {{session('message')}}
+          @endif
+      </div>
+  </div>
    <div class="slideshow-container">
 
       <div class="mySlides fade">
@@ -85,5 +93,6 @@
     dots[slideIndex-1].className += " active";
     setTimeout(showSlides, 2000); // Change image every 2 seconds
   }
+  $('.alert').hide(5000);
 </script>
 @endsection

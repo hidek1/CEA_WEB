@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Auth;
+use Session;
 class MainController extends Controller
 {
     function index(){
@@ -15,6 +16,7 @@ class MainController extends Controller
     	$this->validate($request, [
     		'email' => 'required|email',
     		'password' => 'required|alphaNum|min:3'
+            
     	]);
 
     	$user_data = array(
@@ -22,6 +24,9 @@ class MainController extends Controller
     		'password' => $request->get('password')
     	);
     	if(Auth::attempt($user_data)){
+            $userdata = Auth::user();
+            $sessionId = 'id';
+            Session::put($sessionId, $userdata);
     		return redirect('/index_community_members');
     	}
     	else{

@@ -15,7 +15,7 @@
   }
    
   .slideSet {
-    width: 2500px; /* 削除 */
+    width: 250px; /* 削除 */
   }
    
   .slide {
@@ -130,6 +130,5 @@
     sliding();
   });
 }());
-
 </script>
 @endsection

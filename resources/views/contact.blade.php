@@ -2,7 +2,7 @@
 @section('content')
 
 	<div class="col-md-8">
-	  	<div class="alert alert-success">
+	  	<div class="alert dismiss alert-success">
 	  		<button type="button" class="close" data-dismiss="alert">x</button>
 	        @if(session("message"))
 	            {{session('message')}}
@@ -42,6 +42,10 @@
   </ul>
 </nav>
 	
-	
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.dismiss').hide(9000);
+	});
+</script>
  
 @endsection
