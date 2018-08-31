@@ -71,8 +71,8 @@
   right: 0px;
 }
 
-#largeImg{
-/*    display: none;  // dismiss*/
+.largeImage{
+    display: none;  // dismiss
     z-index: 1;
 }
 
@@ -91,16 +91,16 @@
 
 @section('content')
 <div id="back-curtain"></div>
-<div id="largeImg"><img width="800" src="images/mantoman.jpg"></div>
+<div class="largeImage"><img width="800" src="{{ asset('images/mantoman.jpg') }}"></div>
 <div class="container">
   <div class="row pic_row">
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">デイリーエッセイ</h4>
       <div class="slider">
       <div class="slideSet1">
-        <div class="slide1 gallery1"><img class="img-responsive" src="images/mantoman.jpg" style="width:100%;"></div>
-        <div class="slide1"><img class="img-responsive" src="images/mantoman2.jpg" style="width:100%"></div>
-        <div class="slide1"><img class="img-responsive" src="images/Junior group5.jpeg" style="width:100%"></div>
+        <div class="slide1 gal1"><img class="img-responsive" src="{{ asset('images/mantoman.jpg') }}" style="width:100%;"></div>
+        <div class="slide1 gal1"><img class="img-responsive" src="{{ asset('images/mantoman2.jpg') }}" style="width:100%"></div>
+        <div class="slide1 gal1"><img class="img-responsive" src="{{ asset('images/Juniorgroup5.jpeg') }}" style="width:100%"></div>
       </div>
       <button class="slider-prev1"><i class="fas fa-angle-left"></i></button>
       <button class="slider-next1"><i class="fas fa-angle-right"></i></button>
@@ -112,7 +112,7 @@
       <div class="slideSet2">
         <div class="slide2"><img src="images/mantoman.jpg" style="width:100%;"></div>
         <div class="slide2"><img src="images/mantoman2.jpg" style="width:100%"></div>
-        <div class="slide2"><img src="images/Junior group5.jpeg" style="width:100%"></div>
+        <div class="slide2"><img src="images/Juniorgroup5.jpeg" style="width:100%"></div>
       </div>
       <button class="slider-prev2"><i class="fas fa-angle-left"></i></button>
       <button class="slider-next2"><i class="fas fa-angle-right"></i></button>
@@ -131,7 +131,7 @@ var img_height;
 var img_ratio;
  
 jQuery.event.add(window, "load", function(){
-    var el = $('#largeImg img');
+    var el = $('.largeImage img');
         var img = new Image();
         img.src = el.attr('src');
         img_width = img.width; 
@@ -139,17 +139,26 @@ jQuery.event.add(window, "load", function(){
     img_ratio = img_height/img_width;  
     });
  
-$('.gallery1 img').click(function(e) {
-    e.preventDefault();
- 
-    disp();
-    $('#largeImg img').fadeIn();
-});
+var small_pics = document.getElementsByClassName('gal1');
+for(var i = 0; i < small_pics.length; ++i){
+  var pic = $(".largeImage img")  
+  var pictures=new Array("{{ asset('images/mantoman.jpg') }}","{{ asset('images/mantoman2.jpg') }}","{{ asset('images/Juniorgroup5.jpeg') }}");
+  console.log(pictures[i]);
+  (function(j){
+    $(small_pics[j]).click(function(e) {
+        e.preventDefault();
+        disp();
+        console.log(pictures[j]);
+        $(pic).attr('src', pictures[j]);
+        $(pic).fadeIn();
+    });
+  })(i);
+}
 
 jQuery.event.add(window, "resize", function(){disp();});
  
-$('#back-curtain, #largeImg').click(function() {
-    $('#largeImg img').fadeOut('slow', function() {$('#back-curtain').hide();});
+$('#back-curtain, .largeImage').click(function() {
+    $('.largeImage img').fadeOut('slow', function() {$('#back-curtain').hide();});
 });
  
 function disp(){
@@ -174,7 +183,7 @@ function disp(){
         h=w * img_ratio;
     }
  
-    $('#largeImg img').css({
+    $('.largeImage img').css({
         'position': 'absolute',
         'left': ($(window).width()-w)/2+'px',
         'top' : ($(window).height()-h)/2+'px',
@@ -182,7 +191,9 @@ function disp(){
         'height':h+'px',
         'z-index':2
     });
-     
+    $('.largeImage').css({
+        'display':"block"
+    });
 }
 (function(){
   var slideWidth1 = $('.slide1').outerWidth();  

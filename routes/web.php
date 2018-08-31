@@ -73,3 +73,7 @@ Route::get('/dashboardcontactslist', 'dashboardController@contactlist');
 // upload image
 Route::get('image-upload',['as'=>'image.upload','uses'=>'ImageUploadController@imageUpload']);
 Route::post('image-upload',['as'=>'image.upload.post','uses'=>'ImageUploadController@imageUploadPost']);
+
+// upload video
+Route::get('video-upload',['as'=>'video.upload','uses'=>'VideoUploadController@videoUpload']);
+Route::post('video-upload',['as'=>'video.upload.post','uses'=>'VideoUploadController@videoUploadPost']);
