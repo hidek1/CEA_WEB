@@ -10,8 +10,8 @@ class contactController extends Controller
 	 public function index()  {
 
         $contacts = Contact::paginate(3);
-        //return view("/contact")->with('contacts',$contacts);
-        return $contacts;
+        return view("/contact")->with('contacts',$contacts);
+        
     }
        public function store(Request $request){
             
@@ -33,7 +33,7 @@ class contactController extends Controller
             $contact->body = $request->input('body');
         	$contact->save();
         	
-        	return redirect('contact')->with("message", "Contact added Successfully");
+        	return redirect('index_home')->with("message", "Contact added Successfully");
       	
        }
 

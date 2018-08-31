@@ -9,6 +9,7 @@
   position: relative;
 }
 
+
 .slider .slideSet1 {
   position: absolute;
 }
@@ -233,6 +234,7 @@ function disp(){
     slideCurrent1++;
     sliding1();
   });
+
 
   var sliding2 = function(){
     if( slideCurrent2 < 0 ){

@@ -19,7 +19,7 @@ class dashboardController extends Controller
     public function contactlist(){
     	$contactlist = Contact::all();
     	return view('/dashboardcontactslist')->with('contactlist', $contactlist);
-
+    	
     }
     
 
