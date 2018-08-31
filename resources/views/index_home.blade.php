@@ -18,7 +18,7 @@
         <img src="images/mantoman2.jpg" style="width:80%">
       </div>
       <div class="mySlides fade">
-        <img src="images/Junior group5.jpeg" style="width:80%">
+        <img src="images/Juniorgroup5.jpeg" style="width:80%">
       </div>
 
     </div>

@@ -74,8 +74,14 @@ Route::get('/dashboardcontactslist', 'dashboardController@contactlist');
 Route::get('image-upload',['as'=>'image.upload','uses'=>'ImageUploadController@imageUpload']);
 Route::post('image-upload',['as'=>'image.upload.post','uses'=>'ImageUploadController@imageUploadPost']);
 
+
 Route::get('file','FileController@showUploadFOrm')->name('upload.file');
 Route::post('file','FileController@storeFile');
 
 // for display image
 Route::get('/mypicture', 'FileController@mypicture');
+
+// upload video
+Route::get('video-upload',['as'=>'video.upload','uses'=>'VideoUploadController@videoUpload']);
+Route::post('video-upload',['as'=>'video.upload.post','uses'=>'VideoUploadController@videoUploadPost']);
+
