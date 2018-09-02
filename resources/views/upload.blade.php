@@ -20,6 +20,7 @@
 					<input type="submit" name="submit" value="upload" class="btn btn-primary">
 				</div>
 			</form>
-			
+	  </div>
 	</div>
+ </div>
 @endsection

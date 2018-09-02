@@ -111,9 +111,9 @@
       <h4 class="member_title">写真</h4>
       <div class="slider">
       <div class="slideSet2">
-        <div class="slide2"><img src="images/mantoman.jpg" style="width:100%;"></div>
-        <div class="slide2"><img src="images/mantoman2.jpg" style="width:100%"></div>
-        <div class="slide2"><img src="images/Juniorgroup5.jpeg" style="width:100%"></div>
+        <div class="slide2"><img src="{{ asset('images/mantoman.jpg') }}" style="width:100%;"></div>
+        <div class="slide2"><img src="{{ asset('images/mantoman2.jpg') }}" style="width:100%"></div>
+        <div class="slide2"><img src="{{ asset('images/Juniorgroup5.jpeg') }}" style="width:100%"></div>
       </div>
       <button class="slider-prev2"><i class="fas fa-angle-left"></i></button>
       <button class="slider-next2"><i class="fas fa-angle-right"></i></button>
@@ -125,6 +125,7 @@
       </video>
     </div>
   </div>
+  <a href="{{asset('main/logout')}}"><p class="text-center">ログアウト</p></a>
 </div>
 <script>
 var img_width;

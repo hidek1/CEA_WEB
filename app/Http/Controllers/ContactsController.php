@@ -11,7 +11,7 @@ class ContactsController extends Controller
     public function index()
     {
         $types = Contact::$types;
- 
+
         return view('index_contact', compact('types'));
     }
 
@@ -66,6 +66,33 @@ class ContactsController extends Controller
         ], 'from'));
         }
 
-       
+     public function list() {
+        $contacts = Contact::all();
+        return view('dashboard_contact_list', compact('contacts'));
+    }
+
+    public function edit($id) {
+        $contact = Contact::findOrFail($id);
+        $types = Contact::$types;
+        return view('dashboard_contact_edit', compact('contact','types'));
+    }
+ 
+    public function update(ContactRequest $request, $id) {
+        $contact = Contact::findOrFail($id);
+        if (isset($request->type)) {
+            $request->merge(['type' => implode(', ', $request->type)]);
+        }
+        $contact->update($request->all());
+ 
+        return redirect(url('dashboard_contact_list'));
+    }
+
+    public function destroy($id) {
+        $contact = Contact::findOrFail($id);
+ 
+        $contact->delete();
+ 
+        return redirect('dashboard_contact_list');
+    }
 }
 

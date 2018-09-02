@@ -21,12 +21,23 @@
             <td>{{ $contact->email }}</td>
             <td>{{ $contact->type }}</td>
             <td>{{ $contact->body }}</td>
-            <td><a href="/registration_agency/{{ $contact->id }}/edit" target="_edit"><button class="btn btn-primary">edit</button></a></td>
-            <td><a href="/registration_agency/{{ $contact->id }}/delete"><button class="btn btn-danger">Delete</button></a></td>
+            <td><a href="/contact/{{ $contact->id }}/edit" target="_edit"><button class="btn btn-primary">edit</button></a></td>
+            <td>{!! Form::open(['method' => 'DELETE', 'url' => ['contact', $contact->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
+                {!! Form::submit('delete', ['class' => 'btn btn-danger']) !!}
+                {!! Form::close() !!}</td>
         </tr>
     @endforeach
     </table>
     </div>
 </div>
-    
+    <script>
+      function ConfirmDelete()
+      {
+      var x = confirm("Are you sure you want to delete?");
+      if (x)
+        return true;
+      else
+        return false;
+      }
+    </script>
 @endsection

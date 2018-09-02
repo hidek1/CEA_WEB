@@ -43,7 +43,6 @@ class contactController extends Controller
 
        public function show($id){
             $contacts = Contact::all();
-            
        }
 
        public function edit($id){

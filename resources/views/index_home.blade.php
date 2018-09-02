@@ -1,14 +1,14 @@
 @extends('layout')
 
 @section('content')
-  <div class="col-md-8">
+{{--   <div class="col-md-8">
       <div class="alert dismiss alert-success">
         <button type="button" class="close" data-dismiss="alert">x</button>
           @if(session("message"))
               {{session('message')}}
           @endif
       </div>
-  </div>
+  </div> --}}
    <div class="slideshow-container">
 
       <div class="mySlides fade">

@@ -16,7 +16,6 @@ class MainController extends Controller
     	$this->validate($request, [
     		'email' => 'required|email',
     		'password' => 'required|alphaNum|min:3'
-            
     	]);
 
     	$user_data = array(
@@ -27,7 +26,7 @@ class MainController extends Controller
             $userdata = Auth::user();
             $sessionId = 'id';
             Session::put($sessionId, $userdata);
-    		return redirect('/index_community_members');
+    		return redirect('/index_community_members/$sessionId');
     	}
     	else{
     		return back()->with('error', 'Invalid/ incorrect username and password');
