@@ -12,9 +12,9 @@
 				<input type="file" name="file"><br />
 				<div class="col-md-3">
 					Please select to:
-					<select class="form-control" name='contact_id'>
-							@foreach($contacts as $contact)
-							<option value="{{$contact->id}}">{{$contact->name}}</option>
+					<select class="form-control" name='user_id'>
+							@foreach($users as $user)
+							<option value="{{$user->id}}">{{$user->name}}</option>
 							@endforeach
 					</select>
 					<input type="submit" name="submit" value="upload" class="btn btn-primary">

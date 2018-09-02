@@ -44,7 +44,7 @@ class VideoUploadController extends Controller
         ]);
 
         $videoName = time().'.'.request()->video->getClientOriginalExtension();
-        request()->video->move(public_path('videos'), $videoName);
+        request()->video->move(public_path('community_videos'), $videoName);
         return back()
             ->with('success','You have successfully upload video.')
             ->with('video',$videoName);

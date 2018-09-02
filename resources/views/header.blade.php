@@ -26,7 +26,7 @@
                     </li>
                     @if(isset(Auth::user()->email))
                     <li class="nav-item">
-                    <a class="nav-link" href=" {{ asset('/index_community_members', ['id' => Session::getId()])}}">コミュニティ</a>
+                    <a class="nav-link" href=" {{ asset('/index_community_members')}}">コミュニティ</a>
                     </li>
                     @else
                     <li class="nav-item">

@@ -26,7 +26,7 @@ class MainController extends Controller
             $userdata = Auth::user();
             $sessionId = 'id';
             Session::put($sessionId, $userdata);
-    		return redirect('/index_community_members/$sessionId');
+    		return redirect('/index_community_members');
     	}
     	else{
     		return back()->with('error', 'Invalid/ incorrect username and password');

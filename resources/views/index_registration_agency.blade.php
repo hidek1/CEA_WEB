@@ -67,7 +67,7 @@
 
     <label for="program" class="col-sm-2 control-label">値段</label>
     <div class="col-sm-12">
-            円
+       <p id="amount"></p>
     </div>
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -185,30 +185,41 @@
 
 <script>
 $('input[name="program"]').change(function() {
+    console.log($(this))
+    console.log($('input[name="term"]'))
     var result1 = $(this).val();
+    var result2 = $('input[name="term"]').val();
     if (result1 == "{{ $programs[0] }}") {
         console.log( "jr" );
+        if (result2 == "{{ $terms[0] }}") {
+            console.log( "2 weeks" );
+            document.getElementById("amount").innerText = "$2,000";
+        } else if (result2 == "{{ $terms[1] }}") {
+            console.log( "3 weeks" );
+            document.getElementById("amount").innerText = "$3,000";
+        } else if (result2 == "{{ $terms[2] }}") {
+            console.log( "4 weeks" );
+        } else {
+            console.log( "no" );
+        }
     } else if (result1 == "{{ $programs[1] }}") {
         console.log( "family" );
-    }
-    $('input[name="term"]').change(function() {
-    var result2 = $(this).val();
-    if (result1 == "{{ $programs[0] }}" && result2 == "{{ $terms[0] }}") {
-        console.log( result1 );
-    } else if (result1 == "{{ $terms[0] }}" && result2 == "{{ $terms[1] }}") {
-        console.log( "3 weeks" );
-    } else if (result1 == "{{ $terms[0] }}" && result2 == "{{ $terms[2] }}") {
-        console.log( "4 weeks" );
-    } else if (result1 == "{{ $terms[1] }}" && result2 == "{{ $terms[0] }}") {
-        console.log( "3 weeks" );
-    } else if (result1 == "{{ $terms[1] }}" && result2 == "{{ $terms[1] }}") {
-        console.log( "4 weeks" );
-    } else if (result1 == "{{ $terms[1] }}" && result2 == "{{ $terms[2] }}") {
-        console.log( "3 weeks" );
+                console.log( "jr" );
+        if (result2 == "{{ $terms[0] }}") {
+            console.log( "2 weeks" );
+            document.getElementById("amount").innerText = "$2,000";
+        } else if (result2 == "{{ $terms[1] }}") {
+            console.log( "3 weeks" );
+            document.getElementById("amount").innerText = "$3,000";
+        } else if (result2 == "{{ $terms[2] }}") {
+            console.log( "4 weeks" );
+        } else {
+            console.log( "no" );
+        }
+    } else {
+        console.log( "no" );
     }
 })
-})
-
 
 </script>
 @endsection
