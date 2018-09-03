@@ -9,7 +9,7 @@ use Session;
 class MainController extends Controller
 {
     function index(){
-    	return view('login');
+    	return view('index_login');
     }
 
     function checklogin(Request $request){
@@ -31,10 +31,6 @@ class MainController extends Controller
     	else{
     		return back()->with('error', 'Invalid/ incorrect username and password');
     	}
-    }
-
-    function successlogin(){
-    	return view('successlogin');
     }
 
     function logout(){
