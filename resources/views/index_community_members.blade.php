@@ -78,7 +78,7 @@
 }
 
 #back-curtain{
-    background: rgba(0, 0, 0, 0.5); // ③透過率５０％
+    background: rgba(0, 0, 0, 0.5);
     display: none;
     position: absolute;
     left: 0;

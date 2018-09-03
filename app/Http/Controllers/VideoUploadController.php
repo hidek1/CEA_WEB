@@ -40,7 +40,7 @@ class VideoUploadController extends Controller
 
     {
         request()->validate([
-            'video' => 'required|mimes:mp4,qt,x-ms-wmv,mpeg,x-msvideo|max:122048',
+            'video' => 'required|mimes:mp4,qt,x-ms-wmv,mpeg,x-msvideo|max:12222048',
         ]);
 
         $videoName = time().'.'.request()->video->getClientOriginalExtension();
