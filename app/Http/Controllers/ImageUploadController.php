@@ -44,7 +44,7 @@ class ImageUploadController extends Controller
         ]);
 
         $imageName = time().'.'.request()->image->getClientOriginalExtension();
-        request()->image->move(public_path('images'), $imageName);
+        request()->image->move(public_path('community_pictures'), $imageName);
         return back()
             ->with('success','You have successfully upload image.')
             ->with('image',$imageName);

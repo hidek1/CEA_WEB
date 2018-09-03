@@ -9,14 +9,13 @@ use Session;
 class MainController extends Controller
 {
     function index(){
-    	return view('login');
+    	return view('index_login');
     }
 
     function checklogin(Request $request){
     	$this->validate($request, [
     		'email' => 'required|email',
     		'password' => 'required|alphaNum|min:3'
-            
     	]);
 
     	$user_data = array(
@@ -32,10 +31,6 @@ class MainController extends Controller
     	else{
     		return back()->with('error', 'Invalid/ incorrect username and password');
     	}
-    }
-
-    function successlogin(){
-    	return view('successlogin');
     }
 
     function logout(){

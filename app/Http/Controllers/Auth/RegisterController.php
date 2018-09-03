@@ -68,4 +68,16 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function edit($id) {
+        $user = User::findOrFail($id);
+        return view('dashboard_user_edit', compact('user'));
+    }
+
+    public function update($request, $id) {
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+ 
+        return redirect(url('dashboard_user_list'));
+    }
 }

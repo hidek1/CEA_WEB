@@ -37,7 +37,6 @@
 
 </head>
 <body>
-    
       <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -55,13 +54,16 @@
                         <li>
                             <a href="/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                         <li>
-                            <a href="/dashboardangecylist"><i class="fa fa-dashboard fa-fw"></i> Agency </a>
+                        <li>
+                            <a href="/dashboard_user_list"><i class="fa fa-table fa-fw"></i> Users </a>
                         </li>
                         <li>
-                            <a href="/dashboardcontactslist"><i class="fa fa-dashboard fa-fw"></i> Contacts </a>
+                            <a href="/dashboard_angecy_list"><i class="fa fa-table fa-fw"></i> Agencies </a>
                         </li>
-                         <li>
+                        <li>
+                            <a href="/dashboard_contact_list"><i class="fa fa-table fa-fw"></i> Contacts </a>
+                        </li>
+                        <li>
                             <a href="/image-upload"><i class="fa fa-bar-chart-o fa-fw"></i> Upload Image </a>
                         </li>
                         <li>

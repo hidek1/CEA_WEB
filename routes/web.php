@@ -27,14 +27,16 @@ Route::get('/index_jr_camp', function () {
 Route::get('/index_family_camp', function () {
     return view('index_family_camp');
 });
-Route::get('/index_community_members', function () {
-    return view('index_community_members');
-});
-/*
+Route::get('/index_community_members', 'CommunityController@index');
+
 Route::get('/index_contact', 'ContactsController@index');
 Route::post('contact/confirm', 'ContactsController@confirm');
 Route::post('contact/complete', 'ContactsController@complete');
-*/
+Route::get('contact/list', 'ContactsController@list');
+Route::get('contact/{id}/edit', 'ContactsController@edit');
+Route::patch('contact/{id}', 'ContactsController@update');
+Route::delete('contact/{id}', 'ContactsController@destroy');
+
 
 Route::get('/index_registration_agency', 'RegiAgencyController@index');
 Route::post('registration_agency/confirm', 'RegiAgencyController@confirm');
@@ -65,10 +67,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/contact', 'contactController');
 // for dashboard page url
-Route::get('/dashboard', 'dashboardController@index');
-
-Route::get('/dashboardangecylist', 'dashboardController@agencylist');
-Route::get('/dashboardcontactslist', 'dashboardController@contactlist');
+Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard_user_list', 'DashboardController@userlist');
+Route::get('/dashboard_angecy_list', 'DashboardController@agencylist');
+Route::get('/dashboard_contact_list', 'DashboardController@contactlist');
 
 // upload image
 Route::get('image-upload',['as'=>'image.upload','uses'=>'ImageUploadController@imageUpload']);

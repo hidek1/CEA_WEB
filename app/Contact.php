@@ -7,4 +7,7 @@ class Contact extends Model
         'name', 'email', 'type', 'body'
     ];
    
+   static $types = [
+        'Jr Campについて', 'family campについて', 'その他'
+    ];
 }

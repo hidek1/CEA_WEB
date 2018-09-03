@@ -39,14 +39,14 @@ class RegiAgencyController extends Controller
     public function list()
     {
         $regi_agencys = RegiAgency::all();
-        return view('index_registration_agency_list', compact('regi_agencys'));
+        return view('dashboard_registration_agency_list', compact('regi_agencys'));
     }
 
     public function edit($id) {
         $regi_agency = RegiAgency::findOrFail($id);
         $programs = RegiAgency::$programs;
         $terms = RegiAgency::$terms;
-        return view('index_registration_agency_edit', compact('regi_agency','programs', 'terms'));
+        return view('dashboard_registration_agency_edit', compact('regi_agency','programs', 'terms'));
     }
  
     public function update(RegiAgencyRequest $request, $id) {
@@ -54,7 +54,7 @@ class RegiAgencyController extends Controller
         
         $regi_agency->update($request->all());
  
-        return redirect(url('registration_agency/list'));
+        return redirect(url('dashboard_angecy_list'));
     }
 
     public function destroy($id) {
@@ -62,6 +62,6 @@ class RegiAgencyController extends Controller
  
         $regi_agency->delete();
  
-        return redirect('registration_agency/list');
+        return redirect('dashboard_angecy_list');
         }
 }

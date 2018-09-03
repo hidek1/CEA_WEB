@@ -67,7 +67,7 @@
 
     <label for="program" class="col-sm-2 control-label">値段</label>
     <div class="col-sm-12">
-            円
+       <p id="amount"></p>
     </div>
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -184,31 +184,57 @@
   </div>
 
 <script>
-$('input[name="program"]').change(function() {
-    var result1 = $(this).val();
-    if (result1 == "{{ $programs[0] }}") {
+$('input[name="program"], input[name="term"]').change(function() {
+    console.log($(this).val())
+    // console.log($('input[name="term"]'))
+    var programs = document.getElementsByName( "program" ) ;
+    var terms = document.getElementsByName( "term" ) ;
+    // 選択状態の値を取得
+    for ( var program="", i=programs.length; i--; ) {
+        if ( programs[i].checked ) {
+            var program = programs[i].value ;
+            break ;
+        }
+    }
+    for ( var term="", i=terms.length; i--; ) {
+        if ( terms[i].checked ) {
+            var term = terms[i].value ;
+            break ;
+        }
+    }
+    if (program == "{{ $programs[0] }}") {
         console.log( "jr" );
-    } else if (result1 == "{{ $programs[1] }}") {
+        if (term == "{{ $terms[0] }}") {
+            console.log( "2 weeks" );
+            document.getElementById("amount").innerText = "$2,000";
+        } else if (term == "{{ $terms[1] }}") {
+            console.log( "3 weeks" );
+            document.getElementById("amount").innerText = "$2,500";
+        } else if (term == "{{ $terms[2] }}") {
+            console.log( "4 weeks" );
+            document.getElementById("amount").innerText = "$3,000";
+        } else {
+            console.log( "no" );
+        }
+    } else if (program == "{{ $programs[1] }}") {
         console.log( "family" );
-    }
-    $('input[name="term"]').change(function() {
-    var result2 = $(this).val();
-    if (result1 == "{{ $programs[0] }}" && result2 == "{{ $terms[0] }}") {
-        console.log( result1 );
-    } else if (result1 == "{{ $terms[0] }}" && result2 == "{{ $terms[1] }}") {
-        console.log( "3 weeks" );
-    } else if (result1 == "{{ $terms[0] }}" && result2 == "{{ $terms[2] }}") {
-        console.log( "4 weeks" );
-    } else if (result1 == "{{ $terms[1] }}" && result2 == "{{ $terms[0] }}") {
-        console.log( "3 weeks" );
-    } else if (result1 == "{{ $terms[1] }}" && result2 == "{{ $terms[1] }}") {
-        console.log( "4 weeks" );
-    } else if (result1 == "{{ $terms[1] }}" && result2 == "{{ $terms[2] }}") {
-        console.log( "3 weeks" );
+                console.log( "jr" );
+        if (term == "{{ $terms[0] }}") {
+            console.log( "2 weeks" );
+            document.getElementById("amount").innerText = "$3,000";
+        } else if (term == "{{ $terms[1] }}") {
+            console.log( "3 weeks" );
+            document.getElementById("amount").innerText = "$3,500";
+        } else if (term == "{{ $terms[2] }}") {
+            console.log( "4 weeks" );
+            document.getElementById("amount").innerText = "$4,000";
+        } else {
+            console.log( "no" );
+        }
+    } else {
+        console.log( "no" );
     }
 })
-})
-
 
 </script>
 @endsection
