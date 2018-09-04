@@ -11,6 +11,9 @@
 |
 */
 Auth::routes();
+Route::get('user/{id}/edit', 'RegiAgencysController@edit');
+Route::patch('user/{id}', 'RegiAgencyController@update');
+Route::delete('user/{id}', 'RegiAgencyController@destroy');
 
 Route::get('/', function () {
     return view('index');

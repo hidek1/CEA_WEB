@@ -32,6 +32,5 @@ class FileController extends Controller
     public function mypicture(){
     	$mypictures = File::all();
     	return view('mypicture')->with('mypictures', $mypictures);
-
     }
 }
