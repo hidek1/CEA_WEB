@@ -52,22 +52,25 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="/dashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="/dashboard_user_list"><i class="fa fa-table fa-fw"></i> Users </a>
+                            <a href="/register" target="_register"><i class="fa fa-registered"></i> Register</a>
                         </li>
                         <li>
-                            <a href="/dashboard_angecy_list"><i class="fa fa-table fa-fw"></i> Agencies </a>
+                            <a href="/dashboard_user_list" target="_user"><i class="fa fa-user"></i> Users </a>
                         </li>
                         <li>
-                            <a href="/dashboard_contact_list"><i class="fa fa-table fa-fw"></i> Contacts </a>
+                            <a href="/dashboard_angecy_list" target="_agencylist"><i class="fa fa-user"></i> Agencies </a>
                         </li>
                         <li>
-                            <a href="/file"><i class="fa fa-bar-chart-o fa-fw"></i> Upload Photo </a>
+                            <a href="/dashboard_contact_list" target="_contactlist"><i class="fa fa-user"></i> Contacts </a>
                         </li>
                         <li>
-                            <a href="/eassayphoto"><i class="fa fa-bar-chart-o fa-fw"></i>Photo Daily Essay </a>
+                            <a href="/file" target="upload_photo"><i class="fa fa-upload"></i> Upload Photo </a>
+                        </li>
+                        <li>
+                            <a href="/eassayphoto" target="Daily"><i class="fa fa-upload"></i>Photo Daily Essay </a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>

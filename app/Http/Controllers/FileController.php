@@ -7,6 +7,9 @@ use App\File;
 use App\User;
 class FileController extends Controller
 {
+
+
+
     function showUploadFOrm(){
     	$user = User::all();
     	return view('upload')->with('users',$user);
@@ -14,6 +17,7 @@ class FileController extends Controller
     }
 
     function storeFile(Request $request){
+    	
     	if($request->hasFile('file')){
 			$filename = $request->file->getClientOriginalName();
 			$filesize = $request->file->getClientSize();
