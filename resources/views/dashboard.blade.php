@@ -64,7 +64,10 @@
                             <a href="/dashboard_contact_list"><i class="fa fa-table fa-fw"></i> Contacts </a>
                         </li>
                         <li>
-                            <a href="/image-upload"><i class="fa fa-bar-chart-o fa-fw"></i> Upload Image </a>
+                            <a href="/file"><i class="fa fa-bar-chart-o fa-fw"></i> Upload Photo </a>
+                        </li>
+                        <li>
+                            <a href="/eassayphoto"><i class="fa fa-bar-chart-o fa-fw"></i>Photo Daily Essay </a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>

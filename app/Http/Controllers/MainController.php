@@ -23,9 +23,7 @@ class MainController extends Controller
     		'password' => $request->get('password')
     	);
     	if(Auth::attempt($user_data)){
-            $userdata = Auth::user();
-            $sessionId = 'id';
-            Session::put($sessionId, $userdata);
+            
     		return redirect('/index_community_members');
     	}
     	else{
