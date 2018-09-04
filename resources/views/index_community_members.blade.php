@@ -68,6 +68,7 @@
   left: 0px;
 }
 
+
 .slider-next2 {
   right: 0px;
 }
@@ -94,14 +95,25 @@
 <div id="back-curtain"></div>
 <div class="largeImage"><img width="800" src="{{ asset('images/mantoman.jpg') }}"></div>
 <div class="container">
+  @if(Auth::check())
+  <div class="row">
+        <h3>Welcome, {{Auth::user()->name}}</h3>
+    </div>
+  @endif
   <div class="row pic_row">
+
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">デイリーエッセイ</h4>
       <div class="slider">
       <div class="slideSet1">
-        <div class="slide1 gal1"><img class="img-responsive" src="{{ asset('images/mantoman.jpg') }}" style="width:100%;"></div>
-        <div class="slide1 gal1"><img class="img-responsive" src="{{ asset('images/mantoman2.jpg') }}" style="width:100%"></div>
-        <div class="slide1 gal1"><img class="img-responsive" src="{{ asset('images/Juniorgroup5.jpeg') }}" style="width:100%"></div>
+        @foreach($essaydailyphoto as $dailyphoto)
+          @if($dailyphoto->user_id == auth::user()->id)
+        <div class="slide1 gal1">
+          <img class="img-responsive" src="{{ asset('storage/upload/'.$dailyphoto->img_name) }}" style="width:100%;" target="_members">
+        </div>
+          @endif
+        @endforeach
+        
       </div>
       <button class="slider-prev1"><i class="fas fa-angle-left"></i></button>
       <button class="slider-next1"><i class="fas fa-angle-right"></i></button>
@@ -111,9 +123,11 @@
       <h4 class="member_title">写真</h4>
       <div class="slider">
       <div class="slideSet2">
-        <div class="slide2"><img src="{{ asset('images/mantoman.jpg') }}" style="width:100%;"></div>
-        <div class="slide2"><img src="{{ asset('images/mantoman2.jpg') }}" style="width:100%"></div>
-        <div class="slide2"><img src="{{ asset('images/Juniorgroup5.jpeg') }}" style="width:100%"></div>
+        @foreach($photopictures as $picture)
+          @if($picture->user_id == auth::user()->id)
+          <div class="slide2"><a href="{{ asset('storage/upload/'.$picture->name) }}" target="_members"><img src="{{ asset('storage/upload/'.$picture->name) }}" style="width:100%;"></a></div>
+         @endif
+        @endforeach
       </div>
       <button class="slider-prev2"><i class="fas fa-angle-left"></i></button>
       <button class="slider-next2"><i class="fas fa-angle-right"></i></button>
