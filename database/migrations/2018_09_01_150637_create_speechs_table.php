@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSpeechsTable extends Migration
+class CreateSpeechesTable extends Migration
 {
     /**
      * Run the migrations.

@@ -79,7 +79,7 @@
 }
 
 #back-curtain{
-    background: rgba(0, 0, 0, 0.5); // ③透過率５０％
+    background: rgba(0, 0, 0, 0.5);
     display: none;
     position: absolute;
     left: 0;
@@ -124,6 +124,7 @@
       <h4 class="member_title">写真</h4>
       <div class="slider">
       <div class="slideSet2">
+
         @if(Auth::check())
           @foreach($photopictures as $picture)
               @if($picture->user_id == auth::user()->id)
@@ -133,6 +134,7 @@
              @endif
           @endforeach
         @endif
+
       </div>
       <button class="slider-prev2"><i class="fas fa-angle-left"></i></button>
       <button class="slider-next2"><i class="fas fa-angle-right"></i></button>
@@ -140,7 +142,7 @@
     </div> 
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">卒業スピーチ</h4>
-      <video src="{{ asset('videos/student-interview-1.mp4') }}"   controls width="100%">
+        <video src="{{ asset('storage/community_videos/'.$speech->name) }}"   controls width="100%">
       </video>
     </div>
   </div>

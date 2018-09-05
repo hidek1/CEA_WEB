@@ -38,9 +38,10 @@ class VideoUploadController extends Controller
 
     public function videoUploadPost()
     {
-        request()->validate([
-            'video' => 'required|mimes:mp4,qt,x-ms-wmv,mpeg,x-msvideo|max:122048',
-        ]);
+        // request()->validate([
+        //     'video' => 'required|mimes:mp4,qt,x-ms-wmv,mpeg,x-msvideo|max:12222048',
+        // ]);
+
         $videoName = time().'.'.request()->video->getClientOriginalExtension();
         request()->video->move(public_path('videos'), $videoName);
         return back()

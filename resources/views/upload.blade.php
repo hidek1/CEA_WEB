@@ -26,7 +26,7 @@
 				{{csrf_field()}}
 				<input type="file" name="file"><br />
 				<div class="col-md-3">
-					Please select to:
+					Please select user:
 					<select class="form-control" name='user_id'>
 							<option value="">Please select Users:</option>
 							@foreach($users as $user)

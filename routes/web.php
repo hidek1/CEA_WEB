@@ -11,6 +11,9 @@
 |
 */
 Auth::routes();
+Route::get('user/{id}/edit', 'RegiAgencysController@edit');
+Route::patch('user/{id}', 'RegiAgencyController@update');
+Route::delete('user/{id}', 'RegiAgencyController@destroy');
 
 Route::get('/', function () {
     return view('index');
@@ -87,7 +90,7 @@ Route::post('eassayphoto','eassayController@storeFile');
 // for display image
 Route::get('/mypicture', 'FileController@mypicture');
 
-// upload video
-Route::get('video-upload',['as'=>'video.upload','uses'=>'VideoUploadController@videoUpload']);
-Route::post('video-upload',['as'=>'video.upload.post','uses'=>'VideoUploadController@videoUploadPost']);
+// upload speech
+Route::get('speech','SpeechController@showUploadFOrm')->name('speech.file');
+Route::post('speech','SpeechController@storeFile');
 
