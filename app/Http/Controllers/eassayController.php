@@ -46,7 +46,6 @@ class eassayController extends Controller
     	$img_file->user_id = $user_id;
     	$img_file->save();
     	return back()->with('success', 'Uploaded Daily Essay Photo successfully')->with('path',$new_name);
-	
     }
 
     public function mypicture(){
