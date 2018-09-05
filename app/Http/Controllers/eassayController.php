@@ -19,7 +19,7 @@ class eassayController extends Controller
     	]);
 
     	if($request->hasFile('file')){
-			$filename = $request->file->getClientOriginalName();
+			$filename = time().'.'.request()->file->getClientOriginalExtension();
 			$filesize = $request->file->getClientSize();
 			$user_id = $request->input('user_id');
     		//return $request->file->storeAs('public/upload',$filename);
@@ -29,7 +29,7 @@ class eassayController extends Controller
     		$file->size = $filesize;
     		$file->user_id = $user_id;
     		$file->save();
-    		return redirect('/eassayphoto')->with("message", "Uploaded Daily Essay Photo successfully.");
+            return redirect('/eassayphoto')->with("message", "Uploaded Daily Essay Photo successfully.");
     	}
     }
 

@@ -90,7 +90,7 @@ Route::post('eassayphoto','eassayController@storeFile');
 // for display image
 Route::get('/mypicture', 'FileController@mypicture');
 
-// upload video
-Route::get('video-upload',['as'=>'video.upload','uses'=>'VideoUploadController@videoUpload']);
-Route::post('video-upload',['as'=>'video.upload.post','uses'=>'VideoUploadController@videoUploadPost']);
+// upload speech
+Route::get('speech','SpeechController@showUploadFOrm')->name('speech.file');
+Route::post('speech','SpeechController@storeFile');
 

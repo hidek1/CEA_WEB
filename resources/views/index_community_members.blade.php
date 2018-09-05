@@ -126,7 +126,7 @@
         @foreach($photopictures as $picture)
           @if($picture->user_id == auth::user()->id)
           <div class="slide2"><a href="{{ asset('storage/upload/'.$picture->name) }}" target="_members"><img src="{{ asset('storage/upload/'.$picture->name) }}" style="width:100%;"></a></div>
-         @endif
+          @endif
         @endforeach
       </div>
       <button class="slider-prev2"><i class="fas fa-angle-left"></i></button>
@@ -135,7 +135,7 @@
     </div>
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">卒業スピーチ</h4>
-      <video src="{{ asset('videos/student-interview-1.mp4') }}"   controls width="100%">
+        <video src="{{ asset('storage/community_videos/'.$speech->name) }}"   controls width="100%">
       </video>
     </div>
   </div>
