@@ -26,7 +26,7 @@
         {!! Form::open(array('route' => 'video.upload.post','files'=>true)) !!}
             <div class="row">
                 <div class="col-md-6">
-                    {!! Form::file('video', array('class' => 'form-control')) !!}
+                    {!! Form::file('file', array('class' => 'form-control')) !!}
                 </div>
                 <div class="col-md-6">
                     <button type="submit" class="btn btn-success">Upload</button>
