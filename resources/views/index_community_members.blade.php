@@ -101,19 +101,20 @@
     </div>
   @endif
   <div class="row pic_row">
-
+    
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">デイリーエッセイ</h4>
       <div class="slider">
       <div class="slideSet1">
-        @foreach($essaydailyphoto as $dailyphoto)
-          @if($dailyphoto->user_id == auth::user()->id)
-        <div class="slide1 gal1">
-          <img class="img-responsive" src="{{ asset('storage/upload/'.$dailyphoto->img_name) }}" style="width:100%;" target="_members">
-        </div>
-          @endif
-        @endforeach
-        
+        @if(Auth::check())
+          @foreach($essaydailyphoto as $dailyphoto)
+              @if($dailyphoto->user_id == auth::user()->id)
+                  <div class="slide1 gal1">
+                      <a href="{{ asset('/images/'.$dailyphoto->img_name) }}" target="_essayphoto"><img src="{{ asset('/images/'.$dailyphoto->img_name) }}" style="width:100%;"></a>
+                  </div>
+              @endif
+          @endforeach
+        @endif
       </div>
       <button class="slider-prev1"><i class="fas fa-angle-left"></i></button>
       <button class="slider-next1"><i class="fas fa-angle-right"></i></button>
@@ -123,23 +124,29 @@
       <h4 class="member_title">写真</h4>
       <div class="slider">
       <div class="slideSet2">
-        @foreach($photopictures as $picture)
-          @if($picture->user_id == auth::user()->id)
-          <div class="slide2"><a href="{{ asset('storage/upload/'.$picture->name) }}" target="_members"><img src="{{ asset('storage/upload/'.$picture->name) }}" style="width:100%;"></a></div>
-         @endif
-        @endforeach
+        @if(Auth::check())
+          @foreach($photopictures as $picture)
+              @if($picture->user_id == auth::user()->id)
+              <div class="slide2">
+                    <img src="{{ asset('/images/'.$picture->name) }}" style="width:100%;">
+              </div>
+             @endif
+          @endforeach
+        @endif
       </div>
       <button class="slider-prev2"><i class="fas fa-angle-left"></i></button>
       <button class="slider-next2"><i class="fas fa-angle-right"></i></button>
     </div>
-    </div>
+    </div> 
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">卒業スピーチ</h4>
       <video src="{{ asset('videos/student-interview-1.mp4') }}"   controls width="100%">
       </video>
     </div>
   </div>
+  @if(Auth::check())
   <a href="{{asset('main/logout')}}"><p class="text-center">ログアウト</p></a>
+  @endif
 </div>
 <script>
 var img_width;
