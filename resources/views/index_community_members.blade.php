@@ -1,93 +1,7 @@
 @extends('layout')
 
 @section('css')
-<style type="text/css">
-.slider {
-  width: 300px;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-}
-
-
-.slider .slideSet1 {
-  position: absolute;
-}
-
-.slideSet2 {
-  position: absolute;
-}
-
-.slider .slide1 {
-  width: 300px;
-  height: 200px;
-  float: left;
-}
-
-.slide2 {
-  width: 300px;
-  height: 200px;
-  float: left;
-}
-
-.slider-prev1,
-.slider-next1 {
-  margin-top: -15px;
-  padding: 0;
-  background: none;
-  border: none;
-  position: absolute;
-  top: 50%;
-  font-size: 30px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.slider-prev1 {
-  left: 0px;
-}
-
-.slider-next1 {
-  right: 0px;
-}
-
-.slider-prev2,
-.slider-next2 {
-  margin-top: -15px;
-  padding: 0;
-  background: none;
-  border: none;
-  position: absolute;
-  top: 50%;
-  font-size: 30px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.slider-prev2 {
-  left: 0px;
-}
-
-
-.slider-next2 {
-  right: 0px;
-}
-
-.largeImage{
-    display: none;  // dismiss
-    z-index: 1;
-}
-
-#back-curtain{
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="{{asset('css/slider.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('https://use.fontawesome.com/releases/v5.0.6/css/all.css')}}">
 @endsection
 
@@ -142,8 +56,10 @@
     </div> 
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">卒業スピーチ</h4>
-        <video src="{{ asset('storage/community_videos/'.$speech->name) }}"   controls width="100%">
+      @if($speech != null)
+        <video src="{{ asset('/community_videos/'.$speech->name) }}"   controls width="100%">
       </video>
+      @endif
     </div>
   </div>
   @if(Auth::check())

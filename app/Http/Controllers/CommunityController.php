@@ -11,10 +11,14 @@ class CommunityController extends Controller
 {
     public function index(Request $request)
     {    
-    $id = Auth::id();
-		$photopictures = File::all();
-		$essaydailyphoto = Eassay::all();
-    $speech = Eassay::where('user_id',$id)->first();
+        $id = Auth::id();
+    		$photopictures = File::all();
+    		$essaydailyphoto = Eassay::all();
+        if (Speech::where('user_id',$id)->first()) {
+          $speech = Speech::where('user_id',$id)->first();
+        } else {
+          $speech = null;
+        }
         //return view('index_community_members')->with(['photopictures' => $photopictures,  'essaydailyphoto' => $essaydailyphoto]);
         return view('index_community_members', compact('photopictures','essaydailyphoto','speech'));
     }
