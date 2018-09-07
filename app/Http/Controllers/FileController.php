@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use App\File;
 use App\User;
@@ -54,4 +54,13 @@ class FileController extends Controller
     	$mypictures = File::all();
     	return view('mypicture')->with('mypictures', $mypictures);
     }
+    /*
+    public function innerjoin(){
+        $my_picture = DB::table("users")
+                    ->join("files", "users.id", "=", "files.user_id")
+                    ->select()
+                    ->get();
+        return $my_picture;
+    }
+    */
 }

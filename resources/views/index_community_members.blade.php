@@ -142,12 +142,17 @@
     </div> 
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">卒業スピーチ</h4>
+        <?php 
+        /*
         <video src="{{ asset('storage/community_videos/'.$speech->name) }}"   controls width="100%">
+        */
+        ?>
+        
       </video>
     </div>
   </div>
   @if(Auth::check())
-  <a href="{{asset('main/logout')}}"><p class="text-center">ログアウト</p></a>
+    <a href="{{asset('main/logout')}}"><p class="text-center">ログアウト</p></a>
   @endif
 </div>
 <script>
