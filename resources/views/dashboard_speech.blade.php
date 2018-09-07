@@ -3,6 +3,15 @@
  <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12"><h3 class="page-header"><a href="/index_registration_agency">Upload  Speech</a>
+      @if(count($errors) > 0)
+        <div class="alert alert-danger">
+          <ul>
+            @foreach($errors->all() as $error)
+              <li>{{$error}}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
       @if($message = Session::get('message'))
         {{$message}}
       @endif

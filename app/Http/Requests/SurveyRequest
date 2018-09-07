@@ -1,0 +1,23 @@
+<?php
+namespace App\Http\Requests;
+ 
+use Illuminate\Foundation\Http\FormRequest;
+ 
+class SurveyRequest extends FormRequest
+{
+    public function authorize()
+    {
+        return true;
+    }
+    public function rules()
+    {
+        return [
+            'class' => 'required|in:worse,bad,normal,good,excelent',
+        ];
+    }
+    public function attributes() {
+        return [
+            'class' => '授業について',
+        ];
+    }
+}

@@ -364,6 +364,9 @@ th {
   background-color: #717171;
 }
 
+.btn_posi {
+  margin-top: 3px;
+}
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;

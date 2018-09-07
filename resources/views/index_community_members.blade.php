@@ -1,99 +1,13 @@
 @extends('layout')
 
 @section('css')
-<style type="text/css">
-.slider {
-  width: 300px;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-}
-
-
-.slider .slideSet1 {
-  position: absolute;
-}
-
-.slideSet2 {
-  position: absolute;
-}
-
-.slider .slide1 {
-  width: 300px;
-  height: 200px;
-  float: left;
-}
-
-.slide2 {
-  width: 300px;
-  height: 200px;
-  float: left;
-}
-
-.slider-prev1,
-.slider-next1 {
-  margin-top: -15px;
-  padding: 0;
-  background: none;
-  border: none;
-  position: absolute;
-  top: 50%;
-  font-size: 30px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.slider-prev1 {
-  left: 0px;
-}
-
-.slider-next1 {
-  right: 0px;
-}
-
-.slider-prev2,
-.slider-next2 {
-  margin-top: -15px;
-  padding: 0;
-  background: none;
-  border: none;
-  position: absolute;
-  top: 50%;
-  font-size: 30px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.slider-prev2 {
-  left: 0px;
-}
-
-
-.slider-next2 {
-  right: 0px;
-}
-
-.largeImage{
-    display: none;  // dismiss
-    z-index: 1;
-}
-
-#back-curtain{
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="{{asset('css/slider.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('https://use.fontawesome.com/releases/v5.0.6/css/all.css')}}">
 @endsection
 
 @section('content')
 <div id="back-curtain"></div>
-<div class="largeImage"><img width="800" src="{{ asset('images/mantoman.jpg') }}"></div>
+<div class="largeImage"><img src="{{ asset('') }}"></div>
 <div class="container">
   @if(Auth::check())
   <div class="row">
@@ -110,7 +24,7 @@
           @foreach($essaydailyphoto as $dailyphoto)
               @if($dailyphoto->user_id == auth::user()->id)
                   <div class="slide1 gal1">
-                      <a href="{{ asset('/images/'.$dailyphoto->img_name) }}" target="_essayphoto"><img src="{{ asset('/images/'.$dailyphoto->img_name) }}" style="width:100%;"></a>
+                      <img src="{{ asset('/images/'.$dailyphoto->img_name) }}" style="width:100%;">
                   </div>
               @endif
           @endforeach
@@ -128,7 +42,7 @@
         @if(Auth::check())
           @foreach($photopictures as $picture)
               @if($picture->user_id == auth::user()->id)
-              <div class="slide2">
+              <div class="slide2 gal2">
                     <img src="{{ asset('/images/'.$picture->name) }}" style="width:100%;">
               </div>
              @endif
@@ -142,17 +56,30 @@
     </div> 
     <div class="col-xs-12 col-md-12 col-lg-4">
       <h4 class="member_title">卒業スピーチ</h4>
-        <?php 
-        /*
-        <video src="{{ asset('storage/community_videos/'.$speech->name) }}"   controls width="100%">
-        */
-        ?>
-        
+      @if($speech != null)
+        <video src="{{ asset('/community_videos/'.$speech->name) }}"   controls width="100%">
       </video>
+      @endif
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-4 text-center">
+      <h4>※Download file</h4>
+      <button type="button" class="btn btn-primary">Graduate certificate download</button>
+      <button type="button" class="btn btn-primary btn_posi">Result sheets download</button>
+    </div>
+    <div class="col-xs-12 col-md-12 col-lg-4 text-center">
+      <h4>※posting student survey</h4>
+      <button type="button" class="btn btn-warning">Student survey</button>
+    </div>
+    <div class="col-xs-12 col-md-12 col-lg-4 text-center">
+      <h4>※posting experience story</h4>
+      <button type="button" class="btn btn-warning">Experience story</button>
     </div>
   </div>
   @if(Auth::check())
-    <a href="{{asset('main/logout')}}"><p class="text-center">ログアウト</p></a>
+  <a href="{{asset('main/logout')}}"><p class="text-center" style="padding-top: 30px">ログアウト</p></a>
+
   @endif
 </div>
 <script>
@@ -169,17 +96,46 @@ jQuery.event.add(window, "load", function(){
     img_ratio = img_height/img_width;  
     });
  
-var small_pics = document.getElementsByClassName('gal1');
-for(var i = 0; i < small_pics.length; ++i){
+var small_pics1 = document.getElementsByClassName('gal1');
+for(var i = 0; i < small_pics1.length; ++i){
   var pic = $(".largeImage img")  
-  var pictures=new Array("{{ asset('images/mantoman.jpg') }}","{{ asset('images/mantoman2.jpg') }}","{{ asset('images/Juniorgroup5.jpeg') }}");
+  var pictures=new Array();
+    @if(Auth::check())
+      @foreach($essaydailyphoto as $dailyphoto)
+          @if($dailyphoto->user_id == auth::user()->id)
+              pictures.push("{{ asset('/images/'.$dailyphoto->img_name) }}" );
+          @endif
+      @endforeach
+    @endif
   console.log(pictures[i]);
   (function(j){
-    $(small_pics[j]).click(function(e) {
+    $(small_pics1[j]).click(function(e) {
         e.preventDefault();
         disp();
         console.log(pictures[j]);
         $(pic).attr('src', pictures[j]);
+        $(pic).fadeIn();
+    });
+  })(i);
+}
+
+var small_pics2 = document.getElementsByClassName('gal2');
+for(var i = 0; i < small_pics2.length; ++i){
+  var pictures2=new Array();
+    @if(Auth::check())
+      @foreach($photopictures as $picture)
+          @if($picture->user_id == auth::user()->id)
+              pictures2.push("{{ asset('/images/'.$picture->name) }}" );
+          @endif
+      @endforeach
+    @endif
+  console.log(pictures2[i]);
+  (function(j){
+    $(small_pics2[j]).click(function(e) {
+        e.preventDefault();
+        disp();
+        console.log(pictures2[j]);
+        $(pic).attr('src', pictures2[j]);
         $(pic).fadeIn();
     });
   })(i);
@@ -195,7 +151,7 @@ function disp(){
     $('#back-curtain')
         .css({
             'width' : $(window).width(),  
-            'height': $(window).height() 
+            'height': $(window).height()*3 
         })
         .show();
  
@@ -263,7 +219,6 @@ function disp(){
     slideCurrent1++;
     sliding1();
   });
-
 
   var sliding2 = function(){
     if( slideCurrent2 < 0 ){

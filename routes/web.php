@@ -11,8 +11,9 @@
 |
 */
 Auth::routes();
-Route::patch('user/{id}', 'RegiAgencyController@update');
-Route::delete('user/{id}', 'RegiAgencyController@destroy');
+Route::get('user/{id}/edit', 'UserEditController@edit');
+Route::patch('user/{id}', 'UserEditController@update');
+Route::delete('user/{id}', 'UserEditController@destroy');
 
 Route::get('/', function () {
     return view('index');
@@ -48,6 +49,8 @@ Route::get('registration_agency/list', 'RegiAgencyController@list');
 Route::get('registration_agency/{id}/edit', 'RegiAgencyController@edit');
 Route::patch('registration_agency/{id}', 'RegiAgencyController@update');
 Route::delete('registration_agency/{id}', 'RegiAgencyController@destroy');
+
+Route::get('/index_survey', 'SurveyController@index');
 
 Route::get('/password_forget', function () {
     return view('password_forget');
