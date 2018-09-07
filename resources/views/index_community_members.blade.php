@@ -152,7 +152,7 @@
     </div>
   </div>
   @if(Auth::check())
-  <a href="{{asset('main/logout')}}"><p class="text-center">ログアウト</p></a>
+    <a href="{{asset('main/logout')}}"><p class="text-center">ログアウト</p></a>
   @endif
 </div>
 <script>

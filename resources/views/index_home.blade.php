@@ -44,8 +44,8 @@
               </div>
             <div class="gallery">
               <div class="desc">Facility</div>
-              <a target="_blank" href="img_lights.jpg">
-                <img src="images/techers.jpg" alt="teachers">
+              <a target="_blank" href="{{ asset('images/techers.jpg') }}">
+                <img src="{{ asset('images/techers.jpg') }}" alt="teachers">
               </a>
             </div>
         </div>
@@ -72,6 +72,20 @@
             </div>
         </div>
       </div>
+    </div>
+    <div class="clearfloat">&nbsp;</div>
+    <div class="container">
+      @foreach($blogs as $blog)
+        <div class="row">
+              <div class="col-lg-8 blogfloat">
+                    <img src="{{asset('images/blog/'.$blog->blog_img)}}" class="textwrap">           
+                    <p>{{$blog->title}}</p>
+                    <p>{{$blog->content}}</p>
+                    <p>{{ $blog->created_at}}</p>
+                    <p>View More?</p>
+              </div>
+          </div>
+       @endforeach
     </div>
     <script type="text/javascript">
   var slideIndex = 0;

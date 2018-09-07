@@ -425,3 +425,30 @@ div.desc {
     margin-left: 165px;
   padding-top:30px;
 }
+
+
+
+.textwrap {
+    float: left;
+    margin-right: 20px;
+    width: 216px;
+    height: 122px;
+}
+.textwrapleft{
+  float:left;
+  margin-top:40px;
+}
+.textwrapleft p:hover{
+  color:#e7ba2f;
+}
+.textwrapleft img:hover{
+  opacity:0.5;
+}
+p.textwrapleft.top {
+    margin-top: 5px;
+}
+
+.col-lg-8.blogfloat {
+   margin-bottom:10px; border-bottom: 2px solid #e1e1e1;
+   padding-bottom:11px;
+}

@@ -66,12 +66,22 @@
                         <li>
                             <a href="/dashboard_contact_list" target="_contactlist"><i class="fa fa-user"></i> Contacts </a>
                         </li>
-                        <li>
-                            <a href="/file" target="upload_photo"><i class="fa fa-upload"></i> Upload Photo </a>
+                          <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Blogs & Photo<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/file" target="upload_photo"><i class="fa fa-upload"></i> Upload Photo </a>
+                                </li>
+                                <li>
+                                     <a href="/eassayphoto" target="Daily"><i class="fa fa-upload"></i>Photo Daily Essay </a>
+                                </li>
+                                <li>
+                                     <a href="/blog/create" target="Daily"><i class="fa fa-upload"></i>Blogs </a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="/eassayphoto" target="Daily"><i class="fa fa-upload"></i>Photo Daily Essay </a>
-                        </li>
+                                               
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
