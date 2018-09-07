@@ -19,7 +19,8 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/index_home', function () {
-    return view('index_home');
+	$blogs = DB::table('blogs')->orderBy('id', 'DESC')->take(5)->get();
+    return view('index_home')->with('blogs', $blogs);
 });
 Route::get('/index_camp_description', function () {
     return view('index_camp_description');
@@ -70,7 +71,6 @@ Route::get('main/logout', 'MainController@logout');
 Route::get('/allcontacts', 'ContactsController@listallcontact');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/contact', 'contactController');
 // for dashboard page url
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard_user_list', 'DashboardController@userlist');
@@ -90,9 +90,19 @@ Route::get('eassayphoto','eassayController@showUploadFOrm')->name('essay.file');
 Route::post('eassayphoto','eassayController@storeFile');
 
 // for display image
-Route::get('/mypicture', 'FileController@mypicture');
+Route::get('/mypicture', 'FileController@innerjoin');
 
 // upload speech
 Route::get('speech','SpeechController@showUploadFOrm')->name('speech.file');
 Route::post('speech','SpeechController@storeFile');
 
+// adding blog and update delete
+/*
+Route::get('blog','blogController@showUploadFOrm')->name('blog.file');
+Route::post('blog','blogController@storeFile');
+Route::get('blog/show', 'blogController@show');
+Route::get('/blog/{id}/edit', 'blogController@edit');
+Route::post('/blog/{id}', 'blogController@update');
+*/
+Route::resource('blog', 'blogController');
+Route::resource('mystory','mystoryController');
