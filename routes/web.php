@@ -51,6 +51,11 @@ Route::patch('registration_agency/{id}', 'RegiAgencyController@update');
 Route::delete('registration_agency/{id}', 'RegiAgencyController@destroy');
 
 Route::get('/index_survey', 'SurveyController@index');
+Route::post('survey/complete', 'SurveyController@complete');
+Route::get('survey/list', 'SurveyController@list');
+Route::get('survey/{id}/edit', 'SurveyController@edit');
+Route::patch('survey/{id}', 'SurveyController@update');
+Route::delete('survey/{id}', 'SurveyController@destroy');
 
 Route::get('/password_forget', function () {
     return view('password_forget');

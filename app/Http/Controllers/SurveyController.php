@@ -8,13 +8,22 @@ use App\Quotation;
 use App\Http\Requests\SurveyRequest;
 use App\Http\Controllers\Controller;
 use App\Survey;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class SurveyController extends Controller
 {
     public function index()
     {
-        $classes = Survey::$classes;
+        $scores = Survey::$scores;
+        $user_id = Auth::user()->id;
+        return view('index_student_survey', compact('scores','user_id'));
+    }
 
-        return view('index_student_survey', compact('classes'));
+    public function complete(SurveyRequest $request)
+    {   
+        Survey::create($request->all());
+        $request->session()->regenerateToken();
+        return view('index_student_survey_complete');
     }
 }

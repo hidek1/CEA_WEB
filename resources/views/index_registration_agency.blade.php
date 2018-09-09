@@ -18,7 +18,7 @@
     {!! Form::open(['url' => 'registration_agency/confirm',
                 'class' => 'form-horizontal']) !!}
     
-    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+    <div class="form-group{{ $errors->has('agency_name') ? ' has-error' : '' }}">
         {!! Form::label('agency_name', '代理店', ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::text('agency_name', null, ['class' => 'form-control']) !!}
