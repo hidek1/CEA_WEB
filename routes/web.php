@@ -81,6 +81,7 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard_user_list', 'DashboardController@userlist');
 Route::get('/dashboard_angecy_list', 'DashboardController@agencylist');
 Route::get('/dashboard_contact_list', 'DashboardController@contactlist');
+Route::get('/dashboard_survey_list', 'DashboardController@surveylist');
 
 // upload image
 Route::get('image-upload',['as'=>'image.upload','uses'=>'ImageUploadController@imageUpload']);
