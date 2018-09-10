@@ -70,7 +70,7 @@
     </div>
     <div class="col-xs-12 col-md-12 col-lg-4 text-center">
       <h4>※posting student survey</h4>
-      <button type="button" class="btn btn-warning">Student survey</button>
+      <a href="{{asset('/index_survey')}}"><button type="button" class="btn btn-warning">Student survey</button></a>
     </div>
     <div class="col-xs-12 col-md-12 col-lg-4 text-center">
       <h4>※posting experience story</h4>

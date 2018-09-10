@@ -51,6 +51,11 @@ Route::patch('registration_agency/{id}', 'RegiAgencyController@update');
 Route::delete('registration_agency/{id}', 'RegiAgencyController@destroy');
 
 Route::get('/index_survey', 'SurveyController@index');
+Route::post('survey/complete', 'SurveyController@complete');
+Route::get('survey/list', 'SurveyController@list');
+Route::get('survey/{id}/edit', 'SurveyController@edit');
+Route::patch('survey/{id}', 'SurveyController@update');
+Route::delete('survey/{id}', 'SurveyController@destroy');
 
 Route::get('/password_forget', function () {
     return view('password_forget');
@@ -76,6 +81,7 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard_user_list', 'DashboardController@userlist');
 Route::get('/dashboard_angecy_list', 'DashboardController@agencylist');
 Route::get('/dashboard_contact_list', 'DashboardController@contactlist');
+Route::get('/dashboard_survey_list', 'DashboardController@surveylist');
 
 // upload image
 Route::get('image-upload',['as'=>'image.upload','uses'=>'ImageUploadController@imageUpload']);

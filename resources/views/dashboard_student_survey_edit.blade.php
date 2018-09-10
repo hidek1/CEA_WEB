@@ -15,9 +15,8 @@
         </div>
     @endif
     
-    {!! Form::open(['url' => 'survey/complete',
+    {!! Form::model($survey, ['method' => 'PATCH','url' => ['survey', $survey->id],
                 'class' => 'form-horizontal']) !!}
-    {{Form::hidden('user_id', $user_id)}}
     <div class="row form_row">
         <div class="col-lg-6 form-group{{ $errors->has('class') ? ' has-error' : '' }}">
             {!! Form::label('class', 'How about our English Class?', ['class' => 'col-sm-12 control-label']) !!}
@@ -39,7 +38,7 @@
         <div class="col-lg-6 form-group{{ $errors->has('class_comment') ? ' has-error' : '' }}">
             {!! Form::label('class_comment', 'Comment *If you have', ['class' => 'col-sm-12 control-label']) !!}
             <div class="col-sm-12">
-                {!! Form::text('class_comment', null, ['class' => 'form-control']) !!}
+                {!! Form::text('class_comment', $survey->class_comment, ['class' => 'form-control']) !!}
 
                 @if ($errors->has('class_comment'))
                     <span class="help-block">
@@ -70,7 +69,7 @@
         <div class="col-lg-6 form-group{{ $errors->has('teacher_comment') ? ' has-error' : '' }}">
             {!! Form::label('teacher_comment', 'Comment *If you have', ['class' => 'col-sm-12 control-label']) !!}
             <div class="col-sm-12">
-                {!! Form::text('teacher_comment', null, ['class' => 'form-control']) !!}
+                {!! Form::text('teacher_comment', $survey->teacher_comment, ['class' => 'form-control']) !!}
 
                 @if ($errors->has('teacher_comment'))
                     <span class="help-block">
