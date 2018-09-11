@@ -11,6 +11,35 @@
 |
 */
 Auth::routes();
+// Route::group(['prefix' => 'admin'], function() {
+//   Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login');
+//   Route::post('login', 'Admin\Auth\LoginController@login')->name('admin.login');
+//   Route::get('logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
+  
+//   Route::get('register', 'Admin\Auth\RegisterController@showRegisterForm')->name('admin.register');
+//   Route::post('register', 'Admin\Auth\RegisterController@register')->name('admin.register');
+ 
+//   Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+// });
+
+
+// more than student
+Route::group(['middleware' => ['auth', 'can:student-higher']], function () {
+});
+// more than staff
+Route::group(['middleware' => ['auth', 'can:staff-higher']], function () {
+  // for dashboard page url
+  Route::get('/dashboard', 'DashboardController@index');
+  Route::get('/dashboard_user_list', 'DashboardController@userlist');
+  Route::get('/dashboard_angecy_list', 'DashboardController@agencylist');
+  Route::get('/dashboard_contact_list', 'DashboardController@contactlist');
+  Route::get('/dashboard_survey_list', 'DashboardController@surveylist');
+});
+// only developer
+Route::group(['middleware' => ['auth', 'can:system-only']], function () {
+
+});
+
 Route::get('user/{id}/edit', 'UserEditController@edit');
 Route::patch('user/{id}', 'UserEditController@update');
 Route::delete('user/{id}', 'UserEditController@destroy');
@@ -75,13 +104,6 @@ Route::get('main/logout', 'MainController@logout');
 // display all contacts
 Route::get('/allcontacts', 'ContactsController@listallcontact');
 Route::get('/home', 'HomeController@index')->name('home');
-
-// for dashboard page url
-Route::get('/dashboard', 'DashboardController@index');
-Route::get('/dashboard_user_list', 'DashboardController@userlist');
-Route::get('/dashboard_angecy_list', 'DashboardController@agencylist');
-Route::get('/dashboard_contact_list', 'DashboardController@contactlist');
-Route::get('/dashboard_survey_list', 'DashboardController@surveylist');
 
 // upload image
 Route::get('image-upload',['as'=>'image.upload','uses'=>'ImageUploadController@imageUpload']);

@@ -80,7 +80,7 @@
               <div class="col-lg-8 blogfloat">
                     <img src="{{asset('images/blog/'.$blog->blog_img)}}" class="textwrap">           
                     <p>{{$blog->title}}</p>
-                    <p>{{$blog->content}}</p>
+                    <p>{!!$blog->content!!}</p>
                     <p>{{ $blog->created_at}}</p>
                     <p>View More?</p>
               </div>
