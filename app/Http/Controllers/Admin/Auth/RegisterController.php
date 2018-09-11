@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
-use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Auth\Events\Registered;
+use App\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -29,29 +27,23 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
-
+    protected $redirectTo = '/admin/home';
+ 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('guest');
-    // }
-    public function register(Request $request)
+    public function __construct()
     {
-        $this->validator($request->all())->validate();
-     
-        event(new Registered($user = $this->create($request->all())));
-     
-        //$this->guard()->login($user);
-     
-        return $this->registered($request, $user)
-                       ?: redirect($this->redirectPath());
+        $this->middleware('auth:admin')->except('logout');
     }
-
+ 
+ 
+    public function showRegisterForm()
+    {
+        return view('admin.auth.register');
+    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -66,21 +58,20 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
-
+ 
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return User
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Admin::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'category' => $data['category'],
             'password' => bcrypt($data['password']),
-            'password_appear' => $data['password'],
         ]);
     }
+
 }

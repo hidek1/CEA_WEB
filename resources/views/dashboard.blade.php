@@ -79,6 +79,9 @@
                                      <a href="/eassayphoto" target="Daily"><i class="fa fa-upload"></i>Photo Daily Essay </a>
                                 </li>
                                 <li>
+                                     <a href="/speech" target="Daily"><i class="fa fa-upload"></i>Speech </a>
+                                </li>
+                                <li>
                                      <a href="/blog/create" target="Daily"><i class="fa fa-upload"></i>Blogs </a>
                                 </li>
                             </ul>

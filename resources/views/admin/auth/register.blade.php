@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -8,7 +8,7 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('admin.register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -34,20 +34,6 @@
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
-                            <label for="category" class="col-md-4 control-label">category</label>
-
-                            <div class="col-md-6">
-                                <input type="radio" name="category" value="10" checked>Student
-                                <input type="radio" name="category" value="5">Staff
-                                @if ($errors->has('category'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('category') }}</strong>
                                     </span>
                                 @endif
                             </div>

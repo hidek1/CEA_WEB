@@ -9,7 +9,6 @@ use App\User;
 use App\Survey;
 class DashboardController extends Controller
 {
-
 	public function index(){
 		return view('/dashboard_home');
 	}

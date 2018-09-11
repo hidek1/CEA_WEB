@@ -25,6 +25,17 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+          // only developer
+          Gate::define('system-only', function ($user) {
+            return ($user->category == 1);
+          });
+          // more than staff
+          Gate::define('staff-higher', function ($user) {
+            return ($user->category > 0 && $user->category <= 5);
+          });
+          // more than student
+          Gate::define('student-higher', function ($user) {
+            return ($user->category > 0 && $user->category <= 10);
+          });
     }
 }
