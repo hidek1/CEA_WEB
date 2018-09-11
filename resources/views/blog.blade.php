@@ -5,12 +5,14 @@
  		<tr>
  			<th>Title</th>
  			<th>Content</th>
+ 			<th>User ID</th>
  			<th colspan="2">Action</th>
  		</tr>
  		@foreach($blogs as $blog)
  			<tr>
  				<td>{{$blog->title}}</td>
- 				<td>{{$blog->content}}</td>
+ 				<td>{{ str_limit($blog->content, 60)}}</td>
+ 				<td>{{$blog->user_id}}</td>
  				<td><a href="/blog/{{$blog->id}}/edit">Edit</a></td>
  				<td>
  					<form action="/blog/{{$blog->id}}" method="POST">

@@ -17,7 +17,7 @@
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->password_appear }}</td>
-            <td><a href="#" target="_edit"><button class="btn btn-primary"><span class="glyphicon glyphicon-edit"> Edit</span></button></a>
+            <td><a href="user/{{$user->id}}/edit" target="_edit"><button class="btn btn-primary"><span class="glyphicon glyphicon-edit"> Edit</span></button></a>
             </td>
             <td>{!! Form::open(['method' => 'DELETE', 'url' => ['user', $user->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
                 {!! Form::submit('delete', ['class' => 'btn btn-danger']) !!}
