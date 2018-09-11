@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\RegiAgency;
 use App\Contact;
 use App\User;
-class dashboardController extends Controller
+use App\Survey;
+class DashboardController extends Controller
 {
-
 	public function index(){
 		return view('/dashboard_home');
 	}
@@ -26,9 +26,12 @@ class dashboardController extends Controller
     public function contactlist(){
     	$contactlist = Contact::all();
     	return view('/dashboard_contact_list')->with('contactlist', $contactlist);
-    	
     }
     
-   
+    public function surveylist()
+    {
+        $surveylist = User::join('surveys', 'surveys.user_id', '=', 'users.id')->get();
+        return view('dashboard_student_survey_list', compact('surveylist'));
+    }
 
 }

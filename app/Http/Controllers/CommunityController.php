@@ -14,8 +14,8 @@ class CommunityController extends Controller
         $id = Auth::id();
     		$photopictures = File::all();
     		$essaydailyphoto = Eassay::all();
-        if (Speech::where('user_id',$id)->first()) {
-          $speech = Speech::where('user_id',$id)->first();
+        if (Speech::where('user_id',$id)->orderBy('created_at', 'desc')->first()) {
+          $speech = Speech::where('user_id',$id)->orderBy('created_at', 'desc')->first();
         } else {
           $speech = null;
         }

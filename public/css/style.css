@@ -105,6 +105,9 @@ nav.navbar.navbar-expand-lg.navbar-light.navcustom a:hover {
 .text-center {
     text-align: center;
 }
+.survey_radio {
+    margin-right: 10px;
+}
 p {
     margin: 0 0 10px;
 }
@@ -429,7 +432,10 @@ div.desc {
   padding-top:30px;
 }
 
-
+.form_row {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
 
 .textwrap {
     float: left;

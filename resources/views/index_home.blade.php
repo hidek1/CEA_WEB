@@ -88,7 +88,6 @@
                       <span class="archive__date">{{ str_limit($blog->created_at, 10)}}</span>
                       <a href="#"><span class="archive__cat">View More?</span></a>
                     </p>
-                    
               </div>
           </div>
        @endforeach
