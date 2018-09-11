@@ -75,14 +75,19 @@
     </div>
     <div class="clearfloat">&nbsp;</div>
     <div class="container">
+      <div class="col-lg-8">
+      <span class="archive_head--top ">新着記事</span>
+      </div>
       @foreach($blogs as $blog)
         <div class="row">
               <div class="col-lg-8 blogfloat">
                     <img src="{{asset('images/blog/'.$blog->blog_img)}}" class="textwrap">           
-                    <p>{{$blog->title}}</p>
-                    <p>{!!$blog->content!!}</p>
-                    <p>{{ $blog->created_at}}</p>
-                    <p>View More?</p>
+                      <a href="allblog/{{$blog->user_id}}" class="title_a" target="_blog"><span class="archive__title">{{ str_limit($blog->title,20)}}</span></a>
+                    <p>
+                      <h3 class="string_content">{{ str_limit($blog->content, 50, '...') }}</h3>
+                      <span class="archive__date">{{ str_limit($blog->created_at, 10)}}</span>
+                      <a href="#"><span class="archive__cat">View More?</span></a>
+                    </p>
               </div>
           </div>
        @endforeach

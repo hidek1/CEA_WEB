@@ -48,7 +48,10 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/index_home', function () {
-	$blogs = DB::table('blogs')->orderBy('id', 'DESC')->take(5)->get();
+	$blogs = DB::table('blogs')
+			->orderBy('created_at', 'DESC')
+			->take(5)
+			->get();
     return view('index_home')->with('blogs', $blogs);
 });
 Route::get('/index_camp_description', function () {
@@ -132,5 +135,11 @@ Route::get('blog/show', 'blogController@show');
 Route::get('/blog/{id}/edit', 'blogController@edit');
 Route::post('/blog/{id}', 'blogController@update');
 */
+// adding blog and update delete
 Route::resource('blog', 'blogController');
+// adding route for mystory
 Route::resource('mystory','mystoryController');
+
+// display all blogs
+
+Route::get('allblog/{id}', 'blogController@listallblog');

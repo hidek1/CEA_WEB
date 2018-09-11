@@ -22,8 +22,7 @@
 				</div>
 				<img src="/images/blog/{{ Session::get('path') }}" style="width:300px;height: 150px;" />
 			@endif
-
-			<form action="/blog/{{$blog->id}}" class="form-horizontal" enctype="multipart/form-data" method="POST">
+		<form action="/blog/{{$blog->id}}" class="form-horizontal" enctype="multipart/form-data" method="POST">
 				{{csrf_field()}}
 				{{method_field('PUT')}}
 					<input type="file" name="blog_img"><br />
