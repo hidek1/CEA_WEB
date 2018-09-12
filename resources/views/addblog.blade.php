@@ -38,7 +38,7 @@
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
@@ -99,6 +99,7 @@
 						</div>
 					</div>
 				</div>
+
 				<input type="submit" name="submit" value="Submit" class="btn btn-primary">
 			</form>
 	  </div>
@@ -108,5 +109,7 @@
 			<h3>Please log in first <a href="/main">Log in</a></h3>
 			</div>
 	@endif
+	
  </div>
+
 @endsection
