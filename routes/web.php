@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::get('/index_home', function () {
 	$blogs = DB::table('blogs')
 			->orderBy('created_at', 'DESC')
+            ->groupBy('user_id')
 			->take(5)
 			->get();
     return view('index_home')->with('blogs', $blogs);
