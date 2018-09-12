@@ -44,12 +44,7 @@ class blogController extends Controller
         $this->validate($request, [
                 'blog_img' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
                 'content' => 'required',
-                'title' => 'required',
-                'sub_img1' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img2' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img3' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img4' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img5' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048'
+                'title' => 'required'
         ]);
 
         $blog_image = $request->file('blog_img');
@@ -231,8 +226,24 @@ class blogController extends Controller
     public function listallblog($id){
         $bloglists = DB::table('users')
                      ->join('blogs', 'users.id', '=', 'blogs.user_id')
-                     ->select('users.id','users.name','blogs.blog_img', 'blogs.title', 'blogs.content', 'blogs.created_at')
-                     ->where('blogs.user_id', '=', $id)
+                     ->select('users.id','users.name','blogs.blog_img', 'blogs.title', 'blogs.content', 'blogs.created_at',
+                        'blogs.subtile1',
+                        'blogs.subtile2',
+                        'blogs.subtile3',
+                        'blogs.subtile4',
+                        'blogs.subtile5',
+                        'blogs.subcontent1',
+                        'blogs.subcontent2',
+                        'blogs.subcontent3',
+                        'blogs.subcontent4',
+                        'blogs.subcontent5',
+                        'blogs.subcontent1',
+                        'blogs.subimg1',
+                        'blogs.subimg2',
+                        'blogs.subimg3',
+                        'blogs.subimg4',
+                        'blogs.subimg5')
+                     ->where('blogs.id', '=', $id)
                      ->get();
         return view('blogall')->with('bloglists',$bloglists);
     }
