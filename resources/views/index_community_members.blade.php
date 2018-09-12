@@ -74,7 +74,7 @@
     </div>
     <div class="col-xs-12 col-md-12 col-lg-4 text-center">
       <h4>※posting experience story</h4>
-      <button type="button" class="btn btn-warning">Experience story</button>
+      <a href="{{asset('/index_experience')}}"><button type="button" class="btn btn-warning">Experience story</button></a>
     </div>
   </div>
   @if(Auth::check())
