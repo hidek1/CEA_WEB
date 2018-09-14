@@ -12,6 +12,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+{{--     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}"> --}}
+{{--     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}"> --}}
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -29,7 +34,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        CEA
                     </a>
                 </div>
 
@@ -44,7 +49,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                           {{--  <li><a href="{{ route('register') }}">Register</a></li> --}}
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>

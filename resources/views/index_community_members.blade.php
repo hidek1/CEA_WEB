@@ -15,8 +15,7 @@
     </div>
   @endif
   <div class="row pic_row">
-    
-    <div class="col-xs-12 col-md-12 col-lg-4">
+    <div class="col-xs-12 col-md-12 col-lg-6">
       <h4 class="member_title">デイリーエッセイ</h4>
       <div class="slider">
       <div class="slideSet1">
@@ -34,7 +33,7 @@
       <button class="slider-next1"><i class="fas fa-angle-right"></i></button>
       </div>
     </div>
-    <div class="col-xs-12 col-md-12 col-lg-4">
+    <div class="col-xs-12 col-md-12 col-lg-6">
       <h4 class="member_title">写真</h4>
       <div class="slider">
       <div class="slideSet2">
@@ -54,10 +53,19 @@
       <button class="slider-next2"><i class="fas fa-angle-right"></i></button>
     </div>
     </div> 
-    <div class="col-xs-12 col-md-12 col-lg-4">
+  </div>
+  <div class="row pic_row">
+    <div class="col-xs-12 col-md-12 col-lg-6">
+      <h4 class="member_title">入学スピーチ</h4>
+      @if($first_speech != null)
+        <video src="{{ asset('/community_videos/'.$first_speech->name) }}"   controls width="100%">
+      </video>
+      @endif
+    </div>
+    <div class="col-xs-12 col-md-12 col-lg-6">
       <h4 class="member_title">卒業スピーチ</h4>
-      @if($speech != null)
-        <video src="{{ asset('/community_videos/'.$speech->name) }}"   controls width="100%">
+      @if($graduation_speech != null)
+        <video src="{{ asset('/community_videos/'.$graduation_speech->name) }}"   controls width="100%">
       </video>
       @endif
     </div>

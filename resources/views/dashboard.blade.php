@@ -70,6 +70,9 @@
                         <li>
                             <a href="/dashboard_survey_list" target="_surveylist"><i class="fa fa-user"></i> Surveys </a>
                         </li>
+                        <li>
+                            <a href="/dashboard_experience_list" target="_surveylist"><i class="fa fa-user"></i> Experiencs </a>
+                        </li>
                           <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>Blogs & Photo<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -80,7 +83,10 @@
                                      <a href="/eassayphoto" target="Daily"><i class="fa fa-upload"></i>Photo Daily Essay </a>
                                 </li>
                                 <li>
-                                     <a href="/speech" target="Daily"><i class="fa fa-upload"></i>Speech </a>
+                                     <a href="{{ route('speech.file', "first") }}" target="Daily"><i class="fa fa-upload"></i>First Speech </a>
+                                </li>
+                                <li>
+                                     <a href="{{ route('speech.file', "graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Speech </a>
                                 </li>
                                 <li>
                                      <a href="/blog/create" target="Daily"><i class="fa fa-upload"></i>Blogs </a>

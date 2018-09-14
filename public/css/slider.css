@@ -1,6 +1,6 @@
 .slider {
-  width: 300px;
-  height: 200px;
+  width: 500px;
+  height: 400px;
   overflow: hidden;
   position: relative;
 }
@@ -15,14 +15,14 @@
 }
 
 .slider .slide1 {
-  width: 300px;
-  height: 200px;
+  width: 500px;
+  height: 400px;
   float: left;
 }
 
 .slide2 {
-  width: 300px;
-  height: 200px;
+  width: 500px;
+  height: 400px;
   float: left;
 }
 
