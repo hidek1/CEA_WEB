@@ -20,10 +20,10 @@ Route::get('/', function () {
 });
 Route::get('/index_home', function () {
 	$blogs = DB::table('blogs')
+            ->select('blogs.id','blog_img','title','content', 'created_at')
 			->orderBy('created_at', 'DESC')
-            ->groupBy('user_id')
-			->take(5)
-			->get();
+            ->paginate(5);
+
     return view('index_home')->with('blogs', $blogs);
 });
 Route::get('/index_camp_description', function () {
