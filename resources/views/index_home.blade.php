@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
 {{--   <div class="col-md-8">
       <div class="alert dismiss alert-success">
@@ -81,16 +80,19 @@
       @foreach($blogs as $blog)
         <div class="row">
               <div class="col-lg-8 blogfloat">
-                    <img src="{{asset('images/blog/'.$blog->blog_img)}}" class="textwrap">           
-                      <a href="allblog/{{$blog->user_id}}" class="title_a" target="_blog"><span class="archive__title">{{ str_limit($blog->title,20)}}</span></a>
+                    <a href="allblog/{{$blog->id}}" class="title_a" target="_blog"> <img src="{{asset('images/blog/'.$blog->blog_img)}}" class="textwrap"> </a>          
+                      <a href="allblog/{{$blog->id}}" class="title_a" target="_blog"><span class="archive__title">{{ str_limit($blog->title,20)}}</span></a>
                     <p>
                       <h3 class="string_content">{{ str_limit($blog->content, 50, '...') }}</h3>
                       <span class="archive__date">{{ str_limit($blog->created_at, 10)}}</span>
-                      <a href="#"><span class="archive__cat">View More?</span></a>
+                      <a href="allblog/{{$blog->id}}" target="_blog"><span class="archive__cat">View More?</span></a>
                     </p>
               </div>
           </div>
        @endforeach
+       
+        {{$blogs->links()}}
+      
     </div>
     <script type="text/javascript">
   var slideIndex = 0;
