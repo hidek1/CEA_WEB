@@ -7,12 +7,13 @@ use App\User;
 use App\Speech;
 class SpeechController extends Controller
 {
-     function showUploadFOrm(){
-      $user = User::all();
-      return view('dashboard_speech')->with('users',$user);
+     function showUploadFOrm($type){
+      $users = User::all();
+      return view('dashboard_speech', compact('users', 'type'));
     }
 
-    function storeFile(Request $request){
+    function storeFile(Request $request,  $type){
+      // dd($type);
       $this->validate($request,[
           'file' => 'required|mimes:mp4,qt,x-ms-wmv,mpeg,x-msvideo|max:12222048',
       ]);
@@ -28,8 +29,9 @@ class SpeechController extends Controller
         $file->name =$filename;
         $file->size = $filesize;
         $file->user_id = $user_id;
+        $file->type = $type;
         $file->save();
-        return redirect('/speech')->with("message", "Uploaded Speech successfully.");
+        return redirect()->action('SpeechController@showUploadFOrm', ['type' => $type])->with("message", "Uploaded Speech successfully.");
       }
     }
 }

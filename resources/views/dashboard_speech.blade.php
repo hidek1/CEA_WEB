@@ -2,7 +2,7 @@
 @section('content')
  <div id="page-wrapper">
   <div class="row">
-    <div class="col-lg-12"><h3 class="page-header"><a href="/index_registration_agency">Upload  Speech</a>
+    <div class="col-lg-12"><h3 class="page-header"><a href="#">Upload {{$type}} Speech</a>
       @if(count($errors) > 0)
         <div class="alert alert-danger">
           <ul>
@@ -21,7 +21,7 @@
         {{$message}}
       @endif
       </p>
-      <form action="{{ route('speech.file')}}" class="form-horizontal" enctype="multipart/form-data" method="POST">
+      <form action="{{ route('speech.file',$type)}}" class="form-horizontal" enctype="multipart/form-data" method="POST">
         {{csrf_field()}}
         <input type="file" name="file"><br />
         <div class="col-md-3">

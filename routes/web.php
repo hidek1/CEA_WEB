@@ -11,20 +11,15 @@
 |
 */
 Auth::routes();
-// Route::group(['prefix' => 'admin'], function() {
-//   Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login');
-//   Route::post('login', 'Admin\Auth\LoginController@login')->name('admin.login');
-//   Route::get('logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
-  
-//   Route::get('register', 'Admin\Auth\RegisterController@showRegisterForm')->name('admin.register');
-//   Route::post('register', 'Admin\Auth\RegisterController@register')->name('admin.register');
- 
-//   Route::get('home', 'Admin\HomeController@index')->name('admin.home');
-// });
-
-
 // more than student
 Route::group(['middleware' => ['auth', 'can:student-higher']], function () {
+  Route::get('/index_community_members', 'CommunityController@index');
+  Route::get('/index_survey', 'SurveyController@index');
+  Route::post('survey/complete', 'SurveyController@complete');
+
+  Route::get('/index_experience', 'ExperienceController@index');
+  Route::post('experience/confirm', 'ExperienceController@confirm');
+  Route::post('experience/complete', 'ExperienceController@complete');
 });
 // more than staff
 Route::group(['middleware' => ['auth', 'can:staff-higher']], function () {
@@ -34,19 +29,42 @@ Route::group(['middleware' => ['auth', 'can:staff-higher']], function () {
   Route::get('/dashboard_angecy_list', 'DashboardController@agencylist');
   Route::get('/dashboard_contact_list', 'DashboardController@contactlist');
   Route::get('/dashboard_survey_list', 'DashboardController@surveylist');
+  Route::get('/dashboard_experience_list', 'DashboardController@experiencelist');
+
+  Route::get('user/{id}/edit', 'UserEditController@edit');
+  Route::patch('user/{id}', 'UserEditController@update');
+  Route::delete('user/{id}', 'UserEditController@destroy');
+
+  Route::get('contact/{id}/edit', 'ContactsController@edit');
+  Route::patch('contact/{id}', 'ContactsController@update');
+  Route::delete('contact/{id}', 'ContactsController@destroy');
+
+  Route::get('registration_agency/{id}/edit', 'RegiAgencyController@edit');
+  Route::patch('registration_agency/{id}', 'RegiAgencyController@update');
+  Route::delete('registration_agency/{id}', 'RegiAgencyController@destroy');
+
+  Route::get('survey/{id}/edit', 'SurveyController@edit');
+  Route::patch('survey/{id}', 'SurveyController@update');
+  Route::delete('survey/{id}', 'SurveyController@destroy');
+
+  Route::get('experience/{id}/edit', 'ExperienceController@edit');
+  Route::patch('experience/{id}', 'ExperienceController@update');
+  Route::delete('experience/{id}', 'ExperienceController@destroy');
+  Route::get('experience/{id}/show', 'ExperienceController@show');
+
+  Route::get('/home', 'HomeController@index')->name('home');
 });
 // only developer
 Route::group(['middleware' => ['auth', 'can:system-only']], function () {
 
 });
 
-Route::get('user/{id}/edit', 'UserEditController@edit');
-Route::patch('user/{id}', 'UserEditController@update');
-Route::delete('user/{id}', 'UserEditController@destroy');
-
 Route::get('/', function () {
     return view('index');
 });
+
+//change later
+// Route::get('/index_home', 'FaceController@index');
 Route::get('/index_home', function () {
 	$blogs = DB::table('blogs')
             ->select('blogs.id','blog_img','title','content', 'created_at')
@@ -64,42 +82,18 @@ Route::get('/index_jr_camp', function () {
 Route::get('/index_family_camp', function () {
     return view('index_family_camp');
 });
-Route::get('/index_community_members', 'CommunityController@index');
 
 Route::get('/index_contact', 'ContactsController@index');
 Route::post('contact/confirm', 'ContactsController@confirm');
 Route::post('contact/complete', 'ContactsController@complete');
-// Route::get('contact/list', 'ContactsController@list');
-Route::get('contact/{id}/edit', 'ContactsController@edit');
-Route::patch('contact/{id}', 'ContactsController@update');
-Route::delete('contact/{id}', 'ContactsController@destroy');
-
 
 Route::get('/index_registration_agency', 'RegiAgencyController@index');
 Route::post('registration_agency/confirm', 'RegiAgencyController@confirm');
 Route::post('registration_agency/complete', 'RegiAgencyController@complete');
-// Route::get('registration_agency/list', 'RegiAgencyController@list');
-Route::get('registration_agency/{id}/edit', 'RegiAgencyController@edit');
-Route::patch('registration_agency/{id}', 'RegiAgencyController@update');
-Route::delete('registration_agency/{id}', 'RegiAgencyController@destroy');
 
-Route::get('/index_survey', 'SurveyController@index');
-Route::post('survey/complete', 'SurveyController@complete');
-// Route::get('survey/list', 'SurveyController@list');
-Route::get('survey/{id}/edit', 'SurveyController@edit');
-Route::patch('survey/{id}', 'SurveyController@update');
-Route::delete('survey/{id}', 'SurveyController@destroy');
-
-Route::get('/index_experience', 'ExperienceController@index');
-Route::post('experience/complete', 'ExperienceController@complete');
-// Route::get('experience/list', 'ExperienceController@list');
-Route::get('experience/{id}/edit', 'ExperienceController@edit');
-Route::patch('experience/{id}', 'ExperienceController@update');
-Route::delete('experience/{id}', 'ExperienceController@destroy');
-
-Route::get('/password_forget', function () {
-    return view('password_forget');
-});
+// Route::get('/password_forget', function () {
+//     return view('password_forget');
+// });
 
 Route::get('/index_movie', function () {
     return view('index_movie');
@@ -113,8 +107,8 @@ Route::get('main/logout', 'MainController@logout');
 
 
 // display all contacts
-Route::get('/allcontacts', 'ContactsController@listallcontact');
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/allcontacts', 'ContactsController@listallcontact');
+
 
 // upload image
 Route::get('image-upload',['as'=>'image.upload','uses'=>'ImageUploadController@imageUpload']);
@@ -132,8 +126,8 @@ Route::post('eassayphoto','eassayController@storeFile');
 Route::get('/mypicture', 'FileController@innerjoin');
 
 // upload speech
-Route::get('speech','SpeechController@showUploadFOrm')->name('speech.file');
-Route::post('speech','SpeechController@storeFile');
+Route::get('speech/{type}','SpeechController@showUploadFOrm')->name('speech.file');
+Route::post('speech/{type}','SpeechController@storeFile');
 
 // adding blog and update delete
 /*
@@ -151,3 +145,13 @@ Route::resource('mystory','mystoryController');
 // display all blogs
 
 Route::get('allblog/{id}', 'blogController@listallblog');
+
+//change language
+Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// for official website
+Route::get('/official/home', function () {
+    return view('official/home');
+});

@@ -12,20 +12,20 @@ class ExperienceRequest extends FormRequest
     public function rules()
     {
         return [
-            'class' => 'required|in:1: worse,2: bad,3: normal,4: good,5: excelent',
-            'teacher' => 'required|in:1: worse,2: bad,3: normal,4: good,5: excelent',
-            'facility' => 'required|in:1: worse,2: bad,3: normal,4: good,5: excelent',
-            'activity' => 'required|in:1: worse,2: bad,3: normal,4: good,5: excelent',
-            'total' => 'required|in:1: worse,2: bad,3: normal,4: good,5: excelent',
+            'best_experience' => 'required|max:1000',
+            'hardest_experience' => 'required|max:1000',
+            'memorable_experience' => 'required|max:1000',
+            'improvement' => 'required|max:1000',
+            'recommend' => 'required|max:1000',
         ];
     }
     public function attributes() {
         return [
-            'class' => 'about our English Class',
-            'teacher' => 'about our Guardian teachers and our staffs',
-            'facility' => 'about our Facilities',
-            'activity' => 'about our activities',
-            'total' => 'about total experience',
+            'best_experience' => 'best experience',
+            'hardest_experience' => 'hardest experience',
+            'memorable_experience' => 'memorable experience',
+            'improvement' => 'improvement',
+            'recommend' => 'recommend',
         ];
     }
 }

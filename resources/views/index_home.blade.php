@@ -74,25 +74,35 @@
     </div>
     <div class="clearfloat">&nbsp;</div>
     <div class="container">
-      <div class="col-lg-8">
+      <div class="row">
+      <div class="col-lg-9">
+      <div class="col-lg-12">
       <span class="archive_head--top ">新着記事</span>
       </div>
       @foreach($blogs as $blog)
         <div class="row">
-              <div class="col-lg-8 blogfloat">
-                    <a href="allblog/{{$blog->id}}" class="title_a" target="_blog"> <img src="{{asset('images/blog/'.$blog->blog_img)}}" class="textwrap"> </a>          
-                      <a href="allblog/{{$blog->id}}" class="title_a" target="_blog"><span class="archive__title">{{ str_limit($blog->title,20)}}</span></a>
+              <div class="col-lg-4">
+                    <img src="{{asset('images/blog/'.$blog->blog_img)}}" class="textwrap" width="100%">           
+              </div>
+              <div class="col-lg-8">
+                    <a href="allblog/{{$blog->id}}" class="title_a" target="_blog"><span class="archive__title">{{ str_limit($blog->title,20)}}</span></a>
                     <p>
-                      <h3 class="string_content">{{ str_limit($blog->content, 50, '...') }}</h3>
+                      <h5 class="string_content">{{ str_limit($blog->content, 50, '...') }}</h5>
                       <span class="archive__date">{{ str_limit($blog->created_at, 10)}}</span>
                       <a href="allblog/{{$blog->id}}" target="_blog"><span class="archive__cat">View More?</span></a>
                     </p>
               </div>
           </div>
        @endforeach
-       
-        {{$blogs->links()}}
-      
+     </div>
+      <div class="col-lg-3">
+      <span class="archive_head--top ">体験談</span>
+    @foreach($experiences as $experience)
+         <a href="experience/{{ $experience->id }}/show" style="color: black;">{{ $experience->name }}さんの体験談</a><br>
+    @endforeach
+      </div>
+      </div>
+
     </div>
     <script type="text/javascript">
   var slideIndex = 0;

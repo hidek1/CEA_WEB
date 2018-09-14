@@ -93,8 +93,7 @@ nav.navbar.navbar-expand-lg.navbar-light.navcustom a:hover {
     padding: 20px 0px;
 }
 .cea20px{
-	width:150px;
-	height:127px;
+	width:100%;
 }
 .font_c_w {
     color: #fff;
@@ -230,6 +229,10 @@ p {
 
 .sub_title3 {
   padding-bottom: 50px;
+}
+
+.sub_title4 {
+  padding-top: 30px;
 }
 
 .color_cell {
@@ -573,8 +576,8 @@ p.textwrapleft.top {
   font-size: 24px;
   line-height: 35px;
   width: 100%;
-  height: 88px;
-  font-weight: bold;
+ /* height: 88px;
+*/  font-weight: bold;
 }
 
 h3.string_content {
@@ -635,6 +638,13 @@ a.title_a:hover {
     float: left;
     margin-bottom: 24px;
 }
+.button_row{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.home_button {
+  text-align: center;
 
 .pagination li{
   color:black;

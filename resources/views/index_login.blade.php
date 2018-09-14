@@ -24,7 +24,7 @@
 				<div class="panel panel-info" style="padding:20px;">
                    
                         <div class="panel-title" style="padding:10px;">Sign In</div>
-                        <div style="float:right; font-size: 80%; position: relative; margin-right:10px;"><a href="{{ url('password/reset') }}">Forgot password?</a></div>
+ {{--                        <div style="float:right; font-size: 80%; position: relative; margin-right:10px;"><a href="{{ url('password/reset') }}">Forgot password?</a></div> --}}
                    
 				<form method="POST" action="{{ url('/main/checklogin')}}">	
 					{{csrf_field()}}

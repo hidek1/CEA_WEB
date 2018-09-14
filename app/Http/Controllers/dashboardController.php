@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\RegiAgency;
 use App\Contact;
 use App\User;
-use App\Survey;
+use App\experience;
 class DashboardController extends Controller
 {
 	public function index(){
@@ -34,4 +34,9 @@ class DashboardController extends Controller
         return view('dashboard_student_survey_list', compact('surveylist'));
     }
 
+    public function experiencelist()
+    {
+        $experiencelist = User::join('experiences', 'experiences.user_id', '=', 'users.id')->get();
+        return view('dashboard_experience_list', compact('experiencelist'));
+    }
 }
