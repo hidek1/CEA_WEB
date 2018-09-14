@@ -38,7 +38,7 @@
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
@@ -52,7 +52,8 @@
 						</div>
 					</div>
 				</div>
-
+				
+				
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
@@ -66,6 +67,8 @@
 						</div>
 					</div>
 				</div>
+
+
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
@@ -105,7 +108,6 @@
 							  <textarea class="form-control" rows="5" id="comment" name="subcontent5">
 							  	{{$blog->subcontent5}}
 							  </textarea><br />
-							  
 						</div>
 					</div>
 				</div>

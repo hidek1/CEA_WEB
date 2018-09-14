@@ -35,16 +35,42 @@ class blogController extends Controller
     	return back()->with('success', 'Uploaded Blog successfully')->with('path',$new_name);
     }
     */
+
+
     function create(){
         $blogs = Blog::all();
         return view('addblog');
     }
+
+    
     function store(Request $request){
+         $blog_image = $request->file('blog_img');
+        
+        /*
+        $filesize = $blog_image->getClientSize();
+        $content = $request->input('content');
+        $user_id = $request->input('user_id');
+        $title = $request->input('title');
+        $new_name = rand(). '.'.$blog_image->getClientOriginalExtension();
+        $blog_image->move(public_path("images/blog"), $new_name);
+        */
+        if($blog_image == ''){
+            echo $new_name = '';
+        }
+        else{
+             echo $new_name = rand(). '.'.$blog_image->getClientOriginalExtension();
+        }
+
         
         $this->validate($request, [
                 'blog_img' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
                 'content' => 'required',
-                'title' => 'required'
+                'title' => 'required',
+                'sub_img1' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img2' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img3' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img4' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img5' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048'
         ]);
 
         $blog_image = $request->file('blog_img');
@@ -141,11 +167,9 @@ class blogController extends Controller
         $blog->subcontent5 = $subcontent5;
         $blog->subtile5 = $sub_title5;
 
-        
         $blog->save();
-        return back()->with('success', 'Uploaded Blog successfully')->with('path',$new_name);
+        return back()->with('success', 'Blog Uploaded successfully')->with('path',$new_name);
         
-
     }
 
     function edit($id){
@@ -157,17 +181,23 @@ class blogController extends Controller
       $this->validate($request, [
                 'blog_img' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
                 'content' => 'required',
-                'title' => 'required'
-                
+                'title' => 'required',
+                'sub_img1' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img2' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img3' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img4' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img5' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048'
         ]);
+
+
         $blog_image = $request->file('blog_img');
         $filesize = $blog_image->getClientSize();
         $content = $request->input('content');
         $user_id = $request->input('user_id');
         $title = $request->input('title');
-        $new_name = rand(). '.'.$blog_image->getClientOriginalExtension();
+        $new_name = rand().'.'.$blog_image->getClientOriginalExtension();
         $blog_image->move(public_path("images/blog"), $new_name);
-
+        
         $blog_image1 = $request->file('sub_img1');
         $filesize = $blog_image->getClientSize();
         $subcontent1 = $request->input('subcontent1');
@@ -175,7 +205,7 @@ class blogController extends Controller
         $new_name1 = rand(). '.'.$blog_image1->getClientOriginalExtension();
         $blog_image1->move(public_path("images/blog"), $new_name1);
         
-        /*
+        
         $blog_image2 = $request->file('sub_img2');
         $filesize = $blog_image->getClientSize();
         $subcontent2 = $request->input('subcontent2');
@@ -204,7 +234,7 @@ class blogController extends Controller
         $sub_title5 = $request->input('sub_title5');
         $new_name5 = rand(). '.'.$blog_image5->getClientOriginalExtension();
         $blog_image5->move(public_path("images/blog"), $new_name5);
-        */
+        
 
         $blog = new Blog;
         $blog->blog_img = $new_name;
@@ -213,15 +243,15 @@ class blogController extends Controller
         $blog->title = $title;
         $blog->user_id = $user_id;
 
+        
         $blog->subimg1 = $new_name1;
         $blog->subcontent1 = $subcontent1;
         $blog->subtile1 = $sub_title1;
-        
-        /*
+
         $blog->subimg2 = $new_name2;
         $blog->subcontent2 = $subcontent2;
         $blog->subtile2 = $sub_title2;
-        
+
         $blog->subimg3 = $new_name3;
         $blog->subcontent3 = $subcontent3;
         $blog->subtile3 = $sub_title3;
@@ -233,9 +263,9 @@ class blogController extends Controller
         $blog->subimg5 = $new_name5;
         $blog->subcontent5 = $subcontent5;
         $blog->subtile5 = $sub_title5;
-        */
+        
         $blog->save();
-        return back()->with('success', 'Uploaded Blog successfully')->with('path',$new_name);
+        return back()->with('success', 'Blog Updated Successfully!')->with('path',$new_name);
     }
     public function destroy($id){
         $blog = Blog::find($id);

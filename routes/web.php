@@ -63,7 +63,16 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/index_home', 'FaceController@index');
+//change later
+// Route::get('/index_home', 'FaceController@index');
+Route::get('/index_home', function () {
+	$blogs = DB::table('blogs')
+            ->select('blogs.id','blog_img','title','content', 'created_at')
+			->orderBy('created_at', 'DESC')
+            ->paginate(5);
+
+    return view('index_home')->with('blogs', $blogs);
+});
 Route::get('/index_camp_description', function () {
     return view('index_camp_description');
 });
