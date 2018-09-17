@@ -95,11 +95,10 @@
           </div>
        @endforeach
      </div>
+      
       <div class="col-lg-3">
       <span class="archive_head--top ">体験談</span>
-    @foreach($experiences as $experience)
-         <a href="experience/{{ $experience->id }}/show" style="color: black;">{{ $experience->name }}さんの体験談</a><br>
-    @endforeach
+   
       </div>
       </div>
 
