@@ -74,28 +74,49 @@
                             <a href="/dashboard_experience_list" target="_surveylist"><i class="fa fa-user"></i> Experiencs </a>
                         </li>
                           <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Blogs & Photo<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>PDF<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/file" target="upload_photo"><i class="fa fa-upload"></i> Upload Photo </a>
+                                     <a href="{{ route('pdf.file', "of_entrance") }}" target="Daily"><i class="fa fa-upload"></i>Entrance Test</a>
                                 </li>
                                 <li>
-                                     <a href="/eassayphoto" target="Daily"><i class="fa fa-upload"></i>Photo Daily Essay </a>
+                                     <a href="{{ route('pdf.file', "of_chart") }}" target="Daily"><i class="fa fa-upload"></i>Progressive chart</a>
                                 </li>
                                 <li>
-                                     <a href="{{ route('speech.file', "first") }}" target="Daily"><i class="fa fa-upload"></i>First Speech </a>
+                                     <a href="{{ route('pdf.file', "of_result") }}" target="Daily"><i class="fa fa-upload"></i>Result Examination</a>
                                 </li>
                                 <li>
-                                     <a href="{{ route('speech.file', "graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Speech </a>
+                                     <a href="{{ route('pdf.file', "of_evaluation") }}" target="Daily"><i class="fa fa-upload"></i>Evaluation</a>
                                 </li>
                                 <li>
-                                     <a href="{{ route('pdf.file', "graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation certificate</a>
+                                     <a href="{{ route('pdf.file', "of_graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Certification</a>
                                 </li>
                                 <li>
-                                     <a href="{{ route('pdf.file', "result") }}" target="Daily"><i class="fa fa-upload"></i>Result sheets</a>
+                                     <a href="{{ route('pdf.file', "of_class") }}" target="Daily"><i class="fa fa-upload"></i>Class schedule</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>PDF<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                     <a href="{{ route('pdf.file', "of_entrance") }}" target="Daily"><i class="fa fa-upload"></i>Entrance Test</a>
                                 </li>
                                 <li>
-                                     <a href="/blog/create" target="Daily"><i class="fa fa-upload"></i>Blogs </a>
+                                     <a href="{{ route('pdf.file', "of_chart") }}" target="Daily"><i class="fa fa-upload"></i>Progressive chart</a>
+                                </li>
+                                <li>
+                                     <a href="{{ route('pdf.file', "of_result") }}" target="Daily"><i class="fa fa-upload"></i>Result Examination</a>
+                                </li>
+                                <li>
+                                     <a href="{{ route('pdf.file', "of_evaluation") }}" target="Daily"><i class="fa fa-upload"></i>Evaluation</a>
+                                </li>
+                                <li>
+                                     <a href="{{ route('pdf.file', "of_graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Certification</a>
+                                </li>
+                                <li>
+                                     <a href="{{ route('pdf.file', "of_class") }}" target="Daily"><i class="fa fa-upload"></i>Class schedule</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

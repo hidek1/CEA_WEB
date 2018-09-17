@@ -5,53 +5,53 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">代理店様お申し込み</div>
+                <div class="panel-heading">{{ __('messages.Re_confirm_title') }}</div>
                 <div class="panel-body">
-                    <p>誤りがないことを確認のうえ送信ボタンをクリックしてください。</p>
+                    <p>{{ __('messages.form_confirm') }}</p>
  
                     <table class="table">
                         <tr>
-                            <th>代理店名</th>
+                            <th>{{ __('messages.Re_content1') }}</th>
                             <td>{{ $regi_agency->agency_name }}</td>
                         </tr>
                         <tr>
-                            <th>プログラム</th>
+                            <th>{{ __('messages.Re_content2') }}</th>
                             <td>{{ $regi_agency->program }}</td>
                         </tr>
                         <tr>
-                            <th>期間</th>
+                            <th>{{ __('messages.Re_content3') }}</th>
                             <td>{{ $regi_agency->term }}</td>
                         </tr>
                         <tr>
-                            <th>生徒氏名</th>
+                            <th>{{ __('messages.Re_content4') }}</th>
                             <td>{{ $regi_agency->student_name }}</td>
                         </tr>
                         <tr>
-                            <th>保護者氏名　*ファミリーキャンプのみ</th>
+                            <th>{{ __('messages.Re_content5') }}</th>
                             <td>{{ $regi_agency->parent_name }}</td>
                         </tr>
                         <tr>
-                            <th>国籍</th>
+                            <th>{{ __('messages.Re_content6') }}</th>
                             <td>{{ $regi_agency->nationality }}</td>
                         </tr>
                         <tr>
-                            <th>年齢(生徒)</th>
+                            <th>{{ __('messages.Re_content7') }}</th>
                             <td>{{ $regi_agency->student_age }}</td>
                         </tr>
                         <tr>
-                            <th>年齢（保護者）　*ファミリーキャンプのみ</th>
+                            <th>{{ __('messages.Re_content8') }}</th>
                             <td>{{ $regi_agency->parent_age }}</td>
                         </tr>
                         <tr>
-                            <th>住所</th>
+                            <th>{{ __('messages.Re_content9') }}</th>
                             <td>{{ $regi_agency->residence }}</td>
                         </tr>
                         <tr>
-                            <th>電話番号</th>
+                            <th>{{ __('messages.Re_content10') }}</th>
                             <td>{{ $regi_agency->phone_number }}</td>
                         </tr>
                         <tr>
-                            <th>メールアドレス</th>
+                            <th>{{ __('messages.Re_content11') }}</th>
                             <td>{{ $regi_agency->email }}</td>
                         </tr>
                     </table>
@@ -73,8 +73,8 @@
                         @endif
                     @endforeach
  
-                    {!! Form::submit('戻る', ['name' => 'action', 'class' => 'btn']) !!}
-                    {!! Form::submit('送信', ['name' => 'action', 'class' => 'btn btn-primary']) !!}
+                    {!! Form::submit( __('messages.back') , ['name' => 'action', 'class' => 'btn']) !!}
+                    {!! Form::submit( __('messages.submit') , ['name' => 'action', 'class' => 'btn btn-primary']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

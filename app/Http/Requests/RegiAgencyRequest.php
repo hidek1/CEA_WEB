@@ -27,17 +27,17 @@ class RegiAgencyRequest extends FormRequest
     }
     public function attributes() {
         return [
-            'agency_name' => '代理店名',
-            'program' => 'プログラム',
-            'term' => '期間',
-            'student_name' => '生徒氏名',
-            'parent_name' => '保護者氏名　*ファミリーキャンプのみ',
-            'nationality' => '国籍',
-            'student_age' => '年齢(生徒)',
-            'parent_age' => '年齢（保護者）　*ファミリーキャンプのみ',
-            'residence' => '住所',
-            'phone_number' => '電話番号',
-            'email' => 'メールアドレス',
+            'agency_name' => __('messages.Re_content1'),
+            'program' => __('messages.Re_content2'),
+            'term' => __('messages.Re_content3'),
+            'student_name' => __('messages.Re_content5'),
+            'parent_name' => __('messages.Re_content6'),
+            'nationality' => __('messages.Re_content7'),
+            'student_age' => __('messages.Re_content8'),
+            'parent_age' => __('messages.Re_content9'),
+            'residence' => __('messages.Re_content10'),
+            'phone_number' => __('messages.Re_content11'),
+            'email' => __('messages.Re_content12'),
         ];
     }
 }

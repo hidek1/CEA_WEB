@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container">
-    <h2 class="form_title">お問い合わせフォーム</h2>
+    <h2 class="form_title">{{ __('messages.Con_title') }}</h2>
     <div class="make_center">
      {{-- エラーの表示 --}}
     @if ($errors->any())
@@ -19,7 +19,7 @@
                 'class' => 'form-horizontal']) !!}
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-        {!! Form::label('name', 'お名前:', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('name',  __('messages.Con_content1') , ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::text('name', null, ['class' => 'form-control']) !!}
 
@@ -32,7 +32,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-        {!! Form::label('email', 'メールアドレス:', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('email', __('messages.Con_content2'), ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::email('email', null, ['class' => 'form-control']) !!}
             @if ($errors->has('email'))
@@ -44,7 +44,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-        {!! Form::label('type', 'お問い合わせ種類:', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('type', __('messages.Con_content3'), ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             @foreach($types as $key => $value)
                 <label class="checkbox-inline">
@@ -61,7 +61,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
-        {!! Form::label('body', '内容:', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('body', __('messages.Con_content4'), ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
             @if ($errors->has('body'))
@@ -74,7 +74,7 @@
     
     <div class="form-group">
         <div class="col-sm-12" style="text-align: center;">
-            {!! Form::submit('確認', ['class' => 'btn btn-primary button_width']) !!}
+            {!! Form::submit(__('messages.confirm'), ['class' => 'btn btn-primary button_width']) !!}
         </div>
     </div>
 

@@ -13,7 +13,7 @@ class ContactRequest extends FormRequest
     {
         return [
             'type' => 'required',
-            'type.*' => 'in:Jr Campについて,family campについて,その他',
+            'type.*' => 'in:About Jr Camp,About family camp,Others',
             'name' => 'required|max:225',
             'email' => 'required|email',
             'body' => 'required|max:1000'
@@ -21,10 +21,10 @@ class ContactRequest extends FormRequest
     }
     public function attributes() {
         return [
-            'type' => 'お問い合わせ種類',
-            'name' => 'お名前',
-            'email' => 'メールアドレス',
-            'body' => '内容'
+            'type' => __('messages.Con_content3'),
+            'name' => __('messages.Con_content1'),
+            'email' => __('messages.Con_content2'),
+            'body' => __('messages.Con_content4')
         ];
     }
 }

@@ -8,6 +8,6 @@ class Contact extends Model
     ];
    
    static $types = [
-        'Jr Campについて', 'family campについて', 'その他'
+        'About Jr Camp', 'About family camp', 'Others'
     ];
 }
