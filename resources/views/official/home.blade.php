@@ -38,7 +38,7 @@
             <button class="btn btn-warning  btn-block">Academic Form</button>
         </div>
     </div>
-    <div class="row button_row">
+{{--     <div class="row button_row">
         @if ($entrance != null)
         <div class="col-md-3">
             <a href="{{ asset('/pdfs/'.$entrance->name) }}"><button class="btn btn-primary  btn-block">Entrance Test</button></a>
@@ -71,7 +71,7 @@
             <a href="{{ asset('/pdfs/'.$class->name) }}"><button class="btn btn-info  btn-block">Class schedule</button></a>
             @endif
         </div>
-    </div>
+    </div> --}}
     <div class="row button_row">
         <div class="col-md-6">
               <div class="slider">
