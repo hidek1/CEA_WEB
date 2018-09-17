@@ -5,25 +5,25 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">お問い合わせ</div>
+                <div class="panel-heading">{{ __('messages.Con_confirm_title') }}</div>
                 <div class="panel-body">
-                    <p>誤りがないことを確認のうえ送信ボタンをクリックしてください。</p>
+                    <p>{{ __('messages.form_confirm') }}</p>
  
                     <table class="table">
                         <tr>
-                            <th>お問い合わせ種類</th>
+                            <th>{{ __('messages.Con_content1') }}</th>
                             <td>{{ $type }}</td>
                         </tr>
                         <tr>
-                            <th>お名前</th>
+                            <th>{{ __('messages.Con_content2') }}</th>
                             <td>{{ $contact->name }}</td>
                         </tr>
                         <tr>
-                            <th>メールアドレス</th>
+                            <th>{{ __('messages.Con_content3') }}</th>
                             <td>{{ $contact->email }}</td>
                         </tr>
                         <tr>
-                            <th>内容</th>
+                            <th>{{ __('messages.Con_content4') }}</th>
                             <td>{{ $contact->body }}</td>
                         </tr>
                     </table>
@@ -44,8 +44,8 @@
                         @endif
                     @endforeach
  
-                    {!! Form::submit('戻る', ['name' => 'action', 'class' => 'btn']) !!}
-                    {!! Form::submit('送信', ['name' => 'action', 'class' => 'btn btn-primary']) !!}
+                    {!! Form::submit(__('messages.back'), ['name' => 'action', 'class' => 'btn']) !!}
+                    {!! Form::submit(__('messages.submit'), ['name' => 'action', 'class' => 'btn btn-primary']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

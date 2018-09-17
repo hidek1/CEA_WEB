@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\File;
 use App\Eassay;
 use App\Speech;
+use App\PDF;
 use Auth;
 class CommunityController extends Controller
 {
@@ -24,7 +25,17 @@ class CommunityController extends Controller
         } else {
           $graduation_speech = null;
         }
+        if (PDF::where('user_id',$id)->orderBy('created_at', 'desc')->where('type','result')->first()) {
+          $result_pdf = PDF::where('user_id',$id)->where('type','result')->orderBy('created_at', 'desc')->first();
+        } else {
+          $result_pdf = null;
+        }
+        if (PDF::where('user_id',$id)->orderBy('created_at', 'desc')->where('type','graduation')->first()) {
+          $graduation_pdf = PDF::where('user_id',$id)->where('type','graduation')->orderBy('created_at', 'desc')->first();
+        } else {
+          $graduation_pdf = null;
+        }
         //return view('index_community_members')->with(['photopictures' => $photopictures,  'essaydailyphoto' => $essaydailyphoto]);
-        return view('index_community_members', compact('photopictures','essaydailyphoto','first_speech','graduation_speech'));
+        return view('index_community_members', compact('photopictures','essaydailyphoto','first_speech','graduation_speech','result_pdf','graduation_pdf'));
     }
 }

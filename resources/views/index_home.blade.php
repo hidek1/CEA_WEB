@@ -32,17 +32,17 @@
         <div class="container">
           <div class="col-md-10 text-center gallery_controller">
               <div class="gallery">
-                <div class="desc">Price</div>
+                <div class="desc">{{ __('messages.Price') }}</div>
                 <a target="_blank" href="img_5terre.jpg">
                 </a>
               </div>
               <div class="gallery">
-                <div class="desc">Program Schedule</div>
+                <div class="desc">{{ __('messages.Schedule') }}</div>
                   <a target="_blank" href="img_forest.jpg">                 
                   </a>
               </div>
             <div class="gallery">
-              <div class="desc">Facility</div>
+              <div class="desc">{{ __('messages.Facility') }}</div>
               <a target="_blank" href="{{ asset('images/techers.jpg') }}">
                 <img src="{{ asset('images/techers.jpg') }}" alt="teachers">
               </a>
@@ -54,18 +54,18 @@
         <div class="container">
           <div class="col-md-10 text-center gallery_controller">
               <div class="gallery">
-                <div class="desc">Meals</div>
+                <div class="desc">{{ __('messages.Meal') }}</div>
                 <a target="_blank" href="images/meal.jpg">
                   <img src="images/meal.jpg" alt="5Terre">
                 </a>
               </div>
               <div class="gallery">
-                <div class="desc">Picture</div>
+                <div class="desc">{{ __('messages.Picture') }}</div>
                   <a target="_blank" href="img_forest.jpg">
                   </a>
               </div>
             <div class="gallery">
-              <div class="desc">Story of Experience</div>
+              <div class="desc">{{ __('messages.experience') }}</div>
               <a target="_blank" href="img_lights.jpg">
               </a>
             </div>
@@ -77,7 +77,7 @@
       <div class="row">
       <div class="col-lg-9">
       <div class="col-lg-12">
-      <span class="archive_head--top ">新着記事</span>
+      <span class="archive_head--top ">{{ __('messages.NewArticles') }}</span>
       </div>
       @foreach($blogs as $blog)
         <div class="row">
@@ -96,9 +96,9 @@
        @endforeach
      </div>
       <div class="col-lg-3">
-      <span class="archive_head--top ">体験談</span>
+      <span class="archive_head--top ">{{ __('messages.experience') }}</span>
     @foreach($experiences as $experience)
-         <a href="experience/{{ $experience->id }}/show" style="color: black;">{{ $experience->name }}さんの体験談</a><br>
+         <a href="experience/{{ $experience->id }}/show" style="color: black;">{{ $experience->name }}</a><br>
     @endforeach
       </div>
       </div>

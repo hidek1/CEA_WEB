@@ -30,3 +30,4 @@ class AddTypeToSpeechesTable extends Migration
         });
     }
 }
+

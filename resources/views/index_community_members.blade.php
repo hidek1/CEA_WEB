@@ -16,7 +16,7 @@
   @endif
   <div class="row pic_row">
     <div class="col-xs-12 col-md-12 col-lg-6">
-      <h4 class="member_title">デイリーエッセイ</h4>
+      <h4 class="member_title">{{ __('messages.Co_content1') }}</h4>
       <div class="slider">
       <div class="slideSet1">
         @if(Auth::check())
@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-12 col-lg-6">
-      <h4 class="member_title">写真</h4>
+      <h4 class="member_title">{{ __('messages.Co_content2') }}</h4>
       <div class="slider">
       <div class="slideSet2">
 
@@ -56,14 +56,14 @@
   </div>
   <div class="row pic_row">
     <div class="col-xs-12 col-md-12 col-lg-6">
-      <h4 class="member_title">入学スピーチ</h4>
+      <h4 class="member_title">{{ __('messages.Co_content3') }}</h4>
       @if($first_speech != null)
         <video src="{{ asset('/community_videos/'.$first_speech->name) }}"   controls width="100%">
       </video>
       @endif
     </div>
     <div class="col-xs-12 col-md-12 col-lg-6">
-      <h4 class="member_title">卒業スピーチ</h4>
+      <h4 class="member_title">{{ __('messages.Co_content4') }}</h4>
       @if($graduation_speech != null)
         <video src="{{ asset('/community_videos/'.$graduation_speech->name) }}"   controls width="100%">
       </video>
@@ -73,8 +73,12 @@
   <div class="row">
     <div class="col-xs-12 col-md-12 col-lg-4 text-center">
       <h4>※Download file</h4>
-      <button type="button" class="btn btn-primary">Graduate certificate download</button>
-      <button type="button" class="btn btn-primary btn_posi">Result sheets download</button>
+      @if($graduation_pdf != null)
+      <a href="{{ asset('/pdfs/'.$graduation_pdf->name) }}"><button type="button" class="btn btn-primary">Graduate certificate download</button></a>
+      @endif
+      @if($result_pdf != null)
+      <a href="{{ asset('/pdfs/'.$result_pdf->name) }}"><button type="button" class="btn btn-primary btn_posi">Result sheets download</button></a>
+      @endif
     </div>
     <div class="col-xs-12 col-md-12 col-lg-4 text-center">
       <h4>※posting student survey</h4>
@@ -86,7 +90,7 @@
     </div>
   </div>
   @if(Auth::check())
-  <a href="{{asset('main/logout')}}"><p class="text-center" style="padding-top: 30px">ログアウト</p></a>
+  <a href="{{asset('main/logout')}}"><p class="text-center" style="padding-top: 30px">{{ __('messages.Co_logout') }}</p></a>
 
   @endif
 </div>

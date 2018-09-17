@@ -39,15 +39,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
-                            <label for="category" class="col-md-4 control-label">category</label>
+                        <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                            <label for="type" class="col-md-4 control-label">type</label>
 
                             <div class="col-md-6">
-                                <input type="radio" name="category" value="10" checked>Student
-                                <input type="radio" name="category" value="5">Staff
-                                @if ($errors->has('category'))
+                                <input type="radio" name="type" value="3" checked>Student
+                                <input type="radio" name="type" value="2">Staff
+                                @if ($errors->has('type'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('category') }}</strong>
+                                        <strong>{{ $errors->first('type') }}</strong>
                                     </span>
                                 @endif
                             </div>

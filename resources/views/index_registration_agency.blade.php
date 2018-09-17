@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container">
-    <h2 class="form_title">代理店様用入力フォーム</h2>
+    <h2 class="form_title">{{ __('messages.Re_title') }}</h2>
     <div class="make_center">
      {{-- エラーの表示 --}}
     @if ($errors->any())
@@ -19,7 +19,7 @@
                 'class' => 'form-horizontal']) !!}
     
     <div class="form-group{{ $errors->has('agency_name') ? ' has-error' : '' }}">
-        {!! Form::label('agency_name', '代理店', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('agency_name', __('messages.Re_content1'), ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::text('agency_name', null, ['class' => 'form-control']) !!}
 
@@ -32,7 +32,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('program') ? ' has-error' : '' }}">
-        {!! Form::label('program', 'プログラム', ['class' => 'col-sm-2 control-label']) !!}
+        {!! Form::label('program', __('messages.Re_content2'), ['class' => 'col-sm-2 control-label']) !!}
         <div class="col-sm-12">
             @foreach($programs as $key => $value)
                 <label class="checkbox-inline">
@@ -49,7 +49,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('term') ? ' has-error' : '' }}">
-        {!! Form::label('term', '期間', ['class' => 'col-sm-2 control-label']) !!}
+        {!! Form::label('term', __('messages.Re_content3'), ['class' => 'col-sm-2 control-label']) !!}
         <div class="col-sm-12">
             @foreach($terms as $key => $value)
                 <label class="checkbox-inline">
@@ -65,13 +65,13 @@
         </div>
     </div>
 
-    <label for="program" class="col-sm-2 control-label">値段</label>
+    <label for="program" class="col-sm-2 control-label">{{ __('messages.Re_content4') }}</label>
     <div class="col-sm-12">
        <p id="amount"></p>
     </div>
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-        {!! Form::label('student_name', '生徒氏名', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('student_name', __('messages.Re_content5'), ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::text('student_name', null, ['class' => 'form-control']) !!}
 
@@ -84,7 +84,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-        {!! Form::label('parent_name', '保護者氏名　*ファミリーキャンプのみ', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('parent_name', __('messages.Re_content6') , ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::text('parent_name', null, ['class' => 'form-control']) !!}
 
@@ -97,7 +97,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-        {!! Form::label('nationality', '国籍', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('nationality',  __('messages.Re_content7') , ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::text('nationality', null, ['class' => 'form-control']) !!}
 
@@ -110,7 +110,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-        {!! Form::label('student_age', '年齢(生徒)', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('student_age',  __('messages.Re_content8') , ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::text('student_age', null, ['class' => 'form-control']) !!}
 
@@ -123,7 +123,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-        {!! Form::label('parent_age', '年齢（保護者）　*ファミリーキャンプのみ', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('parent_age',  __('messages.Re_content9') , ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::text('parent_age', null, ['class' => 'form-control']) !!}
 
@@ -136,7 +136,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-        {!! Form::label('residence', '住所', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('residence',  __('messages.Re_content10') , ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::text('residence', null, ['class' => 'form-control']) !!}
 
@@ -149,7 +149,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-        {!! Form::label('phone_number', '電話番号', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('phone_number',  __('messages.Re_content11') , ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
 
@@ -162,7 +162,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-        {!! Form::label('email', 'メールアドレス', ['class' => 'col-sm-12 control-label']) !!}
+        {!! Form::label('email', __('messages.Re_content12') , ['class' => 'col-sm-12 control-label']) !!}
         <div class="col-sm-12">
             {!! Form::email('email', null, ['class' => 'form-control']) !!}
             @if ($errors->has('email'))
@@ -175,7 +175,7 @@
     
     <div class="form-group">
         <div class="col-sm-12" style="text-align: center;">
-            {!! Form::submit('確認', ['class' => 'btn btn-primary button_width']) !!}
+            {!! Form::submit( __('messages.confirm') , ['class' => 'btn btn-primary button_width']) !!}
         </div>
     </div>
 

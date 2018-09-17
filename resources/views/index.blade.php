@@ -22,7 +22,7 @@
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ch.png') }}" style="width: 40px;"></div><div class="left"><a href="#" class="bt" target="_taiwan_cia">China</a></div></div>
                                   </div>
                                    <div class="c_box_01">
-                                      <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/vi.png') }}" style="width: 40px;"></div><div class="left"><a href="http://cea.asia/vn/" class="bt" target="_english_cia">Vietnum</a></div></div>
+                                      <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/vi.png') }}" style="width: 40px;"></div><div class="left"><a href="http://cea.asia/vn/" class="bt" target="_english_cia">Vietnam</a></div></div>
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ko.png') }}" style="width: 40px;"></div><div class="left"><a href="http://cea.asia/kr/" class="bt" target="_taiwan_cia">Korea</a></div></div>
                                   </div>
                                 </div>
@@ -45,7 +45,7 @@
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ch.png') }}" style="width: 40px;"></div><div class="left"><a href="{{ route('lang.switch', "zh-ch") }}" class="bt" target="_taiwan_cia">China</a></div></div>
                                   </div>
                                    <div class="c_box_01">
-                                      <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/vi.png') }}" style="width: 40px;"></div><div class="left"><a href="{{ route('lang.switch', "vi") }}" class="bt" target="_english_cia">Vietnum</a></div></div>
+                                      <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/vi.png') }}" style="width: 40px;"></div><div class="left"><a href="{{ route('lang.switch', "vi") }}" class="bt" target="_english_cia">Vietnam</a></div></div>
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ko.png') }}" style="width: 40px;"></div><div class="left"><a href="{{ route('lang.switch', "ko") }}" class="bt" target="_taiwan_cia">Korea</a></div></div>
                                   </div>
                                 </div>

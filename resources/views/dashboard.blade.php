@@ -89,6 +89,12 @@
                                      <a href="{{ route('speech.file', "graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Speech </a>
                                 </li>
                                 <li>
+                                     <a href="{{ route('pdf.file', "graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation certificate</a>
+                                </li>
+                                <li>
+                                     <a href="{{ route('pdf.file', "result") }}" target="Daily"><i class="fa fa-upload"></i>Result sheets</a>
+                                </li>
+                                <li>
                                      <a href="/blog/create" target="Daily"><i class="fa fa-upload"></i>Blogs </a>
                                 </li>
                             </ul>
