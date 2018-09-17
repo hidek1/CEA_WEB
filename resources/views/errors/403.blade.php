@@ -18,7 +18,10 @@
   <div class="error-wrap">
     <section>
       <h1>403 Forbidden</h1>
-      <p>You do not have access. <br>Please <a href="{{ asset('/main') }}">login</a></p>
+      <p>You do not have access. <br>
+        If u didn't login: Please <a href="{{ asset('/main') }}">login</a><br><br>
+        <a href="{{ asset('/main/logout') }}">logout</a>
+        </p>
     </section>
   </div>
 </body>
