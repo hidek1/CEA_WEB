@@ -23,25 +23,37 @@
         </div>
     </div>
     <div class="row button_row">
+        @if ($entrance != null)
         <div class="col-md-3">
-            <button class="btn btn-primary  btn-block">Entrance Test</button>
+            <a href="{{ asset('/pdfs/'.$entrance->name) }}"><button class="btn btn-primary  btn-block">Entrance Test</button></a>
         </div>
+        @endif
+        @if ($chart != null)
         <div class="col-md-3">
-            <button class="btn btn-primary  btn-block">Progressive chart</button>
+            <a href="{{ asset('/pdfs/'.$chart->name) }}"><button class="btn btn-primary  btn-block">Progressive chart</button></a>
         </div>
+        @endif
+        @if ($result != null)
         <div class="col-md-3">
-            <button class="btn btn-primary  btn-block">Result Examination</button>
+            <a href="{{ asset('/pdfs/'.$result->name) }}"><button class="btn btn-primary  btn-block">Result Examination</button></a>
         </div>
+        @endif
+        @if ($evaluation != null)
         <div class="col-md-3">
-            <button class="btn btn-primary  btn-block">Evaluation</button>
+            <a href="{{ asset('/pdfs/'.$evaluation->name) }}"><button class="btn btn-primary  btn-block">Evaluation</button></a>
         </div>
+        @endif
     </div>
     <div class="row button_row">
         <div class="col-md-6">
-            <button class="btn btn-info  btn-block">Graduation Certification</button>
+            @if ($graduation != null)
+            <a href="{{ asset('/pdfs/'.$graduation->name) }}"><button class="btn btn-info  btn-block">Graduation Certification</button></a>
+            @endif
         </div>
         <div class="col-md-6">
-            <button class="btn btn-info  btn-block">Class schedule</button>
+            @if ($class != null)
+            <a href="{{ asset('/pdfs/'.$class->name) }}"><button class="btn btn-info  btn-block">Class schedule</button></a>
+            @endif
         </div>
     </div>
     <div class="row button_row">
@@ -57,6 +69,8 @@
              </div>
         </div>
         <div class="col-md-6">
+            <video src="{{ asset('/community_videos/') }}"   controls width="100%">
+            </video>
             <video src="{{ asset('/community_videos/') }}"   controls width="100%">
             </video>
         </div>

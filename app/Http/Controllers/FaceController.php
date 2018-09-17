@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\User;
 
 class FaceController extends Controller {
-
     public function index(){
         $blogs = DB::table('blogs')
           ->orderBy('created_at', 'DESC')
@@ -16,5 +15,4 @@ class FaceController extends Controller {
         $experiences = User::join('experiences', 'experiences.user_id', '=', 'users.id')->get();
       return view('index_home', compact('blogs', 'experiences'));
     } 
-
 }

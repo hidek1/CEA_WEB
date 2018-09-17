@@ -154,8 +154,14 @@ Route::get('allblog/{id}', 'blogController@listallblog');
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// for official website
-Route::get('/official/home', function () {
-    return view('official/home');
+Route::group(['middleware' => ['auth', 'can:official-student']], function () {
+  // for official website
+  Route::get('/official/home', function () {
+      return view('official/home');
+  });
+  Route::get('/official/home/{id}', 'OfficialHomeController@index');
+  Route::get('/official/experience', 'ExperienceController@index_of');
+  Route::get('/official/dashboard', function () {
+      return view('official/dashboard');
+  });
 });

@@ -9,6 +9,9 @@ class PDFController extends Controller
 {
      function showUploadFOrm($type){
       $users = User::all();
+      if(substr($type, 0, 2) == 'of') {
+        return view('official/dashboard_pdf', compact('users', 'type'));
+      }
       return view('dashboard_pdf', compact('users', 'type'));
     }
 
