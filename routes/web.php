@@ -12,7 +12,8 @@
 */
 Auth::routes();
 // more than student
-Route::group(['middleware' => ['auth', 'can:camp-student']], function () {
+
+// Route::group(['middleware' => ['auth', 'can:camp-student']], function () {
   Route::get('/index_community_members', 'CommunityController@index');
   Route::get('/index_survey', 'SurveyController@index');
   Route::post('survey/complete', 'SurveyController@complete');
@@ -20,9 +21,9 @@ Route::group(['middleware' => ['auth', 'can:camp-student']], function () {
   Route::get('/index_experience', 'ExperienceController@index');
   Route::post('experience/confirm', 'ExperienceController@confirm');
   Route::post('experience/complete', 'ExperienceController@complete');
-});
+//});
 // more than staff
-Route::group(['middleware' => ['auth', 'can:staff']], function () {
+// Route::group(['middleware' => ['auth', 'can:staff']], function () {
   // for dashboard page url
   Route::get('/dashboard', 'DashboardController@index');
   Route::get('/dashboard_user_list', 'DashboardController@userlist');
@@ -53,7 +54,7 @@ Route::group(['middleware' => ['auth', 'can:staff']], function () {
   Route::get('experience/{id}/show', 'ExperienceController@show');
 
   Route::get('/home', 'HomeController@index')->name('home');
-});
+//});
 // only developer
 Route::group(['middleware' => ['auth', 'can:admin']], function () {
 
@@ -154,14 +155,27 @@ Route::get('allblog/{id}', 'blogController@listallblog');
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Route::group(['middleware' => ['auth', 'can:official-student']], function () {
-  // for official website
-  Route::get('/official/home', function () {
-      return view('official/home');
-  });
-  Route::get('/official/home/{id}', 'OfficialHomeController@index');
-  Route::get('/official/experience', 'ExperienceController@index_of');
-  Route::get('/official/dashboard', function () {
-      return view('official/dashboard');
-  });
+
+// Route::group(['middleware' => ['auth', 'can:official-student']], function () {
+//   // for official website
+//   Route::get('/official/home', function () {
+//       return view('official/home');
+//   });
+//   Route::get('/official/home/{id}', 'OfficialHomeController@index');
+//   Route::get('/official/experience', 'ExperienceController@index_of');
+//   Route::get('/official/dashboard', function () {
+//       return view('official/dashboard');
+//   });
+// });
+
+// for official website
+/*
+Route::get('/official/home', function () {
+    return view('official/home');
 });
+*/
+Route::get('ceaofficial', 'officialController@index');
+
+//mail request sending
+Route::get('contactmail', 'mailController@getContact');
+Route::post('contactmail', 'mailController@postContact');

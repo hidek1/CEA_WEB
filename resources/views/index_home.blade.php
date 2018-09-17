@@ -95,6 +95,7 @@
           </div>
        @endforeach
      </div>
+      
       <div class="col-lg-3">
       <span class="archive_head--top ">{{ __('messages.experience') }}</span>
     @foreach($experiences as $experience)

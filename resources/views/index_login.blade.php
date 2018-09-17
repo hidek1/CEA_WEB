@@ -1,8 +1,6 @@
 @extends('layout')
 @section('content')
 	<div class="row">
-		
-		
 		<div class="col-md-8">
 		@if($message = Session::get('error'))
 			<div class="alert alert-danger alert-block text-center">
@@ -36,7 +34,6 @@
 						<label>Enter Password</label>
 						<input type="password" name="password" class="form-control">
 					</div>
-					
 					<div class="cleafloat">&nbsp;</div>
 					<div class="form-group">
 						<input type="submit" name="login" class="btn btn-primary" value="Login" />
@@ -44,7 +41,6 @@
 				</form>
 				@else
 				<h3>Sorry Page not found</h3>
-
 			 @endif
 		</div>
 	</div>
