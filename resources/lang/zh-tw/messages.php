@@ -7,7 +7,7 @@ return [
     'form_confirm' => 'Please confirm and submit.',
 
     //header
-    'home' => 'HOME',
+    'home' => '首頁',
     'campDescription' => '遊學團簡介',
     'JrCamp' => '青少年遊學團',
     'FamilyCamp' => '家庭遊學團',
@@ -39,7 +39,7 @@ return [
     'D_content7' => '語言發展的關鍵時期在於剛出生的那幾年。',
     'D_content8' => '語言學習早好必須在青春期之前，在大腦側化完成之前。',
     'D_content9' => '如果沒有在這黃金時期學習語言，之後的學習就會相對比較的困難。特別是對於學習文法的部分。',
-    'D_pic1' => 'language proficiency and age of language acquisition',
+    'D_pic1' => '語言能力和語言黃金學習年齡',
     'D_pic2' => 'Broca&#39;s Area and Wernicke&#39;s Area',
     'D_content10' => 'Penfield and Roberts (1959) 宣稱在九歲之前可以學習最多三種語言: 早期接觸不同語言可以激活大腦中的反應，並讓不同語言在切換以及翻譯成母語之中不會產生混淆。Penfield, (1964).  ',
     'D_content11' => 'Lenneberg (1967) 斷言，如果沒有在青春期學習語言，語言學校將會變得相對困難。',
@@ -76,24 +76,24 @@ return [
 
     //video
     'Vi_info' => '稍後將會上傳 2018冬令營的影片',
-    'Vi_content1' => 'CEA graduates interview',
-    'Vi_content2' => 'CEA graduates interview',
+    'Vi_content1' => 'CEA 畢業生訪問',
+    'Vi_content2' => 'CEA 畢業生訪問',
 
     //community
     'Co_content1' => '日記',
     'Co_content2' => '照片',
-    'Co_content3' => 'Entrance speech',
+    'Co_content3' => '新生入學演講',
     'Co_content4' => '畢業演講',
-    'Co_logout' => 'logout',
+    'Co_logout' => '登出',
 
     //Experience story
-    'Ex_content1' => '分享你在CEA最棒的游学体验?',
-    'Ex_content2' => '你觉得在CEA游学团里最困难的体验是哪一部分?',
-    'Ex_content3' => '在CEA游学团体哪个回忆是你最难忘的呢?',
-    'Ex_content4' => '你觉得你的英文有怎么样程度的进步呢?',
-    'Ex_content5' => '如果你要推荐CEA游学团给你的朋友，你会怎么推荐呢?',
+    'Ex_content1' => '分享你在CEA最棒的遊學體驗? ',
+    'Ex_content2' => '你覺得在CEA遊學團裡最困難的體驗是哪一部分? ',
+    'Ex_content3' => '在CEA遊學團體哪個回憶是你最難忘的呢? ',
+    'Ex_content4' => '你覺得你的英文有怎麼樣程度的進步呢? ',
+    'Ex_content5' => '如果你要推薦CEA遊學團給你的朋友，你會怎麼推薦呢? ',
     //Experience story confirm
-    'Ex_confirm_title' => '游学经验分享',
+    'Ex_confirm_title' => '遊學經驗分享',
 
     //Registration agency
     'Re_title' => '代辦註冊',
@@ -112,7 +112,7 @@ return [
     //Registration agency confirm
     'Re_confirm_title' => '代辦註冊',
     //Registration agency complete
-    'Re_complete_message' => 'Thank you for applying',
+    'Re_complete_message' => '非常感謝您的申請!',
 
     //contact
     'Con_title' => '聯繫方式',
@@ -123,6 +123,6 @@ return [
     //contact confirm
     'Con_confirm_title' => '聯繫方式',
     //contact complete
-    'Con_complete_message' => 'Thank you for contacting us!',
+    'Con_complete_message' => '非常感謝您和我們連繫!',
 
 ];
