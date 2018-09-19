@@ -13,5 +13,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset('dist/js/sb-admin-2.js') }}"></script>
+    <script src="{{ asset('vendor/jquery/default.js') }}"></script>
+    <script type="text/javascript" src="{{asset('js/bootstrap-datepicker.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/bootstrap-datepicker.min.js')}}"></script>
 </body>
 </html>

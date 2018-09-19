@@ -7,8 +7,8 @@
 @endsection
 
 @section('content')
-<div class="container">
-     @if(count($errors) > 0)
+    <div class="container">
+             @if(count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>
                         @foreach($errors->all() as $error)
@@ -26,13 +26,13 @@
             @endif
     <div class="row button_row">
         <div class="col-md-3">
-            <button class="btn btn-warning  btn-block">Request Form</button>
+            <a href="/contactmail" target="_requestform"><button class="btn btn-warning  btn-block">Request Form</button></a>
         </div>
         <div class="col-md-3">
-            <button class="btn btn-warning  btn-block">Absent Form</button>
+            <a href="/absentform" target="_blank"><button class="btn btn-warning  btn-block">Absent Form</button></a>
         </div>
         <div class="col-md-3">
-            <button class="btn btn-warning  btn-block">Travel Form</button>
+            <a href="/travelform" target="_travelform"><button class="btn btn-warning  btn-block">Travel Form</button></a>
         </div>
         <div class="col-md-3">
             <button class="btn btn-warning  btn-block">Academic Form</button>

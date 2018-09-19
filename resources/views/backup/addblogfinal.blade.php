@@ -33,7 +33,8 @@
 							<input type="text" class="form-control" name="title" value="{{ old('title')}}">
 							<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
 							  <label for="comment">Blog:</label>
-							  <textarea class="form-control" rows="5" id="comment" name="content">{{ old('content')}}</textarea><br />  
+							  <textarea class="form-control" rows="5" id="comment" name="content">{{ old('content')}}</textarea><br />
+							  
 						</div>
 					</div>
 				</div>
@@ -115,6 +116,7 @@
 			<h3>Please log in first <a href="/main">Log in</a></h3>
 			</div>
 	@endif
+	
  </div>
 
 @endsection
