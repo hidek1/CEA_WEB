@@ -6,8 +6,6 @@
 @endsection
 
 @section('content')
-<div id="back-curtain"></div>
-<div class="largeImage"><img src="{{ asset('') }}"></div>
 <div class="container">
   @if(Auth::check())
   <div class="row">
@@ -18,19 +16,26 @@
     <div class="col-xs-12 col-md-12 col-lg-6">
       <h4 class="member_title">{{ __('messages.Co_content1') }}</h4>
       <div class="slider">
-      <div class="slideSet1">
-        @if(Auth::check())
-          @foreach($essaydailyphoto as $dailyphoto)
-              @if($dailyphoto->user_id == auth::user()->id)
-                  <div class="slide1 gal1">
-                      <img src="{{ asset('/images/'.$dailyphoto->img_name) }}" style="width:100%;">
-                  </div>
-              @endif
-          @endforeach
-        @endif
-      </div>
-      <button class="slider-prev1"><i class="fas fa-angle-left"></i></button>
-      <button class="slider-next1"><i class="fas fa-angle-right"></i></button>
+        <div class="slideSet1">
+          @if(Auth::check())
+            @foreach($essaydailyphoto as $dailyphoto)
+                @if($dailyphoto->user_id == auth::user()->id)
+                    <div class="slide1 gal1">
+                        <img src="{{ asset('/images/'.$dailyphoto->img_name) }}" style="width:100%" class="aligncenter size-full wp-image-425" data-toggle="modal" data-target="#image-modal">
+                    </div>
+                    <div class="modal fade" id="image-modal">
+                      <div class="modal-dialog">
+                          <div class="modal-body">
+                          <img src="{{ asset('/images/'.$dailyphoto->img_name) }}" alt="baby-1151351_1920" width="100%" class="aligncenter size-full wp-image-425" />
+                          </div>
+                      </div>
+                   </div>
+                @endif
+            @endforeach
+          @endif
+        </div>
+        <button class="slider-prev1"><i class="fas fa-angle-left"></i></button>
+        <button class="slider-next1"><i class="fas fa-angle-right"></i></button>
       </div>
     </div>
     <div class="col-xs-12 col-md-12 col-lg-6">
@@ -42,8 +47,15 @@
           @foreach($photopictures as $picture)
               @if($picture->user_id == auth::user()->id)
               <div class="slide2 gal2">
-                    <img src="{{ asset('/images/'.$picture->name) }}" style="width:100%;">
+                  <img src="{{ asset('/images/'.$picture->name) }}" style="width:100%" class="aligncenter size-full wp-image-425" data-toggle="modal" data-target="#image-modal">
               </div>
+              <div class="modal fade" id="image-modal">
+                <div class="modal-dialog">
+                    <div class="modal-body">
+                    <img src="{{ asset('/images/'.$picture->name) }}" alt="baby-1151351_1920" width="100%" class="aligncenter size-full wp-image-425" />
+                    </div>
+                </div>
+             </div>
              @endif
           @endforeach
         @endif
@@ -86,7 +98,7 @@
     </div>
     <div class="col-xs-12 col-md-12 col-lg-4 text-center">
       <h4>※posting experience story</h4>
-      <a href="{{asset('/index_experience')}}"><button type="button" class="btn btn-warning">Experience story</button></a>
+      <a href="{{ route('experience', "camp") }}"><button type="button" class="btn btn-warning">Experience story</button></a>
     </div>
   </div>
   @if(Auth::check())
@@ -95,104 +107,18 @@
   @endif
 </div>
 <script>
-var img_width;
-var img_height;
-var img_ratio;
- 
-jQuery.event.add(window, "load", function(){
-    var el = $('.largeImage img');
-        var img = new Image();
-        img.src = el.attr('src');
-        img_width = img.width; 
-        img_height = img.height;
-    img_ratio = img_height/img_width;  
-    });
- 
-var small_pics1 = document.getElementsByClassName('gal1');
-for(var i = 0; i < small_pics1.length; ++i){
-  var pic = $(".largeImage img")  
-  var pictures=new Array();
-    @if(Auth::check())
-      @foreach($essaydailyphoto as $dailyphoto)
-          @if($dailyphoto->user_id == auth::user()->id)
-              pictures.push("{{ asset('/images/'.$dailyphoto->img_name) }}" );
-          @endif
-      @endforeach
-    @endif
-  console.log(pictures[i]);
-  (function(j){
-    $(small_pics1[j]).click(function(e) {
-        e.preventDefault();
-        disp();
-        console.log(pictures[j]);
-        $(pic).attr('src', pictures[j]);
-        $(pic).fadeIn();
-    });
-  })(i);
-}
-
-var small_pics2 = document.getElementsByClassName('gal2');
-for(var i = 0; i < small_pics2.length; ++i){
-  var pictures2=new Array();
-    @if(Auth::check())
-      @foreach($photopictures as $picture)
-          @if($picture->user_id == auth::user()->id)
-              pictures2.push("{{ asset('/images/'.$picture->name) }}" );
-          @endif
-      @endforeach
-    @endif
-  console.log(pictures2[i]);
-  (function(j){
-    $(small_pics2[j]).click(function(e) {
-        e.preventDefault();
-        disp();
-        console.log(pictures2[j]);
-        $(pic).attr('src', pictures2[j]);
-        $(pic).fadeIn();
-    });
-  })(i);
-}
-
-jQuery.event.add(window, "resize", function(){disp();});
- 
-$('#back-curtain, .largeImage').click(function() {
-    $('.largeImage img').fadeOut('slow', function() {$('#back-curtain').hide();});
+$(function(){
+  $(document).on('click', '.slide1', function(){
+    var pic = $(".modal-body img")
+    // console.log($(this).find('img').attr('src'));
+    $(pic).attr('src', $(this).find('img').attr('src'));
+  });
+  $(document).on('click', '.slide2', function(){
+    var pic = $(".modal-body img")
+    // console.log($(this).find('img').attr('src'));
+    $(pic).attr('src', $(this).find('img').attr('src'));
+  });
 });
- 
-function disp(){
-    $('#back-curtain')
-        .css({
-            'width' : $(window).width(),  
-            'height': $(window).height()*3 
-        })
-        .show();
- 
-    var win_ratio = $(window).height() / $(window).width();
-    var w;  var h;
-    const margin=50;
- 
-    if(img_ratio > win_ratio ){ 
-        h= $(window).height()-2*margin;
-        if( h < $(window).height() ) h=$(window).height()-2*margin;
-        w=h/img_ratio;
-    }else{             
-        w=$(window).width()-2*margin;
-        if( w < $(window).width() ) w=$(window).width()-2*margin;
-        h=w * img_ratio;
-    }
- 
-    $('.largeImage img').css({
-        'position': 'absolute',
-        'left': ($(window).width()-w)/2+'px',
-        'top' : ($(window).height()-h)/2+'px',
-        'width' :w+'px',
-        'height':h+'px',
-        'z-index':2
-    });
-    $('.largeImage').css({
-        'display':"block"
-    });
-}
 (function(){
   var slideWidth1 = $('.slide1').outerWidth();  
   var slideNum1 = $('.slide1').length; 

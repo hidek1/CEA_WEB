@@ -17,6 +17,7 @@
     
     {!! Form::open(['url' => 'experience/confirm',
                 'class' => 'form-horizontal']) !!}
+    {{Form::hidden('page', $page)}}
     <div class="row">
         <div class="col-sm-6 form-group{{ $errors->has('best_experience') ? ' has-error' : '' }}">
             {!! Form::label('best_experience', __('messages.Ex_content1'), ['class' => 'col-sm-12 control-label']) !!}

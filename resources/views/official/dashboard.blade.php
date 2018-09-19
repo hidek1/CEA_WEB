@@ -73,7 +73,11 @@
                         <li>
                             <a href="/dashboard_experience_list" target="_surveylist"><i class="fa fa-user"></i> Experiencs </a>
                         </li>
-                          <li>
+                        <li>
+                            <a href="/dashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> To Camp page</a>
+                        </li>
+
+                        <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>PDF<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -97,26 +101,23 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i>PDF<span class="fa arrow"></span></a>
+                         <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Speech<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                     <a href="{{ route('pdf.file', "of_entrance") }}" target="Daily"><i class="fa fa-upload"></i>Entrance Test</a>
+                                     <a href="{{ route('speech.file', "of_first") }}" target="Daily"><i class="fa fa-upload"></i>Entrance Speech </a>
                                 </li>
                                 <li>
-                                     <a href="{{ route('pdf.file', "of_chart") }}" target="Daily"><i class="fa fa-upload"></i>Progressive chart</a>
+                                     <a href="{{ route('speech.file', "of_graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Speech </a>
                                 </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                         <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Picture<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
                                 <li>
-                                     <a href="{{ route('pdf.file', "of_result") }}" target="Daily"><i class="fa fa-upload"></i>Result Examination</a>
-                                </li>
-                                <li>
-                                     <a href="{{ route('pdf.file', "of_evaluation") }}" target="Daily"><i class="fa fa-upload"></i>Evaluation</a>
-                                </li>
-                                <li>
-                                     <a href="{{ route('pdf.file', "of_graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Certification</a>
-                                </li>
-                                <li>
-                                     <a href="{{ route('pdf.file', "of_class") }}" target="Daily"><i class="fa fa-upload"></i>Class schedule</a>
+                                     <a href="{{ route('upload.file', "official") }}" target="Daily"><i class="fa fa-upload"></i>Entrance Speech </a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

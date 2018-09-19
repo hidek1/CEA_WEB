@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Speech;
+use Illuminate\Support\Facades\Auth;
 class SpeechController extends Controller
 {
      function showUploadFOrm($type){
       $users = User::all();
+      if(substr($type, 0, 2) == 'of') {
+        return view('official/dashboard_speech', compact('users', 'type'));
+      }
       return view('dashboard_speech', compact('users', 'type'));
     }
 
@@ -33,5 +37,11 @@ class SpeechController extends Controller
         $file->save();
         return redirect()->action('SpeechController@showUploadFOrm', ['type' => $type])->with("message", "Uploaded Speech successfully.");
       }
+    }
+
+    function showVideos(){
+      $id = Auth::user()->id;
+      $speeches = Speech::where('user_id',$id)->get();
+      return view('official/videos', compact('speeches'));
     }
 }

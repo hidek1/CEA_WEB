@@ -22,7 +22,7 @@
 				<img src="/images/{{ Session::get('path') }}" width="300" />
 			@endif
 			
-			<form action="{{ route('upload.file')}}" class="form-horizontal" enctype="multipart/form-data" method="POST">
+			<form action="{{ route('upload.file',$type)}}" class="form-horizontal" enctype="multipart/form-data" method="POST">
 				{{csrf_field()}}
 				<input type="file" name="file"><br />
 				<div class="col-md-3">

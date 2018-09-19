@@ -31,7 +31,7 @@ class ContactsController extends Controller
     {
         $input = $request->except('action');
          
-        if ($request->action === '戻る') {
+        if ($request->action === __('messages.back')) {
             return redirect()->action('ContactsController@index')->withInput($input);
         }
      

@@ -25,7 +25,7 @@ class RegiAgencyController extends Controller
     {
         $input = $request->except('action');
          
-        if ($request->action === '戻る') {
+        if ($request->action === __('messages.back')) {
             return redirect()->action('RegiAgencyController@index')->withInput($input);
         }
         
