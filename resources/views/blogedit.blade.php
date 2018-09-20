@@ -34,7 +34,6 @@
 							<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
 							  <label for="comment">Blog:</label>
 							  <textarea class="form-control" rows="5" id="comment" name="content">{{$blog->content}}</textarea><br />
-							  
 						</div>
 					</div>
 				</div>

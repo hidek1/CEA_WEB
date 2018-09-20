@@ -179,6 +179,7 @@ Route::get('ceaofficial', 'officialController@index');
 //mail request sending 
 Route::get('contactmail', 'mailController@getContact');
 Route::post('contactmail', 'mailController@postContact');
+Route::get('contactmail/{id}/edit', 'mailController@edit');
 
 //mail absent request form
 

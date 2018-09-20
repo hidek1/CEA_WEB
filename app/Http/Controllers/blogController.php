@@ -50,12 +50,8 @@ class blogController extends Controller
         $this->validate($request, [
                 'blog_img' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
                 'content' => 'required',
-                'title' => 'required',
-                'sub_img1' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img2' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img3' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img4' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img5' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048'
+                'title' => 'required'
+                
         ]);
 
         $blog_image = $request->file('blog_img');
@@ -75,7 +71,7 @@ class blogController extends Controller
             $new_name1 = rand(). '.'.$blog_image1->getClientOriginalExtension();
             $blog_image1->move(public_path("images/blog"), $new_name1);
         } else {
-            $new_name1 = null;
+            $new_name1 = '';
         }
         
         
@@ -88,7 +84,7 @@ class blogController extends Controller
             $new_name2 = rand(). '.'.$blog_image2->getClientOriginalExtension();
             $blog_image2->move(public_path("images/blog"), $new_name2);
         } else {
-            $new_name2 = null;
+            $new_name2 = '';
         }
         
         $blog_image3 = $request->file('sub_img3');
@@ -99,7 +95,7 @@ class blogController extends Controller
             $new_name3 = rand(). '.'.$blog_image3->getClientOriginalExtension();
             $blog_image3->move(public_path("images/blog"), $new_name3);
         } else {
-            $new_name3 = null;
+            $new_name3 = '';
         }
 
         $blog_image4 = $request->file('sub_img4');
@@ -110,7 +106,7 @@ class blogController extends Controller
             $new_name4 = rand(). '.'.$blog_image2->getClientOriginalExtension();
             $blog_image4->move(public_path("images/blog"), $new_name4);
         } else {
-            $new_name4 = null;
+            $new_name4 = '';
         }
 
         $blog_image5 = $request->file('sub_img5');
@@ -121,7 +117,7 @@ class blogController extends Controller
             $new_name5 = rand(). '.'.$blog_image5->getClientOriginalExtension();
             $blog_image5->move(public_path("images/blog"), $new_name5);
         } else {
-            $new_name5 = null;
+            $new_name5 = '';
         }
         
     
@@ -282,4 +278,5 @@ class blogController extends Controller
                      ->get();
         return view('blogall')->with('bloglists',$bloglists);
     }
+
 }
