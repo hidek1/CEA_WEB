@@ -1,25 +1,25 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">{{ __('messages.Ex_confirm_title') }}</div>
+                <div class="panel-heading">{{ 'Experience story' }}</div>
                 <div class="panel-body">
                     <p>Please confirm and submit.</p>
 
-                            <h5 class="sub_title4">{{ __('messages.Ex_content1') }}</h5>
+                            <h5 class="sub_title4">{{ 'What is best experience through CEA?' }}</h5>
                             <p>{{ $experience->best_experience }}</p>
 
-                            <h5 class="sub_title4">{{ __('messages.Ex_content2') }}</h5>
+                            <h5 class="sub_title4">{{ 'What is hardest experience through CEA?' }}</h5>
                             <p>{{ $experience->hardest_experience }}</p>
 
-                            <h5 class="sub_title4">{{ __('messages.Ex_content3') }}</h5>
+                            <h5 class="sub_title4">{{ 'what is memorable experience? ' }}</h5>
                             <p>{{ $experience->memorable_experience }}</p>
-                            <h5 class="sub_title4">{{ __('messages.Ex_content4') }}</h5>
+                            <h5 class="sub_title4">{{ 'what do you think improvement your English skills?' }}</h5>
                                <p>{{ $experience->improvement }}</p>
-                            <h5 class="sub_title4">{{ __('messages.Ex_content5') }}</h5>
+                            <h5 class="sub_title4">{{ 'what do you think improvement your English skills?' }}</h5>
                                 <p>{{ $experience->recommend }}</p>
                     {!! Form::open(['url' => 'experience/complete',
                                     'class' => 'form-horizontal',

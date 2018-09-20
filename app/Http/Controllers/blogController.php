@@ -51,11 +51,11 @@ class blogController extends Controller
                 'blog_img' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
                 'content' => 'required',
                 'title' => 'required',
-                'sub_img1' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img2' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img3' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img4' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img5' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048'
+                'sub_img1' => 'image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img2' => 'image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img3' => 'image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img4' => 'image|mimes:jpeg,jpg,png,gif|max:2048',
+                'sub_img5' => 'image|mimes:jpeg,jpg,png,gif|max:2048'
         ]);
 
         $blog_image = $request->file('blog_img');

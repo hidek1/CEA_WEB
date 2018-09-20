@@ -33,7 +33,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="#">
                         CEA
                     </a>
                 </div>
@@ -81,5 +81,11 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{asset('js/jquery-3.3.1.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jquery-migrate-1.4.1.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jquery-migrate-1.4.1.js')}}"></script>
+    @yield('js')
 </body>
 </html>

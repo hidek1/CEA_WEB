@@ -13,31 +13,44 @@ use Illuminate\Support\Facades\Auth;
 
 class ExperienceController extends Controller
 {
-    public function index()
-    {
-        return view('index_experience');
+    public function index($page)
+    {   
+        if ($page == 'official') {
+            return view('official/experience', compact('page'));
+        } else {
+            return view('index_experience', compact('page'));
+        }
     }
 
     public function confirm(ExperienceRequest $request)
-    {
+    {   
         $experience = new Experience($request->all());
+        $page = $request->page;
         $user_id = Auth::user()->id;
-        return view('index_experience_confirm', compact('experience', 'user_id'));
+        if ($page == "official") {
+            return view('official/experience_confirm', compact('experience', 'user_id','page'));
+        } else {
+            return view('index_experience_confirm', compact('experience', 'user_id','page'));
+        }
     }
 
     public function complete(ExperienceRequest $request)
     {
         $input = $request->except('action');
-         
-        if ($request->action === '戻る') {
-            return redirect()->action('ExperienceController@index')->withInput($input);
+        $page = $request->page;
+        if ($request->action === 'back') {
+            return redirect()->action('ExperienceController@index', $page)->withInput($input);
         }
         
         Experience::create($request->all());
      
         $request->session()->regenerateToken();
              
-        return view('index_experience_complete');
+        if ($page == "official") {
+            return redirect('official-home');
+        } else {
+            return view('index_experience_complete');
+        }
     }
 
     public  function show($id) {
