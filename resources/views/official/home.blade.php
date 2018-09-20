@@ -27,14 +27,14 @@
                 
             @endif
     <div class="row button_row">
-        <div class="col-md-3 button-posi">
-            <button class="btn btn-warning  btn-block">Request Form</button>
+        <div class="col-md-3">
+            <a href="/contactmail" target="_requestform"><button class="btn btn-warning  btn-block">Request Form</button></a>
         </div>
-        <div class="col-md-3 button-posi">
-            <button class="btn btn-warning  btn-block">Absent Form</button>
+        <div class="col-md-3">
+            <a href="/absentform" target="_blank"><button class="btn btn-warning  btn-block">Absent Form</button></a>
         </div>
-        <div class="col-md-3 button-posi">
-            <button class="btn btn-warning  btn-block">Travel Form</button>
+        <div class="col-md-3">
+            <a href="/travelform" target="_travelform"><button class="btn btn-warning  btn-block">Travel Form</button></a>
         </div>
         <div class="col-md-3 button-posi">
             <button class="btn btn-warning  btn-block">Academic Form</button>

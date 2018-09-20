@@ -4,7 +4,7 @@
 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Basic Form Elements
+                            Absent Form
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -24,49 +24,39 @@
                                             <strong>{{$message}}</strong>
                                         </div>
                                     @endif
-                                    <form  action="{{ url('contactmail') }}"  method="POST" >
+                                    <form  action="{{ url('absentform') }}"  method="POST" >
                                         {{ csrf_field() }}
 
-                                        <div class="form-group" >
-                                            
-                                            <label>Request Fom</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="requestroom" id="optionsRadios1" value="change my room" checked>Change my room
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="requestroom" id="optionsRadios2" value="Room mate issue">Room Mate issue
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="requestroom" id="optionsRadios3" value="Other request">Other request
-                                                </label>
-                                            </div>
+                                        <div class="form-group" >                   
+                                            <label>AbsentForm</label>
                                         </div>
                                         <div class="form-group">
-                                            <label>Enter Subject</label>
+                                            <label>Name</label>
+                                            <input type="text" name="name" class="form-control"value="{{Auth::user()->name}}" Placeholder="Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Subject</label>
                                             <input type="text" name="subject" class="form-control"value="" Placeholder="Subject">
                                         </div>
                                         <div class="form-group">
-                                            <label>Enter Email</label>
-                                            <input type="email" name="email" class="form-control"value="" Placeholder="Email">
+                                            <label>Date Absent Class</label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                                <input type="text" name="absentdate" class="form-control">
+                                                <div class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-th"></span>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="email" class="form-control"value="{{Auth::user()->email}}" Placeholder="Email">
                                         </div>
                                         <div class="form-group">
                                             <label>Reason</label>
                                             <textarea class="form-control" name="reason" rows="5"></textarea>
                                         </div>
-                                         <input type="hidden" name="name" value="{{Auth::user()->name}}">
                                          <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                                         <input type="submit" name="submit" class="btn btn-primary" value="Submit Request">
-                                        
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
-                                
-                                
                             </div>
                             <!-- /.row (nested) -->
                         </div>

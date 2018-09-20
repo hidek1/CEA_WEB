@@ -44,23 +44,8 @@ class blogController extends Controller
 
     
     function store(Request $request){
-         $blog_image = $request->file('blog_img');
-        
-        /*
-        $filesize = $blog_image->getClientSize();
-        $content = $request->input('content');
-        $user_id = $request->input('user_id');
-        $title = $request->input('title');
-        $new_name = rand(). '.'.$blog_image->getClientOriginalExtension();
-        $blog_image->move(public_path("images/blog"), $new_name);
-        */
-        if($blog_image == ''){
-            echo $new_name = '';
-        }
-        else{
-             echo $new_name = rand(). '.'.$blog_image->getClientOriginalExtension();
-        }
 
+      
         
         $this->validate($request, [
                 'blog_img' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',

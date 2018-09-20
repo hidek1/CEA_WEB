@@ -27,7 +27,10 @@
 
     <!-- Custom Fonts -->
     <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-     
+     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datepicker.css')}}">
+     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datepicker.standalone.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datepicker3.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datepicker3.standalone.css')}}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

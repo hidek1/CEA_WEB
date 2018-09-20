@@ -178,6 +178,20 @@ Route::get('/official/home', function () {
 */
 // Route::get('ceaofficial', 'officialController@index');
 
-//mail request sending
+//mail request sending 
 Route::get('contactmail', 'mailController@getContact');
 Route::post('contactmail', 'mailController@postContact');
+
+//mail absent request form
+
+Route::get('absentform', 'absentController@getForm');
+Route::post('absentform', 'absentController@postForm');
+
+// mail travel request form
+Route::get('travelform', 'travelController@getTravel');
+Route::post('travelform', 'travelController@postTravel');
+
+// mail academic request form
+
+Route::get('academicform', 'academicController@getAcademic');
+Route::post('academicform', 'academicController@postAcademic');
