@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Mail;
 use App\Post; 
-use User;
+use App\User;
+use App\requestForm;
 use Session;
 class mailController extends Controller
 {
     public function getContact(){
-
     		//Mail::send(new requestMail());
-    		//https://www.youtube.com/watch?v=xginpIk1IJw
-    		return view('requestmail');
+    		$user = User::all();
+    		return view('requestmail')->with('user',$user);
     }
 
     public function postContact(Request $request){
@@ -23,6 +23,24 @@ class mailController extends Controller
     			'reason'=> 'required|min:10',
     			'subject' => 'required|min:3'
     	]);
+
+
+    	$requestroom = $request->input('requestroom');
+    	$subject = $request->input('subject');
+    	$emailfrom = $request->input('email');
+    	$reason = $request->input('reason');
+    	$name = $request->input('name');
+    	$user_id = $request->input('user_id');
+
+    	$requestform = new requestForm;
+    	$requestform->user_id = $user_id;
+    	$requestform->issue = $requestroom;
+    	$requestform->emailto = 'info@cea.asia';
+    	$requestform->fromemail = $emailfrom;
+    	$requestform->reason = $reason;
+    	$requestform->name = $name;
+    	$requestform->subject = $subject;
+    	$requestform->save();
 
     	$data = array(
     			'email' => $request->email,

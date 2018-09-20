@@ -48,57 +48,57 @@ input.remove
 }
 </style>
  <div id="page-wrapper">
- 	@if(Auth::check())
-	<div class="row">
-		<div class="col-lg-12"><h3 class="page-header">Add Blog</a>
-			
-		</h3>
-		@if(count($errors) > 0)
-				<div class="alert alert-danger">
-					<ul>
-						@foreach($errors->all() as $error)
-							<li>{{$error}}</li>
-						@endforeach
-					</ul>
-				</div>
-			@endif
-			@if($message = Session::get('success'))
-				<div class="alert alert-success alert-block">
-					<button type="button" class="close" data-dismiss="alert">X</button>
-					<strong>{{$message}}</strong>
-				</div>
-				<img src="/images/blog/{{ Session::get('path') }}" style="width:300px;height: 150px;" />
-			@endif
+    @if(Auth::check())
+    <div class="row">
+        <div class="col-lg-12"><h3 class="page-header">Add Blog</a>
+            
+        </h3>
+        @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @if($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">X</button>
+                    <strong>{{$message}}</strong>
+                </div>
+                <img src="/images/blog/{{ Session::get('path') }}" style="width:300px;height: 150px;" />
+            @endif
 
-			<form action="/blog" class="form-horizontal" enctype="multipart/form-data" method="POST">
-				{{csrf_field()}}
-					<input type="file" name="blog_img"><br />
-				<div class="col-md-6">
-					<div class="form-group">
-						<label for="title">Title</label>
-						<input type="text" class="form-control" name="title" value="">
-						<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
-						  <label for="comment">Blog:</label>
-						  <textarea class="form-control" rows="5" id="comment" name="content"></textarea><br />
-							<fieldset id="buildyourform">
-							    <legend></legend>
-							</fieldset>
-							<input type="button" value="Add Subtitle" class="add btn btn-primary" id="add" />
-						  <input type="submit" name="submit" value="Submit" class="btn btn-primary">
-					</div>
-				</div>
-				<div class="row">
+            <form action="/blog" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                {{csrf_field()}}
+                    <input type="file" name="blog_img"><br />
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" name="title" value="">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                          <label for="comment">Blog:</label>
+                          <textarea class="form-control" rows="5" id="comment" name="content"></textarea><br />
+                            <fieldset id="buildyourform">
+                                <legend></legend>
+                            </fieldset>
+                            <input type="button" value="Add Subtitle" class="add btn btn-primary" id="add" />
+                          <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+                    </div>
+                </div>
+                <div class="row">
 </div>
-			</form>
-	  </div>
-	</div>
-	@else
-		<div class="row">
-			<h3>Please log in first <a href="/main">Log in</a></h3>
-			</div>
-	@endif
+            </form>
+      </div>
+    </div>
+    @else
+        <div class="row">
+            <h3>Please log in first <a href="/main">Log in</a></h3>
+            </div>
+    @endif
 <script type="text/javascript">
-	$(document).ready(function() {
+    $(document).ready(function() {
     $("#add").click(function() {
         var lastField = $("#buildyourform div:last");
         var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
