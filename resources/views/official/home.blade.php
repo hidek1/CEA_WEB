@@ -82,7 +82,7 @@
                       @foreach($photopictures as $picture)
                           @if($picture->user_id == auth::user()->id)
                           <div class="slide1 gal1">
-                              <img src="{{ asset('/images/'.$picture->name) }}" style="width:100%" class="aligncenter size-full wp-image-425" data-toggle="modal" data-target="#image-modal">
+                              <img src="{{ asset('/images/'.$picture->name) }}" style="width:100%;" class="aligncenter size-full wp-image-425" data-toggle="modal" data-target="#image-modal">
                           </div>
                           <div class="modal fade" id="image-modal">
                             <div class="modal-dialog">

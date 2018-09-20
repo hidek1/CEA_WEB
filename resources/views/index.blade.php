@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 text-center" style="background-color:#34324b; padding-top:10px; border-radius:10px;">
-                            <a href="#" target="_english_cea"><img src="{{ asset('images/ceabldg.jpg') }}" class="ceabldg_img"></a>
+                            <a href="#" target="_english_cea"><img src="{{ asset('images/mantoman.jpg') }}" class="ceabldg_img"></a>
                             <div class="row pa_20px">
                                 <div class="col-sm-4">
                                     <img src="{{ asset('images/cea_logo.png') }}" class="cea20px">
