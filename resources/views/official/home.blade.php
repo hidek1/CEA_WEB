@@ -27,13 +27,13 @@
                 
             @endif
     <div class="row button_row">
-        <div class="col-md-3">
+        <div class="col-md-3 button-posi">
             <a href="/contactmail" target="_requestform"><button class="btn btn-warning  btn-block">Request Form</button></a>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 button-posi">
             <a href="/absentform" target="_blank"><button class="btn btn-warning  btn-block">Absent Form</button></a>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 button-posi">
             <a href="/travelform" target="_travelform"><button class="btn btn-warning  btn-block">Travel Form</button></a>
         </div>
         <div class="col-md-3 button-posi">

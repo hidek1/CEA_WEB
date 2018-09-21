@@ -40,31 +40,30 @@
     </div>
     <div class="col-xs-12 col-md-12 col-lg-6">
       <h4 class="member_title">{{ __('messages.Co_content2') }}</h4>
-      <div class="slider">
-      <div class="slideSet2">
-
-        @if(Auth::check())
-          @foreach($photopictures as $picture)
-              @if($picture->user_id == auth::user()->id)
-              <div class="slide2 gal2">
-                  <img src="{{ asset('/images/'.$picture->name) }}" style="width:100%" class="aligncenter size-full wp-image-425" data-toggle="modal" data-target="#image-modal">
-              </div>
-              <div class="modal fade" id="image-modal">
-                <div class="modal-dialog">
-                    <div class="modal-body">
-                    <img src="{{ asset('/images/'.$picture->name) }}" alt="baby-1151351_1920" width="100%" class="aligncenter size-full wp-image-425" />
-                    </div>
+        <div class="slider">
+          <div class="slideSet2">
+          @if(Auth::check())
+            @foreach($photopictures as $picture)
+                @if($picture->user_id == auth::user()->id)
+                <div class="slide2 gal2">
+                    <img src="{{ asset('/images/'.$picture->name) }}" style="width:100%" class="aligncenter size-full wp-image-425" data-toggle="modal" data-target="#image-modal">
                 </div>
-             </div>
-             @endif
-          @endforeach
-        @endif
+                <div class="modal fade" id="image-modal">
+                  <div class="modal-dialog">
+                      <div class="modal-body">
+                      <img src="{{ asset('/images/'.$picture->name) }}" alt="baby-1151351_1920" width="100%" class="aligncenter size-full wp-image-425" />
+                      </div>
+                  </div>
+               </div>
+               @endif
+            @endforeach
+          @endif
 
+        </div>
+        <button class="slider-prev2"><i class="fas fa-angle-left"></i></button>
+        <button class="slider-next2"><i class="fas fa-angle-right"></i></button>
       </div>
-      <button class="slider-prev2"><i class="fas fa-angle-left"></i></button>
-      <button class="slider-next2"><i class="fas fa-angle-right"></i></button>
     </div>
-    </div> 
   </div>
   <div class="row pic_row">
     <div class="col-xs-12 col-md-12 col-lg-6">
