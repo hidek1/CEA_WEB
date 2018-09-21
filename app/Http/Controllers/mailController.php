@@ -58,4 +58,8 @@ class mailController extends Controller
     	return redirect('/ceaofficial')->with('success', 'Your Email was sent');
     }		
     
+    public function edit($id){
+        $requestform = requestForm::find($id);
+        return $requestform;
+    }
 }

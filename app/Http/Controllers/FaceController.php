@@ -10,8 +10,7 @@ class FaceController extends Controller {
     public function index(){
         $blogs = DB::table('blogs')
           ->orderBy('created_at', 'DESC')
-          ->take(5)
-          ->get();
+          ->paginate(5);
         $experiences = User::join('experiences', 'experiences.user_id', '=', 'users.id')->get();
       return view('index_home', compact('blogs', 'experiences'));
     } 

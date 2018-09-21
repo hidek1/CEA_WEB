@@ -14,17 +14,17 @@ class DashboardController extends Controller
 	}
 
     public function userlist(){
-        $userlist = User::all();
+        $userlist = User::paginate(2);
         return view('dashboard_user_list')->with("userlist", $userlist);
     }
 
     public function agencylist(){
-    	$angencylist = RegiAgency::all();
+    	$angencylist = RegiAgency::paginate(1);
     	return view('dashboard_registration_agency_list')->with("angencylist", $angencylist);
     }
 
     public function contactlist(){
-    	$contactlist = Contact::all();
+    	$contactlist = Contact::paginate(1);
     	return view('/dashboard_contact_list')->with('contactlist', $contactlist);
     }
     

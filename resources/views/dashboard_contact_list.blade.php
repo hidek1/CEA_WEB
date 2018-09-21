@@ -4,10 +4,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     
-                    <h3 class="page-header"><a href="/contact/create" target="_contact">Add Contact</a></h3>
+                    <h3 class="page-header"><a href="#" target="_contact">Add Contact</a></h3>
                 </div>
                 <!-- /.col-lg-12 -->
-          <table class="table ">
+          <table class="table table-striped table-bordered table-hover ">
         <tr style="background:#ccc; padding:10px;">
             <th>Name</th>
             <th>Email</th>
@@ -28,6 +28,7 @@
         </tr>
     @endforeach
     </table>
+    {{ $contactlist->links() }}
     </div>
 </div>
     <script>
