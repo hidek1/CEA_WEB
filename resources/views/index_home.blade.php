@@ -94,6 +94,7 @@
               </div>
           </div>
        @endforeach
+       {{ $blogs->links() }}
      </div>
       
       <div class="col-lg-3">

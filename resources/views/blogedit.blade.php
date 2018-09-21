@@ -110,7 +110,7 @@
 						</div>
 					</div>
 				</div>
-				<input type="submit" name="submit" value="Submit" class="btn btn-primary">
+				<input type="submit" name="submit" value="Update Blog" class="btn btn-primary">
 			</form>
 	  </div>
 	</div>

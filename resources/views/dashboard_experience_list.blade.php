@@ -11,7 +11,7 @@
             
             <!-- /.row -->
 
-    <table class="table">
+    <table class="table table-striped table-bordered table-hover">
         <tr style="background:#ccc; padding:10px; ">
             <th>name</th>
             <th>best experience</th>

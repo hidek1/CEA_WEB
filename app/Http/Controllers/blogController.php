@@ -7,7 +7,11 @@ use App\Blog;
 class blogController extends Controller
 {
      function index(){
-        $blogs = Blog::all();
+        $blogs = DB::table('users')
+                    ->join('blogs', 'users.id', '=', 'blogs.user_id')
+                    ->select('users.name', 'blogs.title', 'blogs.content', 'blogs.id')
+                    ->paginate(5);
+                    
     	return view('blog')->with('blogs', $blogs);
     	//return $request->all();
     }
@@ -45,8 +49,6 @@ class blogController extends Controller
     
     function store(Request $request){
 
-      
-        
         $this->validate($request, [
                 'blog_img' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
                 'content' => 'required',
@@ -160,14 +162,10 @@ class blogController extends Controller
 
     function update(Request $request, $id){
       $this->validate($request, [
-                'blog_img' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'content' => 'required',
-                'title' => 'required',
-                'sub_img1' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img2' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img3' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img4' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'sub_img5' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048'
+            'blog_img' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+            'content' => 'required',
+            'title' => 'required'
+          
         ]);
 
 
@@ -176,45 +174,78 @@ class blogController extends Controller
         $content = $request->input('content');
         $user_id = $request->input('user_id');
         $title = $request->input('title');
-        $new_name = rand().'.'.$blog_image->getClientOriginalExtension();
-        $blog_image->move(public_path("images/blog"), $new_name);
+        if($blog_image != NULL){
+            
+            $new_name = rand().'.'.$blog_image->getClientOriginalExtension();
+            $blog_image->move(public_path("images/blog"), $new_name);
+        }
+        else{
+            $new_name = NULL;
+            $filesize = 1;
+        }
+
+            
+        
         
         $blog_image1 = $request->file('sub_img1');
-        $filesize = $blog_image->getClientSize();
         $subcontent1 = $request->input('subcontent1');
         $sub_title1 = $request->input('sub_title1');
-        $new_name1 = rand(). '.'.$blog_image1->getClientOriginalExtension();
-        $blog_image1->move(public_path("images/blog"), $new_name1);
-        
+        if($blog_image1 != NULL){
+            $new_name1 = rand(). '.'.$blog_image1->getClientOriginalExtension();
+            $blog_image1->move(public_path("images/blog"), $new_name1);
+        }
+        else{
+            $new_name1 = NULL;
+
+        }
         
         $blog_image2 = $request->file('sub_img2');
-        $filesize = $blog_image->getClientSize();
         $subcontent2 = $request->input('subcontent2');
         $sub_title2 = $request->input('sub_title2');
-        $new_name2 = rand(). '.'.$blog_image2->getClientOriginalExtension();
-        $blog_image2->move(public_path("images/blog"), $new_name2);
+        if($blog_image2 != ''){
+            $new_name2 = rand(). '.'.$blog_image2->getClientOriginalExtension();
+            $blog_image2->move(public_path("images/blog"), $new_name2);
+        }
+        else{
+            $new_name2 = '';
+        }
         
         
         $blog_image3 = $request->file('sub_img3');
-        $filesize = $blog_image->getClientSize();
         $subcontent3 = $request->input('subcontent3');
         $sub_title3 = $request->input('sub_title3');
-        $new_name3 = rand(). '.'.$blog_image3->getClientOriginalExtension();
-        $blog_image3->move(public_path("images/blog"), $new_name3);
+        if($blog_image3 != ''){
+            $new_name3 = rand(). '.'.$blog_image3->getClientOriginalExtension();
+            $blog_image3->move(public_path("images/blog"), $new_name3);
+        }
+        else{
+            $new_name3 = '';
+        }
+        
 
         $blog_image4 = $request->file('sub_img4');
-        $filesize = $blog_image->getClientSize();
         $subcontent4 = $request->input('subcontent4');
         $sub_title4 = $request->input('sub_title4');
-        $new_name4 = rand(). '.'.$blog_image2->getClientOriginalExtension();
-        $blog_image4->move(public_path("images/blog"), $new_name4);
+        if($blog_image4 != ''){
+            $new_name4 = rand(). '.'.$blog_image2->getClientOriginalExtension();
+            $blog_image4->move(public_path("images/blog"), $new_name4);
+        }
+        else{
+            $new_name4 = '';
+        }
+        
 
         $blog_image5 = $request->file('sub_img5');
-        $filesize = $blog_image->getClientSize();
         $subcontent5 = $request->input('subcontent5');
         $sub_title5 = $request->input('sub_title5');
-        $new_name5 = rand(). '.'.$blog_image5->getClientOriginalExtension();
-        $blog_image5->move(public_path("images/blog"), $new_name5);
+        if($blog_image5 != ''){
+            $new_name5 = rand(). '.'.$blog_image5->getClientOriginalExtension();
+            $blog_image5->move(public_path("images/blog"), $new_name5);
+        }
+        else{
+            $new_name5 = '';
+        }
+        
         
 
         $blog = new Blog;
