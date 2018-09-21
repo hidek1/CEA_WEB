@@ -20,7 +20,7 @@
 					<button type="button" class="close" data-dismiss="alert">X</button>
 					<strong>{{$message}}</strong>
 				</div>
-				<img src="/images/blog/{{ Session::get('path') }}" style="width:300px;height: 150px;" />
+				<img src="/images/blog/{{ Session::get('path') }}" style="width:300px;" />
 			@endif
 		<form action="/blog/{{$blog->id}}" class="form-horizontal" enctype="multipart/form-data" method="POST">
 				{{csrf_field()}}
