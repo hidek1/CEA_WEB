@@ -62,28 +62,22 @@
                             <a href="/dashboard_user_list" target="_user"><i class="fa fa-user"></i> Users </a>
                         </li>
                         <li>
-                            <a href="/dashboard_angecy_list" target="_agencylist"><i class="fa fa-user"></i> Agencies </a>
-                        </li>
-                        <li>
-                            <a href="/dashboard_contact_list" target="_contactlist"><i class="fa fa-user"></i> Contacts </a>
-                        </li>
-                        <li>
-                            <a href="/dashboard_survey_list" target="_surveylist"><i class="fa fa-user"></i> Surveys </a>
-                        </li>
-                        <li>
                             <a href="/dashboard_experience_list" target="_surveylist"><i class="fa fa-user"></i> Experiencs </a>
+                        </li>
+                        <li>
+                            <a href="/official-dashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> To Official page</a>
                         </li>
                           <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>Blogs & Photo<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/file" target="upload_photo"><i class="fa fa-upload"></i> Upload Photo </a>
+                                    <a href="{{ route('upload.file', "camp") }}" target="upload_photo"><i class="fa fa-upload"></i> Upload Photo </a>
                                 </li>
                                 <li>
                                      <a href="/eassayphoto" target="Daily"><i class="fa fa-upload"></i>Photo Daily Essay </a>
                                 </li>
                                 <li>
-                                     <a href="{{ route('speech.file', "first") }}" target="Daily"><i class="fa fa-upload"></i>First Speech </a>
+                                     <a href="{{ route('speech.file', "first") }}" target="Daily"><i class="fa fa-upload"></i>Entrance Speech </a>
                                 </li>
                                 <li>
                                      <a href="{{ route('speech.file', "graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Speech </a>

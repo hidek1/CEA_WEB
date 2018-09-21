@@ -11,19 +11,18 @@
 |
 */
 Auth::routes();
-// more than student
 
-// Route::group(['middleware' => ['auth', 'can:camp-student']], function () {
+
+// more than student
+Route::group(['middleware' => ['auth', 'can:camp-student']], function () {
   Route::get('/index_community_members', 'CommunityController@index');
   Route::get('/index_survey', 'SurveyController@index');
   Route::post('survey/complete', 'SurveyController@complete');
+});
 
-  Route::get('/index_experience', 'ExperienceController@index');
-  Route::post('experience/confirm', 'ExperienceController@confirm');
-  Route::post('experience/complete', 'ExperienceController@complete');
-//});
+
 // more than staff
-// Route::group(['middleware' => ['auth', 'can:staff']], function () {
+Route::group(['middleware' => ['auth', 'can:staff']], function () {
   // for dashboard page url
   Route::get('/dashboard', 'DashboardController@index');
   Route::get('/dashboard_user_list', 'DashboardController@userlist');
@@ -54,7 +53,9 @@ Auth::routes();
   Route::get('experience/{id}/show', 'ExperienceController@show');
 
   Route::get('/home', 'HomeController@index')->name('home');
-//});
+});
+
+
 // only developer
 Route::group(['middleware' => ['auth', 'can:admin']], function () {
 
@@ -83,6 +84,9 @@ Route::get('/index_jr_camp', function () {
 Route::get('/index_family_camp', function () {
     return view('index_family_camp');
 });
+Route::get('index_experience/{page}', 'ExperienceController@index')->name('experience');
+Route::post('experience/confirm', 'ExperienceController@confirm');
+Route::post('experience/complete', 'ExperienceController@complete');
 
 Route::get('/index_contact', 'ContactsController@index');
 Route::post('contact/confirm', 'ContactsController@confirm');
@@ -116,8 +120,8 @@ Route::get('image-upload',['as'=>'image.upload','uses'=>'ImageUploadController@i
 Route::post('image-upload',['as'=>'image.upload.post','uses'=>'ImageUploadController@imageUploadPost']);
 
 // upload photo
-Route::get('file','FileController@showUploadFOrm')->name('upload.file');
-Route::post('file','FileController@storeFile');
+Route::get('file/{type}','FileController@showUploadFOrm')->name('upload.file');
+Route::post('file/{type}','FileController@storeFile');
 
 // upload eassay photo
 Route::get('eassayphoto','eassayController@showUploadFOrm')->name('essay.file');
@@ -156,25 +160,23 @@ Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@swit
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Route::group(['middleware' => ['auth', 'can:official-student']], function () {
-//   // for official website
-//   Route::get('/official/home', function () {
-//       return view('official/home');
-//   });
-//   Route::get('/official/home/{id}', 'OfficialHomeController@index');
-//   Route::get('/official/experience', 'ExperienceController@index_of');
-//   Route::get('/official/dashboard', function () {
-//       return view('official/dashboard');
-//   });
-// });
+Route::group(['middleware' => ['auth', 'can:official-student']], function () {
+  // for official website
+  Route::get('/official-home', 'OfficialHomeController@index');
+  // Route::get('/official-experience', 'ExperienceController@index');
+  Route::get('/official-dashboard', function () {
+      return view('official/dashboard');
+  });
+  Route::get('/official-speech', 'SpeechController@showVideos');
+});
 
-// for official website
+//for official website
 /*
 Route::get('/official/home', function () {
     return view('official/home');
 });
 */
-Route::get('ceaofficial', 'officialController@index');
+// Route::get('ceaofficial', 'officialController@index');
 
 //mail request sending 
 Route::get('contactmail', 'mailController@getContact');

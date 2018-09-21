@@ -13,6 +13,17 @@ left:0;
 top:0;
 }
 
+.modal-middle {
+ margin: 5% auto;
+}
+ 
+.modal-img_footer {
+ padding: .5em;
+ text-align: center;
+}
+.button-posi{
+  margin-bottom: 10px;
+}
 .bodybg{
 	background:url('../images/bodybg.jpg');
 }
@@ -33,6 +44,10 @@ nav.navbar.navbar-expand-lg.navbar-light.navcustom a:hover {
     background:#111;
 	color:fff;
 	
+}
+
+.show {
+  background-color: #212529;
 }
 
 .panel-body {
