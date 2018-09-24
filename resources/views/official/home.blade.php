@@ -37,7 +37,7 @@
             <a href="/travelform" target="_travelform"><button class="btn btn-warning  btn-block">Travel Form</button></a>
         </div>
         <div class="col-md-3 button-posi">
-            <button class="btn btn-warning  btn-block">Academic Form</button>
+            <a href="/academicform" target="_academicform"><button class="btn btn-warning  btn-block">Academic Form</button></a>
         </div>
     </div>
     <div class="row button_row">

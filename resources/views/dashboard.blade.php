@@ -62,6 +62,15 @@
                             <a href="/dashboard_user_list" target="_user"><i class="fa fa-user"></i> Users </a>
                         </li>
                         <li>
+                            <a href="/dashboard_angecy_list" target="_agencylist"><i class="fa fa-user"></i> Agencies </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard_contact_list" target="_contactlist"><i class="fa fa-user"></i> Contacts </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard_survey_list" target="_surveylist"><i class="fa fa-user"></i> Surveys </a>
+                        </li>
+                        <li>
                             <a href="/dashboard_experience_list" target="_surveylist"><i class="fa fa-user"></i> Experiencs </a>
                         </li>
                         <li>

@@ -114,11 +114,6 @@ Route::get('main/logout', 'MainController@logout');
 // display all contacts
 // Route::get('/allcontacts', 'ContactsController@listallcontact');
 
-
-// upload image
-Route::get('image-upload',['as'=>'image.upload','uses'=>'ImageUploadController@imageUpload']);
-Route::post('image-upload',['as'=>'image.upload.post','uses'=>'ImageUploadController@imageUploadPost']);
-
 // upload photo
 Route::get('file/{type}','FileController@showUploadFOrm')->name('upload.file');
 Route::post('file/{type}','FileController@storeFile');
