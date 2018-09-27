@@ -43,9 +43,9 @@
               </div>
             <div class="gallery">
               <div class="desc">{{ __('messages.Facility') }}</div>
-              <a target="_blank" href="{{ asset('images/techers.jpg') }}">
-                <img src="{{ asset('images/techers.jpg') }}" alt="teachers">
-              </a>
+        
+                <img class="zoomable" src="{{ asset('images/techers.jpg') }}" alt="teachers">
+              
             </div>
         </div>
       </div>
@@ -55,9 +55,7 @@
           <div class="col-md-10 text-center gallery_controller">
               <div class="gallery">
                 <div class="desc">{{ __('messages.Meal') }}</div>
-                <a target="_blank" href="images/meal.jpg">
-                  <img src="images/meal.jpg" alt="5Terre">
-                </a>
+                  <img src="{{asset('images/meal.jpg') }}" class="zoomable" alt="5Terre">
               </div>
               <div class="gallery">
                 <div class="desc">{{ __('messages.Picture') }}</div>
@@ -109,7 +107,6 @@
     <script type="text/javascript">
   var slideIndex = 0;
     showSlides();
-
   function showSlides() {
     var i;
     var slides = document.getElementsByClassName("mySlides");

@@ -41,7 +41,7 @@
         </table>
       </div>
       <div class="col-xs-6 col-md-6 col-lg-6">
-        <img src="images/Junior man to man.jpg" class="ceabldg_img" style="margin-top: 20px">
+        <img src="{{asset('images/Junior man to man.jpg') }}" class="ceabldg_img zoomable" style="margin-top: 20px">
       </div>
     </div>
     <h4 style="padding-top: 30px;">{{ __('messages.D_content4') }}</h4>
@@ -53,11 +53,11 @@
     <h4 class="lists">□{{ __('messages.D_content9') }}</h4>
     <div class="row pic_row">
       <div class="col-xs-8 col-md-8 col-lg-8">
-        <img src="images/image1.jpeg" class="img-responsive" width="100%">
+        <img src="{{asset('images/image1.jpeg') }}" class="img-responsive zoomable" width="100%">
         <h6 class="describe_pic">{{ __('messages.D_pic1') }}</h6>
       </div>
       <div class="col-xs-4 col-md-4 col-lg-4">
-        <img src="images/image2.jpeg" class="img-responsive" width="100%">
+        <img src="{{asset('images/image2.jpeg') }}" class="img-responsive zoomable" width="100%">
         <h6 class="describe_pic">{{ __('messages.D_pic2') }}</h6>
       </div>
     </div>

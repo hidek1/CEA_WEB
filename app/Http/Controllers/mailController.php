@@ -1,5 +1,9 @@
 <?php
-
+/*
+    Author: Daryl Bargamento
+    Date Created: August 25 2018
+    Purpose: Rquest Mail  Website
+*/
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

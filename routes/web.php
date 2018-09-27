@@ -30,6 +30,8 @@ Route::group(['middleware' => ['auth', 'can:staff']], function () {
   Route::get('/dashboard_contact_list', 'DashboardController@contactlist');
   Route::get('/dashboard_survey_list', 'DashboardController@surveylist');
   Route::get('/dashboard_experience_list', 'DashboardController@experiencelist');
+  // deleting contact data
+  Route::delete('dashboard_contact_list', 'DashboardController@destroy');
 
   Route::get('user/{id}/edit', 'UserEditController@edit');
   Route::patch('user/{id}', 'UserEditController@update');
@@ -191,3 +193,6 @@ Route::post('travelform', 'travelController@postTravel');
 
 Route::get('academicform', 'academicController@getAcademic');
 Route::post('academicform', 'academicController@postAcademic');
+
+// rout for cea dashboard
+Route::get('officialdashboard', 'officialController@ceaDashboard');

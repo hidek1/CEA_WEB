@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     
-                    <h3 class="page-header"><a href="/index_survey">Add Survey</a></h3>
+                    <h3 class="page-header"><a href="/index_survey" class="btn btn-primary" target="survey">Add Survey</a></h3>
                 </div>
                 <!-- /.col-lg-12 -->
             

@@ -4,13 +4,13 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-4 col-md-4 col-lg-4">
-        <img src="images/juniorgroupb.jpg" class="img-responsive" width="100%">
+        <img src="{{asset('images/juniorgroup.jpg') }}" class="img-responsive zoomable" width="100%">
     </div>
     <div class="col-xs-4 col-md-4 col-lg-4">
-        <img src="images/Play Room (2).jpg" class="img-responsive" width="100%">
+        <img src="{{asset('images/Play Room (2).jpg') }}" class="img-responsive zoomable" width="100%">
     </div>
     <div class="col-xs-4 col-md-4 col-lg-4">
-        <img src="images/Junior group4.jpg" class="img-responsive" width="100%">
+        <img src="{{asset('images/Junior group4.jpg') }}" class="img-responsive zoomable" width="100%">
     </div>
   </div>
   <h1 class="sub_title2">{{ __('messages.Jr_mainTitle') }}</h1>

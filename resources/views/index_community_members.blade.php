@@ -40,6 +40,7 @@
     </div>
     <div class="col-xs-12 col-md-12 col-lg-6">
       <h4 class="member_title">{{ __('messages.Co_content2') }}</h4>
+
         <div class="slider">
           <div class="slideSet2">
           @if(Auth::check())

@@ -674,3 +674,7 @@ a.title_a:hover {
 .pagination li:hover(){
   background: pink;
 }
+
+.margnbtn{
+  margin-bottom:10px;
+}
