@@ -192,3 +192,6 @@ Route::post('travelform', 'travelController@postTravel');
 
 Route::get('academicform', 'academicController@getAcademic');
 Route::post('academicform', 'academicController@postAcademic');
+
+// rout for cea dashboard
+Route::get('officialdashboard', 'officialController@ceaDashboard');

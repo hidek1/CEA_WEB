@@ -33,7 +33,7 @@ class DashboardController extends Controller
     
     public function surveylist()
     {
-        $surveylist = User::join('surveys', 'surveys.user_id', '=', 'users.id')->get();
+        $surveylist = User::join('surveys', 'surveys.user_id', '=', 'users.id')->paginate(5);
         return view('dashboard_student_survey_list', compact('surveylist'));
     }
 
@@ -45,4 +45,8 @@ class DashboardController extends Controller
         }
         return view('official/dashboard_experience_list')->with("experiencelist", $experiencelist);
     }
+
+    
 }
+
+

@@ -1,5 +1,9 @@
 <?php
-
+/*
+    Author: Daryl Bargamento
+    Date Created: August 25 2018
+    Purpose: Adding blogs Website
+*/
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
@@ -79,8 +83,6 @@ class blogController extends Controller
         } else {
             $new_name1 = '';
         }
-        
-        
 
         $blog_image2 = $request->file('sub_img2');
         $filesize = $blog_image->getClientSize();
@@ -179,7 +181,6 @@ class blogController extends Controller
         $user_id = $request->input('user_id');
         $title = $request->input('title');
         if($blog_image != NULL){
-            
             $new_name = rand().'.'.$blog_image->getClientOriginalExtension();
             $blog_image->move(public_path("images/blog"), $new_name);
         }
@@ -188,8 +189,6 @@ class blogController extends Controller
             $filesize = 1;
         }
 
-            
-        
         
         $blog_image1 = $request->file('sub_img1');
         $subcontent1 = $request->input('subcontent1');
@@ -250,7 +249,6 @@ class blogController extends Controller
             $new_name5 = '';
         }
         
-        
 
         $blog = new Blog;
         $blog->blog_img = $new_name;
@@ -283,10 +281,15 @@ class blogController extends Controller
         $blog->save();
         return back()->with('success', 'Blog Updated Successfully!')->with('path',$new_name);
     }
-    public function destroy($id){
+    public function destroy(Request $request, $id){
+        /*
         $blog = Blog::find($id);
         $blog->delete();
         return redirect('blog')->with('sucess', 'Successully Deleted');
+        */
+        $blog = Blog::findOrFail($request->blog_id);
+        $blog->delete();
+        return back()->with('success', 'Your record was deleted successfully');
     }
 
     public function listallblog($id){

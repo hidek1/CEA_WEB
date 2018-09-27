@@ -1,5 +1,9 @@
 <?php
-
+/*
+    Author: Daryl Bargamento
+    Date Created: August 25 2018
+    
+*/
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;

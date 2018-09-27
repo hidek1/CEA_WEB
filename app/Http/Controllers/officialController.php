@@ -9,4 +9,8 @@ class officialController extends Controller
     function index(){
     	return view('official.home');
     }
+
+    function ceaDashboard(){
+    	return view('officialdashboard');
+    }
 }

@@ -10,7 +10,6 @@
   <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
   <script type="text/javascript" src="{{asset('js/jquery-3.3.1.js')}}"></script>
   <script type="text/javascript" src="{{asset('js/jquery-migrate-1.4.1.js')}}"></script>
-  
   @yield('css')
 </head>
 <body class='bodybg'>
@@ -28,8 +27,10 @@
       <a href="#"> Cebu English Academy</a>
     </div>
   <!-- Copyright -->
+
   </footer>
 
   @yield('js')
+
 </body>
 </html>
