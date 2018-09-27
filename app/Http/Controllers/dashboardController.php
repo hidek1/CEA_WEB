@@ -14,7 +14,7 @@ class DashboardController extends Controller
 	}
 
     public function userlist($type){
-        $userlist = User::paginate(2);
+        $userlist = User::paginate(8);
         if ($type == "camp") {
             return view('dashboard_user_list')->with("userlist", $userlist);
         }
