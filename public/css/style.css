@@ -13,6 +13,17 @@ left:0;
 top:0;
 }
 
+.modal-middle {
+ margin: 5% auto;
+}
+ 
+.modal-img_footer {
+ padding: .5em;
+ text-align: center;
+}
+.button-posi{
+  margin-bottom: 10px;
+}
 .bodybg{
 	background:url('../images/bodybg.jpg');
 }
@@ -35,13 +46,17 @@ nav.navbar.navbar-expand-lg.navbar-light.navcustom a:hover {
 	
 }
 
+.show {
+  background-color: #212529;
+}
+
 .panel-body {
     padding: 15px;
 	background:#f1f1f1;
 }
 .ceabldg_img{
 	max-width:100%;
-	height:327px;
+/*	height:327px;*/
 	border-radius:10px;
 }
 .panel-default {

@@ -1,8 +1,61 @@
-.slider {
-  width: 500px;
-  height: 400px;
-  overflow: hidden;
-  position: relative;
+@media screen and (min-width:961px) {
+/*pc*/
+  .slider {
+    width: 500px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+  }
+  .slider .slide1 {
+    width: 500px;
+    height: 400px;
+    float: left;
+  }
+  .slide2 {
+    width: 500px;
+    height: 400px;
+    float: left;
+  }
+}
+  
+@media only screen and (min-width:376px) and (max-width:960px) {
+/*tablet*/
+  .slider {
+    width: 500px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+  }
+  .slider .slide1 {
+    width: 500px;
+    height: 400px;
+    float: left;
+  }
+  .slide2 {
+    width: 500px;
+    height: 400px;
+    float: left;
+  }
+}
+ 
+@media screen and (max-width:375px) {
+/*smart phone*/
+  .slider {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+  }
+  .slider .slide1 {
+    width: 300px;
+    height: 200px;
+    float: left;
+  }
+  .slide2 {
+    width: 300px;
+    height: 200px;
+    float: left;
+  }
 }
 
 
@@ -12,18 +65,6 @@
 
 .slideSet2 {
   position: absolute;
-}
-
-.slider .slide1 {
-  width: 500px;
-  height: 400px;
-  float: left;
-}
-
-.slide2 {
-  width: 500px;
-  height: 400px;
-  float: left;
 }
 
 .slider-prev1,

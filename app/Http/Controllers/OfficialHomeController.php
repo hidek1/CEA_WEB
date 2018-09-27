@@ -12,17 +12,7 @@ class OfficialHomeController extends Controller
     public function index(Request $request)
     {    
         $id = Auth::id();
-        // $photopictures = File::all();
-        // if (Speech::where('user_id',$id)->orderBy('created_at', 'desc')->where('type','first')->first()) {
-        //   $first_speech = Speech::where('user_id',$id)->where('type','first')->orderBy('created_at', 'desc')->first();
-        // } else {
-        //   $first_speech = null;
-        // }
-        // if (Speech::where('user_id',$id)->orderBy('created_at', 'desc')->where('type','graduation')->first()) {
-        //   $graduation_speech = Speech::where('user_id',$id)->where('type','graduation')->orderBy('created_at', 'desc')->first();
-        // } else {
-        //   $graduation_speech = null;
-        // }
+        $photopictures = File::all();
         if (PDF::where('user_id',$id)->orderBy('created_at', 'desc')->where('type','of_entrance')->first()) {
           $entrance = PDF::where('user_id',$id)->where('type','of_entrance')->orderBy('created_at', 'desc')->first();
         } else {
@@ -53,7 +43,12 @@ class OfficialHomeController extends Controller
         } else {
           $class = null;
         }
+        if (Speech::where('user_id',$id)->orderBy('created_at', 'desc')->first()) {
+          $latest_speech = Speech::where('user_id',$id)->orderBy('created_at', 'desc')->first();
+        } else {
+          $latest_speech = null;
+        }
         //return view('index_community_members')->with(['photopictures' => $photopictures,  'essaydailyphoto' => $essaydailyphoto]);
-        return view('official/home', compact('entrance','chart','result','evaluation','graduation', 'class'));
+        return view('official/home', compact('entrance','chart','result','evaluation','graduation', 'class', 'latest_speech','photopictures'));
     }
 }

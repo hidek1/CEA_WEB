@@ -14,9 +14,12 @@ class FileController extends Controller
 
 
 
-    function showUploadFOrm(){
-    	$user = User::all();
-    	return view('upload')->with('users',$user);
+    function showUploadFOrm($type){
+    	$users = User::all();
+        if ($type == 'official'){
+    	   return view('official/picture', compact('users','type'));
+        }
+        return view('upload', compact('users','type'));
     	//return $request->all();
     }
 

@@ -78,11 +78,11 @@
       <span class="archive_head--top ">{{ __('messages.NewArticles') }}</span>
       </div>
       @foreach($blogs as $blog)
-        <div class="row margnbtn">
-              <div class="col-lg-4">
-                    <img src="{{asset('images/blog/'.$blog->blog_img)}}" class="textwrap" width="100%">
+        <div class="row">
+              <div class="col-lg-3">
+                    <img src="{{asset('images/blog/'.$blog->blog_img)}}" width="110px" height="110px" style="object-fit: cover;">           
               </div>
-              <div class="col-lg-8">
+              <div class="col-lg-9">
                     <a href="allblog/{{$blog->id}}" class="title_a" target="_blog"><span class="archive__title">{{ str_limit($blog->title,20)}}</span></a>
                     <p>
                       <h5 class="string_content">{{ str_limit($blog->content, 50, '...') }}</h5>

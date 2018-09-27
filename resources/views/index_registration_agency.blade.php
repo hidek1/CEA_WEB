@@ -221,13 +221,13 @@ $('input[name="program"], input[name="term"]').change(function() {
                 console.log( "jr" );
         if (term == "{{ $terms[0] }}") {
             console.log( "2 weeks" );
-            document.getElementById("amount").innerText = "$3,000";
+            document.getElementById("amount").innerText = "undecided";
         } else if (term == "{{ $terms[1] }}") {
             console.log( "3 weeks" );
-            document.getElementById("amount").innerText = "$3,500";
+            document.getElementById("amount").innerText = "undecided";
         } else if (term == "{{ $terms[2] }}") {
             console.log( "4 weeks" );
-            document.getElementById("amount").innerText = "$4,000";
+            document.getElementById("amount").innerText = "undecided";
         } else {
             console.log( "no" );
         }
