@@ -25,11 +25,11 @@ Route::group(['middleware' => ['auth', 'can:camp-student']], function () {
 Route::group(['middleware' => ['auth', 'can:staff']], function () {
   // for dashboard page url
   Route::get('/dashboard', 'DashboardController@index');
-  Route::get('/dashboard_user_list', 'DashboardController@userlist');
+  Route::get('/dashboard_user_list/{type}', 'DashboardController@userlist')->name('dashboard_user');
   Route::get('/dashboard_angecy_list', 'DashboardController@agencylist');
   Route::get('/dashboard_contact_list', 'DashboardController@contactlist');
   Route::get('/dashboard_survey_list', 'DashboardController@surveylist');
-  Route::get('/dashboard_experience_list', 'DashboardController@experiencelist');
+  Route::get('/dashboard_experience_list/{type}', 'DashboardController@experiencelist')->name('dashboard_experience');
 
   Route::get('user/{id}/edit', 'UserEditController@edit');
   Route::patch('user/{id}', 'UserEditController@update');
@@ -53,6 +53,10 @@ Route::group(['middleware' => ['auth', 'can:staff']], function () {
   Route::get('experience/{id}/show', 'ExperienceController@show');
 
   Route::get('/home', 'HomeController@index')->name('home');
+
+  Route::get('/official-dashboard', function () {
+      return view('official/dashboard');
+  });
 });
 
 
@@ -159,9 +163,6 @@ Route::group(['middleware' => ['auth', 'can:official-student']], function () {
   // for official website
   Route::get('/official-home', 'OfficialHomeController@index');
   // Route::get('/official-experience', 'ExperienceController@index');
-  Route::get('/official-dashboard', function () {
-      return view('official/dashboard');
-  });
   Route::get('/official-speech', 'SpeechController@showVideos');
 });
 

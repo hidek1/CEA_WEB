@@ -13,18 +13,21 @@ class DashboardController extends Controller
 		return view('/dashboard_home');
 	}
 
-    public function userlist(){
+    public function userlist($type){
         $userlist = User::paginate(2);
-        return view('dashboard_user_list')->with("userlist", $userlist);
+        if ($type == "camp") {
+            return view('dashboard_user_list')->with("userlist", $userlist);
+        }
+        return view('official/dashboard_user_list')->with("userlist", $userlist);
     }
 
     public function agencylist(){
-    	$angencylist = RegiAgency::paginate(1);
+    	$angencylist = RegiAgency::paginate(8);
     	return view('dashboard_registration_agency_list')->with("angencylist", $angencylist);
     }
 
     public function contactlist(){
-    	$contactlist = Contact::paginate(1);
+    	$contactlist = Contact::paginate(8);
     	return view('/dashboard_contact_list')->with('contactlist', $contactlist);
     }
     
@@ -34,9 +37,12 @@ class DashboardController extends Controller
         return view('dashboard_student_survey_list', compact('surveylist'));
     }
 
-    public function experiencelist()
+    public function experiencelist($type)
     {
         $experiencelist = User::join('experiences', 'experiences.user_id', '=', 'users.id')->get();
-        return view('dashboard_experience_list', compact('experiencelist'));
+        if ($type == "camp") {
+            return view('dashboard_experience_list', compact('experiencelist'));
+        }
+        return view('official/dashboard_experience_list')->with("experiencelist", $experiencelist);
     }
 }
