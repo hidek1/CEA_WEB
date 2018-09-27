@@ -43,7 +43,8 @@
                             <label for="type" class="col-md-4 control-label">type</label>
 
                             <div class="col-md-6">
-                                <input type="radio" name="type" value="3" checked>Student
+                                <input type="radio" name="type" value="4" checked>Official Student
+                                <input type="radio" name="type" value="3">Camp Student
                                 <input type="radio" name="type" value="2">Staff
                                 @if ($errors->has('type'))
                                     <span class="help-block">

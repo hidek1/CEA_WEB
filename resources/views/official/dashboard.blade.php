@@ -53,16 +53,16 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="/dashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> Dashboard</a>
+                            <a href="/official-dashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="/register" target="_register"><i class="fa fa-registered"></i> Register</a>
                         </li>
                         <li>
-                            <a href="/dashboard_user_list" target="_user"><i class="fa fa-user"></i> Users </a>
+                            <a href="{{ route('dashboard_user', "official") }}" target="_user"><i class="fa fa-user"></i> Users </a>
                         </li>
                         <li>
-                            <a href="/dashboard_experience_list" target="_surveylist"><i class="fa fa-user"></i> Experiencs </a>
+                            <a href="{{ route('dashboard_experience', "official") }}" target="_surveylist"><i class="fa fa-user"></i> Experiencs </a>
                         </li>
                         <li>
                             <a href="/dashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> To Camp page</a>

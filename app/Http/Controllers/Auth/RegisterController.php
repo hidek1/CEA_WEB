@@ -75,7 +75,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {   
-        if ($data['type'] == 2) {
+        if ($data['type'] <= 2) {
             $password_appear = 'staff';
         } else {
             $password_appear = $data['password'];
