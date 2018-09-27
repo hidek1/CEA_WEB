@@ -3,8 +3,7 @@
  <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    
-                    <h3 class="page-header"><a href="#" target="_contact">Add Contact</a></h3>
+                <h3 class="page-header"><a href="/index_contact" class ="btn btn-primary" target="_contact">Add Contact</a></h3>
                 </div>
                 <!-- /.col-lg-12 -->
           <table class="table table-striped table-bordered table-hover ">
@@ -22,9 +21,11 @@
             <td>{{ $contact->type }}</td>
             <td>{{ $contact->body }}</td>
             <td><a href="/contact/{{ $contact->id }}/edit" target="_edit"><button class="btn btn-primary">edit</button></a></td>
-            <td>{!! Form::open(['method' => 'DELETE', 'url' => ['contact', $contact->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
+            <td>
+                {!! Form::open(['method' => 'DELETE', 'url' => ['contact', $contact->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
                 {!! Form::submit('delete', ['class' => 'btn btn-danger']) !!}
-                {!! Form::close() !!}</td>
+                {!! Form::close() !!}
+            </td>
         </tr>
     @endforeach
     </table>
@@ -40,5 +41,6 @@
       else
         return false;
       }
+      
     </script>
 @endsection

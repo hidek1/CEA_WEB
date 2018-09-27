@@ -42,7 +42,7 @@
           @foreach($photopictures as $picture)
               @if($picture->user_id == auth::user()->id)
               <div class="slide2 gal2">
-                    <img src="{{ asset('/images/'.$picture->name) }}" style="width:100%;">
+                    <img src="{{ asset('/images/'.$picture->name) }}" class="zoomable" style="width:100%;">
               </div>
              @endif
           @endforeach

@@ -14,6 +14,7 @@
   <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
   <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
   <script type="text/javascript" src="{{asset('js/jquery-migrate-1.4.1.js')}}"></script>
+
 </head>
 <body class='bodybg'>
   @include('header')
@@ -23,5 +24,6 @@
   @include('footer')
   
   @yield('js')
+  <script type="text/javascript" src="{{asset('js/default.js')}}"></script>
 </body>
 </html>

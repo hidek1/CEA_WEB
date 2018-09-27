@@ -33,7 +33,8 @@
 							<input type="text" class="form-control" name="title" value="{{ old('title')}}">
 							<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
 							  <label for="comment">Blog:</label>
-							  <textarea class="form-control" rows="5" id="comment" name="content">{{ old('content')}}</textarea><br />  
+							  <textarea class="form-control" rows="5" id="comment" name="content">{{ old('content')}}</textarea>
+							  <br />  
 						</div>
 					</div>
 				</div>
@@ -45,8 +46,7 @@
 							<label for="title">Sub Title 1</label>
 							<input type="text" class="form-control" name="sub_title1" value="{{ old('sub_title1')}}">
 							  <label for="comment">Sub Content 1:</label>
-							  <textarea class="form-control" rows="5" id="comment" name="subcontent1">
-							  	{{ old('subcontent1')}}
+							  <textarea class="form-control" rows="5" id="comment" name="subcontent1">{{ old('subcontent1')}}
 							  </textarea><br />
 						</div>
 					</div>
@@ -59,8 +59,7 @@
 							<label for="title">Sub Title 2</label>
 							<input type="text" class="form-control" name="sub_title2" value="{{ old('sub_title2')}}">
 							  <label for="comment">Blog:</label>
-							  <textarea class="form-control" rows="5" id="comment" name="subcontent2">
-							  	{{ old('subcontent2')}}
+							  <textarea class="form-control" rows="5" id="comment" name="subcontent2">{{ old('subcontent2')}}
 							  </textarea><br />
 						</div>
 					</div>
@@ -86,8 +85,7 @@
 							<label for="title">Sub Title 4 </label>
 							<input type="text" class="form-control" name="sub_title4" value="{{ old('sub_title4')}}">
 							  <label for="comment">Blog 4:</label>
-							  <textarea class="form-control" rows="5" id="comment" name="subcontent4">
-							  	{{ old('subcontent4')}}
+							  <textarea class="form-control" rows="5" id="comment" name="subcontent4">{{ old('subcontent4')}}
 							  </textarea><br />
 						</div>
 					</div>
@@ -99,10 +97,8 @@
 							<label for="title">Sub Title 5</label>
 							<input type="text" class="form-control" name="sub_title5" value="{{ old('sub_title5')}}">
 							  <label for="comment">Blog 5:</label>
-							  <textarea class="form-control" rows="5" id="comment" name="subcontent5">
-							  	{{ old('subcontent5')}}
+							  <textarea class="form-control" rows="5" id="comment" name="subcontent5">{{ old('subcontent5')}}
 							  </textarea><br />
-							  
 						</div>
 					</div>
 				</div>

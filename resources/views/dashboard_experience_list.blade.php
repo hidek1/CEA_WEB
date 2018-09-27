@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     
-                    <h3 class="page-header"><a href="/index_experience">Add Experience</a></h3>
+                    <h3 class="page-header"><a href="/index_experience" class="btn btn-primary">Add Experience</a></h3>
                 </div>
                 <!-- /.col-lg-12 -->
             

@@ -43,9 +43,9 @@
               </div>
             <div class="gallery">
               <div class="desc">{{ __('messages.Facility') }}</div>
-              <a target="_blank" href="{{ asset('images/techers.jpg') }}">
-                <img src="{{ asset('images/techers.jpg') }}" alt="teachers">
-              </a>
+        
+                <img class="zoomable" src="{{ asset('images/techers.jpg') }}" alt="teachers">
+              
             </div>
         </div>
       </div>
@@ -55,9 +55,7 @@
           <div class="col-md-10 text-center gallery_controller">
               <div class="gallery">
                 <div class="desc">{{ __('messages.Meal') }}</div>
-                <a target="_blank" href="images/meal.jpg">
-                  <img src="images/meal.jpg" alt="5Terre">
-                </a>
+                  <img src="{{asset('images/meal.jpg') }}" class="zoomable" alt="5Terre">
               </div>
               <div class="gallery">
                 <div class="desc">{{ __('messages.Picture') }}</div>
@@ -80,9 +78,9 @@
       <span class="archive_head--top ">{{ __('messages.NewArticles') }}</span>
       </div>
       @foreach($blogs as $blog)
-        <div class="row">
+        <div class="row margnbtn">
               <div class="col-lg-4">
-                    <img src="{{asset('images/blog/'.$blog->blog_img)}}" class="textwrap" width="100%">           
+                    <img src="{{asset('images/blog/'.$blog->blog_img)}}" class="textwrap" width="100%">
               </div>
               <div class="col-lg-8">
                     <a href="allblog/{{$blog->id}}" class="title_a" target="_blog"><span class="archive__title">{{ str_limit($blog->title,20)}}</span></a>
@@ -109,7 +107,6 @@
     <script type="text/javascript">
   var slideIndex = 0;
     showSlides();
-
   function showSlides() {
     var i;
     var slides = document.getElementsByClassName("mySlides");
