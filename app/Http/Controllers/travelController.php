@@ -52,10 +52,10 @@ class travelController extends Controller
     	);
 
     	Mail::send('emails.travel', $data, function($message) use ($data){
-    		$message->from($data['email']);
-    		$message->to('darylb2k11@gmail.com');
+    		$message->to($data['email']);
+            $message->sender($data['email']);
     		$message->subject($data['subject']);
     	});
-    	return redirect('/ceaofficial')->with('success', 'Your Travel Form was sent');
+    	return redirect('/official-home')->with('success', 'Your Travel Form was sent');
     }
 }

@@ -35,10 +35,14 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript" src="{{asset('js/jquery-3.3.1.js')}}"></script>
-
+<style type="text/css">
+    .navbar-default.sidebar.ccc {
+        background: #ccc;
+    }
+</style>
 </head>
 <body>
-      <div class="navbar-default sidebar" role="navigation">
+      <div class="navbar-default sidebar ccc" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">

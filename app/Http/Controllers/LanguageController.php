@@ -20,4 +20,5 @@ class LanguageController extends Controller
         }
         return redirect('/index_home');
     }
+
 }

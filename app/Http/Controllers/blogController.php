@@ -50,7 +50,6 @@ class blogController extends Controller
         return view('addblog');
     }
 
-    
     function store(Request $request){
 
         $this->validate($request, [
@@ -74,7 +73,6 @@ class blogController extends Controller
 
         
         $blog_image1 = $request->file('sub_img1');
-        $filesize = $blog_image->getClientSize();
         $subcontent1 = $request->input('subcontent1');
         $sub_title1 = $request->input('sub_title1');
         if ($blog_image1 != null) {
@@ -85,7 +83,6 @@ class blogController extends Controller
         }
 
         $blog_image2 = $request->file('sub_img2');
-        $filesize = $blog_image->getClientSize();
         $subcontent2 = $request->input('subcontent2');
         $sub_title2 = $request->input('sub_title2');
          if ($blog_image2 != null) {
@@ -96,7 +93,6 @@ class blogController extends Controller
         }
         
         $blog_image3 = $request->file('sub_img3');
-        $filesize = $blog_image->getClientSize();
         $subcontent3 = $request->input('subcontent3');
         $sub_title3 = $request->input('sub_title3');
         if ($blog_image3 != null) {
@@ -107,7 +103,6 @@ class blogController extends Controller
         }
 
         $blog_image4 = $request->file('sub_img4');
-        $filesize = $blog_image->getClientSize();
         $subcontent4 = $request->input('subcontent4');
         $sub_title4 = $request->input('sub_title4');
         if ($blog_image4 != null) {
@@ -118,7 +113,6 @@ class blogController extends Controller
         }
 
         $blog_image5 = $request->file('sub_img5');
-        $filesize = $blog_image->getClientSize();
         $subcontent5 = $request->input('subcontent5');
         $sub_title5 = $request->input('sub_title5');
         if ($blog_image5 != null) {

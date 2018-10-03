@@ -72,6 +72,6 @@
     <h4>{{ __('messages.D_content19') }}<br>{{ __('messages.D_content20') }}</h4>
     <h3 class="num_title">3．{{ __('messages.D_content21') }}</h3>
     <h4>{{ __('messages.D_content22') }}</h4>
-    <img src="images/Junior group2.jpg" class="img-responsive img_b  center-block" width="50%">
+    <img src="{{asset('images/Junior group2.jpg') }}" class="img-responsive img_b  center-block zoomable" width="50%">
   </div>
 @endsection

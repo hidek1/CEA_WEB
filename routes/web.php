@@ -14,15 +14,15 @@ Auth::routes();
 
 
 // more than student
-Route::group(['middleware' => ['auth', 'can:camp-student']], function () {
+
   Route::get('/index_community_members', 'CommunityController@index');
   Route::get('/index_survey', 'SurveyController@index');
   Route::post('survey/complete', 'SurveyController@complete');
-});
+
 
 
 // more than staff
-Route::group(['middleware' => ['auth', 'can:staff']], function () {
+
   // for dashboard page url
   Route::get('/dashboard', 'DashboardController@index');
   Route::get('/dashboard_user_list/{type}', 'DashboardController@userlist')->name('dashboard_user');
@@ -55,9 +55,9 @@ Route::group(['middleware' => ['auth', 'can:staff']], function () {
   Route::get('/home', 'HomeController@index')->name('home');
 
   Route::get('/official-dashboard', function () {
-      return view('official/dashboard');
+      return view('official.dashboard');
   });
-});
+
 
 
 // only developer
@@ -159,12 +159,11 @@ Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@swit
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::group(['middleware' => ['auth', 'can:official-student']], function () {
   // for official website
   Route::get('/official-home', 'OfficialHomeController@index');
   // Route::get('/official-experience', 'ExperienceController@index');
   Route::get('/official-speech', 'SpeechController@showVideos');
-});
+
 
 //for official website
 /*
@@ -172,7 +171,7 @@ Route::get('/official/home', function () {
     return view('official/home');
 });
 */
-// Route::get('ceaofficial', 'officialController@index');
+//Route::get('ceaofficial', 'officialController@index');
 
 //mail request sending 
 Route::get('contactmail', 'mailController@getContact');

@@ -4,7 +4,7 @@
 <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Travel Form
+                Academic Form <a href="official-home" class="btn btn-primary"> Go back Official Page</a>
             </div>
             <div class="panel-body">
                 <div class="row">

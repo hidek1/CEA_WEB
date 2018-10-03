@@ -33,7 +33,7 @@ class UserEditController extends Controller
             'password' => bcrypt($request->password),
             'password_appear' => $request->password,
         ]);
-        return redirect(url('dashboard_user_list'));
+        return redirect('dashboard_user_list/camp');
     }
 
     public function destroy($id) {
