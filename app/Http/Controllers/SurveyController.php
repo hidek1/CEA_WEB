@@ -15,9 +15,15 @@ class SurveyController extends Controller
 {
     public function index()
     {
-        $scores = Survey::$scores;
-        $user_id = Auth::user()->id;
-        return view('index_student_survey', compact('scores','user_id'));
+        if(Auth::check()){
+            $scores = Survey::$scores;
+            $user_id = Auth::user()->id;
+            return view('index_student_survey', compact('scores','user_id'));
+        }
+        else{
+            return redirect('main');
+        }
+
     }
 
     public function complete(SurveyRequest $request)

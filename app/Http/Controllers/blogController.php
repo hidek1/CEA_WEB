@@ -13,8 +13,7 @@ class blogController extends Controller
      function index(){
         $blogs = DB::table('users')
                     ->join('blogs', 'users.id', '=', 'blogs.user_id')
-                    ->select('users.name', 'blogs.title', 'blogs.content', 'blogs.id')
-                    ->paginate(5);
+                    ->select('users.name', 'blogs.title', 'blogs.content', 'blogs.id')->get();
                     
     	return view('blog')->with('blogs', $blogs);
     	//return $request->all();

@@ -24,9 +24,9 @@
                                             <strong>{{$message}}</strong>
                                         </div>
                                     @endif
+                                    
                                     <form  action="{{ url('absentform') }}"  method="POST" >
                                         {{ csrf_field() }}
-
                                         <div class="form-group" >                   
                                             <label>AbsentForm</label>
                                         </div>
@@ -44,7 +44,7 @@
                                                 <input type="text" name="absentdate" class="form-control">
                                                 <div class="input-group-addon">
                                                     <span class="glyphicon glyphicon-th"></span>
-                                                </div>
+                                                </div> 
                                             </div>
                                             <input type="hidden" name="email" class="form-control"value="{{Auth::user()->email}}" Placeholder="Email">
                                         </div>

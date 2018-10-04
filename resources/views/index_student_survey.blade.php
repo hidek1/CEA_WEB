@@ -1,6 +1,6 @@
 @extends('layout')
-
 @section('content')
+@if(Auth::check())
   <div class="container">
     <h2 class="form_title">student survey</h2>
     <div class="make_center">
@@ -184,4 +184,7 @@
     {!! Form::close() !!}
     </div>
   </div>
+  @else
+    <h2>Please Log in First</h2>
+@endif
 @endsection
