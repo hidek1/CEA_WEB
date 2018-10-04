@@ -4,7 +4,7 @@
 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Absent Form
+                            Absent Form <a href="official-home" class="btn btn-primary"> Go back Official Page</a>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -24,9 +24,9 @@
                                             <strong>{{$message}}</strong>
                                         </div>
                                     @endif
+                                    
                                     <form  action="{{ url('absentform') }}"  method="POST" >
                                         {{ csrf_field() }}
-
                                         <div class="form-group" >                   
                                             <label>AbsentForm</label>
                                         </div>
@@ -44,7 +44,7 @@
                                                 <input type="text" name="absentdate" class="form-control">
                                                 <div class="input-group-addon">
                                                     <span class="glyphicon glyphicon-th"></span>
-                                                </div>
+                                                </div> 
                                             </div>
                                             <input type="hidden" name="email" class="form-control"value="{{Auth::user()->email}}" Placeholder="Email">
                                         </div>

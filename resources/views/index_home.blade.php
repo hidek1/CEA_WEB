@@ -19,7 +19,6 @@
       <div class="mySlides fade">
         <img src="images/Juniorgroup5.jpeg" style="width:80%">
       </div>
-
     </div>
           <br>
       <div style="text-align:center">
@@ -80,7 +79,7 @@
       @foreach($blogs as $blog)
         <div class="row">
               <div class="col-lg-3">
-                    <img src="{{asset('images/blog/'.$blog->blog_img)}}" width="110px" height="110px" style="object-fit: cover;">           
+                    <img src="{{asset('images/blog/'.$blog->blog_img)}}" class="archive__img">           
               </div>
               <div class="col-lg-9">
                     <a href="allblog/{{$blog->id}}" class="title_a" target="_blog"><span class="archive__title">{{ str_limit($blog->title,20)}}</span></a>

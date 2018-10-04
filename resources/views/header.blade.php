@@ -24,13 +24,13 @@
                     <li class="nav-item">
                     <a class="nav-link" href="/index_movie">{{ __('messages.videos') }}</a>
                     </li>
-                    @if(isset(Auth::user()->email))
+                    @if(isset(Auth::user()->id))
                     <li class="nav-item">
                     <a class="nav-link" href=" {{ asset('/index_community_members')}}">{{ __('messages.community') }}</a>
                     </li>
                     @else
                     <li class="nav-item">
-                    <a class="nav-link" href="/main">{{ __('messages.community') }}</a>
+                    <a class="nav-link" href="/main" title="Log in">{{ __('messages.community') }}</a>
                     </li>
                     @endif
                     <li class="nav-item">

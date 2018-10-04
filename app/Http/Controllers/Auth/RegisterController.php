@@ -74,18 +74,20 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {   
+    {  
+        
         if ($data['type'] <= 2) {
             $password_appear = 'staff';
         } else {
             $password_appear = $data['password'];
         }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'type' => $data['type'],
             'password' => bcrypt($data['password']),
-            'password_appear' => $password_appear
+            'password_appear' => $data['password']
         ]);
     }
 }

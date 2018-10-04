@@ -20,24 +20,31 @@
 							<p>
 								{{$bloglist->subcontent1}}
 							</p>
+							@if($bloglist->subimg1 != NULL)
 							<img  src="{{asset('images/blog/'.$bloglist->subimg1)}}" alt="" width="100%">
 							<br />
 							<h2>{{$bloglist->subtile2}}</h2>
 							<p>
 								{{$bloglist->subcontent2}}
 							</p>
+							@endif
+							@if($bloglist->subimg2 != NULL)
 							<img  src="{{asset('images/blog/'.$bloglist->subimg2)}}" alt="" width="100%">
 							<br />
 							<h2>{{$bloglist->subtile3}}</h2>
 							<p>
 								{{$bloglist->subcontent3}}
 							</p>
+							@endif
+							@if($bloglist->subimg3 != NULL)
 							<img  src="{{asset('images/blog/'.$bloglist->subimg3)}}" alt="" width="100%">
 							<br />
 							<h2>{{$bloglist->subtile4}}</h2>
 							<p>
 								{{$bloglist->subcontent4}}
 							</p>
+							@endif
+							@if($bloglist->subimg4 != NULL)
 							<img  src="{{asset('images/blog/'.$bloglist->subimg4)}}" alt="" width="100%">
 							<br />
 							<h2>{{$bloglist->subtile5}}</h2>
@@ -45,6 +52,7 @@
 								{{$bloglist->subcontent5}}
 							</p>
 							<img  src="{{asset('images/blog/'.$bloglist->subimg5)}}" alt="" width="100%">
+							@endif
 						</div>
 					</div>
 					@endforeach

@@ -536,6 +536,7 @@ p.textwrapleft.top {
   margin-right: 16px;
   width: 160px;
   height: 120px; 
+  margin-bottom:5px;
 }
 
 .boxLink {

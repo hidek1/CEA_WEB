@@ -54,12 +54,12 @@ class mailController extends Controller
     	);
 
     	Mail::send('emails.contact', $data, function($message) use ($data){
-    		$message->from($data['email']);
-    		$message->to('info@cea.asia');
+    		$message->to($data['email']);
+            $message->sender($data['email']);
     		$message->subject($data['subject']);
     	});
     	
-    	return redirect('/ceaofficial')->with('success', 'Your Email was sent');
+    	return redirect('/official-home')->with('success', 'Your Email was sent');
     }		
     
     public function edit($id){

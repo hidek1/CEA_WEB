@@ -14,7 +14,7 @@ class DashboardController extends Controller
 	}
 
     public function userlist($type){
-        $userlist = User::paginate(8);
+        $userlist = User::all();
         if ($type == "camp") {
             return view('dashboard_user_list')->with("userlist", $userlist);
         }
@@ -22,12 +22,12 @@ class DashboardController extends Controller
     }
 
     public function agencylist(){
-    	$angencylist = RegiAgency::paginate(8);
+    	$angencylist = RegiAgency::all();
     	return view('dashboard_registration_agency_list')->with("angencylist", $angencylist);
     }
 
     public function contactlist(){
-    	$contactlist = Contact::paginate(8);
+    	$contactlist = Contact::all();
     	return view('/dashboard_contact_list')->with('contactlist', $contactlist);
     }
     
