@@ -194,3 +194,16 @@ Route::post('academicform', 'academicController@postAcademic');
 
 // rout for cea dashboard
 Route::get('officialdashboard', 'officialController@ceaDashboard');
+
+// booking system dashboard
+Route::resource('bookingdashboard','bookingDashboardController');
+// Rooms
+Route::resource('rooms','RoomController');
+
+// Bookings
+Route::resource('booking','BookingController');
+// Cancel Bookings
+Route::post('booking/{room_id}/{booking_id}','BookingController@cancel')->name('booking.cancel');
+
+// Canceled Bookings
+Route::get('bookings/canceled','BookingController@canceledBookings')->name('booking.canceled');

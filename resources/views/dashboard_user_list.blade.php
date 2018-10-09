@@ -35,11 +35,10 @@
  </div>
     <script>
     $(document).ready(function() {
-            $('#dataTables-example').DataTable({
-                responsive: true,
-                fixedColumns: true
-                
-            });
+        $('#dataTables-example').DataTable({
+            responsive: true,
+            fixedColumns: true
+        });
     });
 
       function ConfirmDelete(){
