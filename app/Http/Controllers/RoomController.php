@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Room;
+
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -16,18 +17,47 @@ class RoomController extends Controller
     public function create()
     {
         $room = new Room();
-        return view('rooms.create', compact('room'));
+        $room_numbers = array();
+
+        for($i = 1; $i<= 350; $i++){
+            if($i >= 101 && $i <= 110){
+                $room_numbers[$i] = $i;
+            }
+            else if($i >= 201 && $i <= 210){
+                $room_numbers[$i] = $i;
+            }
+            else if($i >= 301 && $i <= 310){
+                $room_numbers[$i] = $i;
+            }
+
+        }
+        return view('rooms.create', compact('room', 'room_numbers'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'floor' => 'required',
-            'type' => 'required',
-            'beds' => 'required'
+            'categoryname' => 'required',
+            'gender' => 'required',
+            'group' => 'required',
+            'typeofroom' => 'required',
+            'roomnumber' => 'required'
+            
         ]);
-
+        if(isset($request->group)){
+            if($request->group =='Family'){
+                $request->validate([
+                    'start_date'=>'required',
+                    'end_date'=>'required'
+                ]);
+            }
+            else if($request->group =='Group'){
+                $request->validate([
+                    'start_date'=>'required',
+                    'end_date'=>'required'
+                ]);
+            }
+        }
         Room::create($request->all());
 
         $request->session()->flash('msg', 'Room has been created');
@@ -44,18 +74,45 @@ class RoomController extends Controller
     public function edit(Room $room)
     {
         $room = Room::find($room->id);
-        return view('rooms.edit', compact('room'));
+        $room_numbers = array();
+        for($i = 1; $i<= 350; $i++){
+            if($i >= 101 && $i <= 110){
+                $room_numbers[$i] = $i;
+            }
+            else if($i >= 201 && $i <= 210){
+                $room_numbers[$i] = $i;
+            }
+            else if($i >= 301 && $i <= 310){
+                $room_numbers[$i] = $i;
+            }
+        }
+        return view('rooms.edit', compact('room', 'room_numbers'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required',
-            'floor' => 'required',
-            'type' => 'required',
-            'beds' => 'required'
+            'categoryname' => 'required',
+            'gender' => 'required',
+            'group' => 'required',
+            'typeofroom' => 'required',
+            'roomnumber' => 'required'
         ]);
-
+        if(isset($request->group)){
+            if($request->group =='Family'){
+                $request->validate([
+                    'start_date'=>'required',
+                    'end_date'=>'required'
+                ]);
+            }
+            else if($request->group =='Group'){
+                $request->validate([
+                    'start_date'=>'required',
+                    'end_date'=>'required'
+                ]);
+            }
+        }
+        
         $room = Room::find($id);
         $room->update($request->all());
         $request->session()->flash('msg', 'Room has been updated');

@@ -79,6 +79,9 @@
                         <li>
                             <a href="/official-dashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> To Official page</a>
                         </li>
+                        <li>
+                            <a href="/bookingdashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> Booking Dashboard</a>
+                        </li>
                           <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>Blogs & Photo<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

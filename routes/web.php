@@ -207,3 +207,7 @@ Route::post('booking/{room_id}/{booking_id}','BookingController@cancel')->name('
 
 // Canceled Bookings
 Route::get('bookings/canceled','BookingController@canceledBookings')->name('booking.canceled');
+
+// Clients
+Route::resource('clients','ClientsController');
+Route::get('/clients/data','ClientsController@data')->name('clients.data');

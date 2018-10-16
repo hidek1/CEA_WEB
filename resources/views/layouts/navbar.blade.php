@@ -12,16 +12,16 @@
         </div>
 
         @if ( auth()->check() )
-            @if(Auth::user()->type >= 2)
+            @if(Auth::user()->type < 3)
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="/bookingdashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i> Clients <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i> Students <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/clients/create"><i class="fa fa-user-plus"></i> Add Client</a></li>
-                            <li><a href="/clients/"><i class="fa fa-table"></i> View Clients</a></li>
+                            <li><a href="/clients/create"><i class="fa fa-user-plus"></i> Add Students</a></li>
+                            <li><a href="/clients/"><i class="fa fa-table"></i> View Student</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

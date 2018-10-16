@@ -44,8 +44,8 @@
 
 
 
-<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 
@@ -59,22 +59,14 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset('dist/js/sb-admin-2.js') }}"></script>
-    <script src="{{ asset('vendor/jquery/default.js') }}"></script>
-    <script type="text/javascript" src="{{asset('js/bootstrap-datepicker.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/bootstrap-datepicker.min.js')}}"></script>
+    
+    
 </body>
 @yield('script')
 <script>
-    $(document).ready(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $('.selectpicker').selectpicker();
-    });
+ 
 </script>
 
 </body>
 </html>
+

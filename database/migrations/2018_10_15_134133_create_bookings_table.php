@@ -21,6 +21,7 @@ class CreateBookingsTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->boolean('status')->default(1);
+
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->timestamps();

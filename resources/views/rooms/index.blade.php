@@ -20,11 +20,12 @@
     <table class="table table-bordered table-hover">
         <thead>
         <tr>
-            <th>#ID</th>
-            <th>name</th>
-            <th>Type</th>
-            <th>Floor</th>
-            <th>Beds</th>
+            <th>Type Number</th>
+            <th>Type Room</th>
+            <th>Gender</th>
+            <th>Category</th>
+            <th>Start Date</th>
+            <th>End Date #</th>
             <th>Status</th>
             <th>Action</th>
         </tr>
@@ -32,11 +33,12 @@
         <tbody>
         @foreach ($rooms as $room)
             <tr>
-                <td>{{ $room->id }}</td>
-                <td>{{ $room->name }}</td>
-                <td>{{ $room->type }}</td>
-                <td>{{ $room->floor }}</td>
-                <td>{{ $room->beds }}</td>
+                <td>{{ $room->roomnumber }}</td>
+                <td>{{ $room->typeofroom }}</td>
+                <td>{{ $room->gender }}</td>
+                <td>{{ $room->group }}</td>
+                <td>{{ $room->start_date }}</td>
+                <td>{{ $room->end_date }}</td>
                 <td>
                     @if ($room->status)
                         <span class="label label-primary">Available</span>
