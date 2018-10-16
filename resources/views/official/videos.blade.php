@@ -10,12 +10,6 @@
 		        </div>
 		    </div>
 		    @endforeach
-		    </div>
-	    @else
-	    <div class="container">
-	    	<div class="row">
-	    		<h3>This Page not found 404.</h3>
-	    	</div>
-	    </div>
+		</div>
 	@endif
 @endsection

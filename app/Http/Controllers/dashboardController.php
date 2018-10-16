@@ -14,10 +14,11 @@ class DashboardController extends Controller
 	}
 
     public function userlist($type){
-        $userlist = User::all();
         if ($type == "camp") {
+            $userlist = User::where('type',3)->get();
             return view('dashboard_user_list')->with("userlist", $userlist);
         }
+        $userlist = User::where('type',4)->get();
         return view('official/dashboard_user_list')->with("userlist", $userlist);
     }
 
@@ -37,12 +38,19 @@ class DashboardController extends Controller
         return view('dashboard_student_survey_list', compact('surveylist'));
     }
 
+    public function bloglist()
+    {
+        $bloglist = User::join('blogs', 'blogs.user_id', '=', 'users.id')->paginate(5);
+        return view('dashboard_blog_list', compact('bloglist'));
+    }
+
     public function experiencelist($type)
     {
-        $experiencelist = User::join('experiences', 'experiences.user_id', '=', 'users.id')->get();
         if ($type == "camp") {
+            $experiencelist = User::join('experiences', 'experiences.user_id', '=', 'users.id')->where('type',3)->get();
             return view('dashboard_experience_list', compact('experiencelist'));
         }
+        $experiencelist = User::join('experiences', 'experiences.user_id', '=', 'users.id')->where('type',4)->get();
         return view('official/dashboard_experience_list')->with("experiencelist", $experiencelist);
     }
 

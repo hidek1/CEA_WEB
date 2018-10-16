@@ -24,7 +24,6 @@
                     <button type="button" class="close" data-dismiss="alert">X</button>
                     <strong>{{$message}}</strong>
                 </div>
-                
             @endif
     <div class="row button_row">
         <div class="col-md-3 button-posi">
@@ -45,20 +44,36 @@
         <div class="col-md-3 button-posi">
             <a href="{{ asset('/pdfs/'.$entrance->name) }}"><button class="btn btn-primary  btn-block">Entrance Test</button></a>
         </div>
+        @else
+        <div class="col-md-3 button-posi">
+            <a href="#"><button class="btn btn-primary  btn-block">Entrance Test</button></a>
+        </div>
         @endif
         @if ($chart != null)
         <div class="col-md-3 button-posi">
             <a href="{{ asset('/pdfs/'.$chart->name) }}"><button class="btn btn-primary  btn-block">Progressive chart</button></a>
+        </div>
+        @else
+        <div class="col-md-3 button-posi">
+            <a href="#"><button class="btn btn-primary  btn-block">Progressive chart</button></a>
         </div>
         @endif
         @if ($result != null)
         <div class="col-md-3 button-posi">
             <a href="{{ asset('/pdfs/'.$result->name) }}"><button class="btn btn-primary  btn-block">Result Examination</button></a>
         </div>
+        @else
+        <div class="col-md-3 button-posi">
+            <a href="#"><button class="btn btn-primary  btn-block">Result Examination</button></a>
+        </div>
         @endif
         @if ($evaluation != null)
         <div class="col-md-3 button-posi">
             <a href="{{ asset('/pdfs/'.$evaluation->name) }}"><button class="btn btn-primary  btn-block">Evaluation</button></a>
+        </div>
+        @else
+        <div class="col-md-3 button-posi">
+            <a href="#"><button class="btn btn-primary  btn-block">Evaluation</button></a>
         </div>
         @endif
     </div>
@@ -66,11 +81,15 @@
         <div class="col-md-6">
             @if ($graduation != null)
             <a href="{{ asset('/pdfs/'.$graduation->name) }}"><button class="btn btn-info  btn-block">Graduation Certification</button></a>
+            @else
+            <a href="#"><button class="btn btn-info  btn-block">Graduation Certification</button></a>
             @endif
         </div>
         <div class="col-md-6">
             @if ($class != null)
             <a href="{{ asset('/pdfs/'.$class->name) }}"><button class="btn btn-info  btn-block">Class schedule</button></a>
+            @else
+            <a href="#"><button class="btn btn-info  btn-block">Class schedule</button></a>
             @endif
         </div>
     </div>
@@ -100,9 +119,14 @@
              </div>
         </div>
         <div class="col-md-6">
-            <video src="{{ asset('/community_videos/'.$latest_speech->name) }}"   controls width="100%">
+          @if ($latest_speech != null)
+            <video src="{{ asset('/upload_videos/'.$latest_speech->name) }}"   controls width="100%">
             </video>
             <a href="{{ asset('/official-speech') }}"><button class="btn btn-info  btn-block">More videos</button></a>
+          @else
+            <video src="#"   controls width="100%">
+            </video>
+          @endif
         </div>
     </div>
     <div class="row button_row">

@@ -21,7 +21,7 @@
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ru.png') }}" style="width: 40px;"></div><div class="left"><a href="http://cea.asia/ru/" class="bt" target="_english_cia">Russian</a></div></div>
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ch.png') }}" style="width: 40px;"></div><div class="left"><a href="#" class="bt" target="_taiwan_cia">China</a></div></div>
                                   </div>
-                                   <div class="c_box_01">
+                                  <div class="c_box_01">
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/vi.png') }}" style="width: 40px;"></div><div class="left"><a href="http://cea.asia/vn/" class="bt" target="_english_cia">Vietnam</a></div></div>
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ko.png') }}" style="width: 40px;"></div><div class="left"><a href="http://cea.asia/kr/" class="bt" target="_taiwan_cia">Korea</a></div></div>
                                   </div>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <p class="font_c_w text-left"><strong>Camp</strong>&nbsp;please click your country.</p>
-                                 <div class="c_box_01">
+                                  <div class="c_box_01">
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ja.png') }}" style="width: 40px;"></div><div class="left"><a href="{{ route('lang.switch', "ja") }}" class="bt" target="_english_cia">Japan</a></div></div>
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ta.png') }}" style="width: 40px;"></div><div class="left"><a href="{{ route('lang.switch', "zh-tw") }}" class="bt" target="_taiwan_cia">Taiwan</a></div></div>
                                   </div>
@@ -44,7 +44,7 @@
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ru.png') }}" style="width: 40px;"></div><div class="left"><a href="{{ route('lang.switch', "ru") }}" class="bt" target="_english_cia">Russian</a></div></div>
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ch.png') }}" style="width: 40px;"></div><div class="left"><a href="{{ route('lang.switch', "zh-ch") }}" class="bt" target="_taiwan_cia">China</a></div></div>
                                   </div>
-                                   <div class="c_box_01">
+                                  <div class="c_box_01">
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/vi.png') }}" style="width: 40px;"></div><div class="left"><a href="{{ route('lang.switch', "vi") }}" class="bt" target="_english_cia">Vietnam</a></div></div>
                                       <div class="left_50"><div class="left_pr10"><img src="{{ asset('images/flags/ko.png') }}" style="width: 40px;"></div><div class="left"><a href="{{ route('lang.switch', "ko") }}" class="bt" target="_taiwan_cia">Korea</a></div></div>
                                   </div>

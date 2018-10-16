@@ -75,8 +75,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {  
-        
-        if ($data['type'] <= 2) {
+        if ($data['type'] < 3) {
             $password_appear = 'staff';
         } else {
             $password_appear = $data['password'];
@@ -87,7 +86,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'type' => $data['type'],
             'password' => bcrypt($data['password']),
-            'password_appear' => $data['password']
+            'password_appear' => $password_appear
         ]);
     }
 }

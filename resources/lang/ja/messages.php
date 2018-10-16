@@ -18,7 +18,7 @@ return [
 
     //home
     'Price' => '値段',
-    'Schedule' => 'プログラムスケジュール',
+    'Schedule' => 'スケジュール',
     'Facility' => '施設',
     'Meal' => 'ご飯',
     'Picture' => '写真',

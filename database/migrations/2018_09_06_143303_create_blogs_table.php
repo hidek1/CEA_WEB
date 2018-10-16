@@ -18,7 +18,6 @@ class CreateBlogsTable extends Migration
             $table->integer('user_id');
             $table->string('blog_img');
             $table->integer('size');
-            $table->string('content');
             $table->string('title');
             $table->string('subtile1')->nullable();
             $table->string('subcontent1')->nullable();
