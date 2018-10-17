@@ -15,9 +15,7 @@
 <div class="clearfloat">&nbsp;</div>
   <div class="container">
     <div class="row ccc" >
-      <div class="col-md-1">
-      </div>
-      <div class="col-md-10 gallery_controller">
+      <div class="col-md-10 offset-md-1 gallery_controller">
         <div class="row">
           <div class="gallery col-md-4">
             <div class="desc">{{ __('messages.Price') }}</div>
@@ -34,26 +32,24 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="container">
     <div class="row ccc" >
-      <div class="col-md-1">
-      </div>
-      <div class="col-md-10 gallery_controller">
-        <div class="gallery col-md-4">
-          <div class="desc">{{ __('messages.Meal') }}</div>
-            <img src="{{asset('images/meal.jpg') }}" class="zoomable" alt="5Terre">
-        </div>
-        <div class="gallery col-md-4">
-          <div class="desc">{{ __('messages.Picture') }}</div>
-            <a target="_blank" href="img_forest.jpg">
+      <div class="col-md-10 offset-md-1 gallery_controller">
+        <div class="row">
+          <div class="gallery col-md-4">
+            <div class="desc">{{ __('messages.Meal') }}</div>
+              <img src="{{asset('images/meal.jpg') }}" class="zoomable" alt="5Terre">
+          </div>
+          <div class="gallery col-md-4">
+            <div class="desc">{{ __('messages.Picture') }}</div>
+              <a target="_blank" href="img_forest.jpg">
+              </a>
+          </div>
+          <div class="gallery col-md-4">
+            <div class="desc">{{ __('messages.Picture') }}</div>
+            <a target="_blank" href="img_lights.jpg">
             </a>
+          </div>
         </div>
-{{--         <div class="gallery">
-          <div class="desc">{{ __('messages.experience') }}</div>
-          <a target="_blank" href="img_lights.jpg">
-          </a>
-        </div> --}}
       </div>
     </div>
   </div>
