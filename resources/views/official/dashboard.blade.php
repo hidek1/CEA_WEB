@@ -19,6 +19,9 @@
     <!-- MetisMenu CSS -->
     <link href="{{ asset('vendor/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
 
+    <!-- DataTables CSS -->
+    <link href="{{asset('vendor/datatables-plugins/dataTables.bootstrap.css') }}" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="{{ asset('dist/css/sb-admin-2.css') }}" rel="stylesheet">
 
@@ -42,88 +45,88 @@
 </style>
 </head>
 <body>
-      <div class="navbar-default sidebar ccc" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="/official-dashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="/register" target="_register"><i class="fa fa-registered"></i> Register</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('dashboard_user', "official") }}" target="_user"><i class="fa fa-user"></i> Users </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('dashboard_experience', "official") }}" target="_surveylist"><i class="fa fa-user"></i> Experiencs </a>
-                        </li>
-                        <li>
-                            <a href="/dashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> To Camp page</a>
-                        </li>
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="sidebar-search">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                    </div>
+                    <!-- /input-group -->
+                </li>
+                <li>
+                    <a href="/official-dashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="/register" target="_register"><i class="fa fa-registered"></i> Register</a>
+                </li>
+                <li>
+                    <a href="{{ route('dashboard_user', "official") }}" target="_user"><i class="fa fa-user"></i> Users </a>
+                </li>
+                <li>
+                    <a href="{{ route('dashboard_experience', "official") }}" target="_surveylist"><i class="fa fa-user"></i> Experiencs </a>
+                </li>
+                <li>
+                    <a href="/dashboard" target="_blank"><i class="fa fa-dashboard fa-fw" ></i> To Camp page</a>
+                </li>
 
+                <li>
+                    <a href="#"><i class="fa fa-wrench fa-fw"></i>PDF<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i>PDF<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                     <a href="{{ route('pdf.file', "of_entrance") }}" target="Daily"><i class="fa fa-upload"></i>Entrance Test</a>
-                                </li>
-                                <li>
-                                     <a href="{{ route('pdf.file', "of_chart") }}" target="Daily"><i class="fa fa-upload"></i>Progressive chart</a>
-                                </li>
-                                <li>
-                                     <a href="{{ route('pdf.file', "of_result") }}" target="Daily"><i class="fa fa-upload"></i>Result Examination</a>
-                                </li>
-                                <li>
-                                     <a href="{{ route('pdf.file', "of_evaluation") }}" target="Daily"><i class="fa fa-upload"></i>Evaluation</a>
-                                </li>
-                                <li>
-                                     <a href="{{ route('pdf.file', "of_graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Certification</a>
-                                </li>
-                                <li>
-                                     <a href="{{ route('pdf.file', "of_class") }}" target="Daily"><i class="fa fa-upload"></i>Class schedule</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                             <a href="{{ route('pdf.file', "of_entrance") }}" target="Daily"><i class="fa fa-upload"></i>Entrance Test</a>
                         </li>
-                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Speech<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                     <a href="{{ route('speech.file', "of_first") }}" target="Daily"><i class="fa fa-upload"></i>Entrance Speech </a>
-                                </li>
-                                <li>
-                                     <a href="{{ route('speech.file', "of_graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Speech </a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                        <li>
+                             <a href="{{ route('pdf.file', "of_chart") }}" target="Daily"><i class="fa fa-upload"></i>Progressive chart</a>
                         </li>
-                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Picture<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                     <a href="{{ route('upload.file', "official") }}" target="Daily"><i class="fa fa-upload"></i>Picture </a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                        <li>
+                             <a href="{{ route('pdf.file', "of_result") }}" target="Daily"><i class="fa fa-upload"></i>Result Examination</a>
+                        </li>
+                        <li>
+                             <a href="{{ route('pdf.file', "of_evaluation") }}" target="Daily"><i class="fa fa-upload"></i>Evaluation</a>
+                        </li>
+                        <li>
+                             <a href="{{ route('pdf.file', "of_graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Certification</a>
+                        </li>
+                        <li>
+                             <a href="{{ route('pdf.file', "of_class") }}" target="Daily"><i class="fa fa-upload"></i>Class schedule</a>
                         </li>
                     </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
+                    <!-- /.nav-second-level -->
+                </li>
+                 <li>
+                    <a href="#"><i class="fa fa-wrench fa-fw"></i>Speech<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                             <a href="{{ route('speech.file', "of_first") }}" target="Daily"><i class="fa fa-upload"></i>Entrance Speech </a>
+                        </li>
+                        <li>
+                             <a href="{{ route('speech.file', "of_graduation") }}" target="Daily"><i class="fa fa-upload"></i>Graduation Speech </a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                 <li>
+                    <a href="#"><i class="fa fa-wrench fa-fw"></i>Picture<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                             <a href="{{ route('upload.file', "official") }}" target="Daily"><i class="fa fa-upload"></i>Picture </a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
     
-        @yield('content')
+    @yield('content')
     <!-- jQuery -->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 
@@ -138,7 +141,13 @@
     <script src="{{ asset('vendor/morrisjs/morris.min.js') }}"></script>
     <script src="{{ asset('data/morris-data.js') }}"></script>
 
+     <!-- DataTables JavaScript -->
+    <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables-plugins/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables-responsive/dataTables.responsive.js') }}"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset('dist/js/sb-admin-2.js') }}"></script>
+    <script src="{{ asset('vendor/jquery/default.js') }}"></script>
 </body>
 </html>

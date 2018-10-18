@@ -18,17 +18,15 @@
 	 		<thead>
 		 		<tr>
 		 			<th class="text-center">Title</th>
-		 			<th class="text-center">Content</th>
 		 			<th class="text-center">User ID</th>
 		 			<th class="text-center">Edit</th>
-		 			<th class="text-center">Edit</th>
+		 			<th class="text-center">Delete</th>
 		 		</tr>
 	 		</thead>
 	 		<tbody>
 		 		@foreach($blogs as $blog)
 		 			<tr>
 		 				<td>{{$blog->title}}</td>
-		 				<td>{{ str_limit($blog->content, 60)}}</td>
 		 				<td>{{$blog->name}}</td>
 		 				<td><a href="/blog/{{$blog->id}}/edit" target="_blogedit"><button class="btn btn-primary"><span class="glyphicon glyphicon-edit">Edit</span></button></a></td>
 		 				<td>
@@ -73,7 +71,6 @@
   </div>
 </div>
 <script>
-
 	$(document).ready(function(){
 		$('#delete').on('show.bs.modal', function(event){
 			var button = $(event.relatedTarget)
@@ -82,9 +79,12 @@
 			modal.find('.modal-body #blog_id').val(blog_id);
 		});
 
-		 $('#dataTables-example').DataTable({
-                responsive: true
-           });
+		 	$('#dataTables-example').DataTable({
+	        destroy: true,
+	        responsive: true,
+	        fixedColumns: true
+	    });
+	    $('#dataTables-example').dataTable().fnDestroy();
 	});
 </script>
 @endsection

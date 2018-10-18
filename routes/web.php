@@ -12,23 +12,26 @@
 */
 Auth::routes();
 
-
 // more than student
-
+Route::group(['middleware' => ['auth', 'can:camp-student']], function () {
   Route::get('/index_community_members', 'CommunityController@index');
   Route::get('/index_survey', 'SurveyController@index');
   Route::post('survey/complete', 'SurveyController@complete');
-
+  Route::get('index_experience/{page}', 'ExperienceController@index')->name('experience');
+  Route::post('experience/confirm', 'ExperienceController@confirm');
+  Route::post('experience/complete', 'ExperienceController@complete');
+});
 
 
 // more than staff
-
+Route::group(['middleware' => ['auth', 'can:staff']], function () {
   // for dashboard page url
   Route::get('/dashboard', 'DashboardController@index');
   Route::get('/dashboard_user_list/{type}', 'DashboardController@userlist')->name('dashboard_user');
   Route::get('/dashboard_angecy_list', 'DashboardController@agencylist');
   Route::get('/dashboard_contact_list', 'DashboardController@contactlist');
   Route::get('/dashboard_survey_list', 'DashboardController@surveylist');
+  Route::get('/dashboard_blog_list', 'DashboardController@bloglist');
   Route::get('/dashboard_experience_list/{type}', 'DashboardController@experiencelist')->name('dashboard_experience');
 
   Route::get('user/{id}/edit', 'UserEditController@edit');
@@ -57,6 +60,24 @@ Auth::routes();
   Route::get('/official-dashboard', function () {
       return view('official.dashboard');
   });
+    // upload photo
+  Route::get('file/{type}','PictureController@showUploadFOrm')->name('upload.file');
+  Route::post('file/{type}','PictureController@storeFile');
+
+  // // upload eassay photo
+  // Route::get('eassayphoto','eassayController@showUploadFOrm')->name('essay.file');
+  // Route::post('eassayphoto','eassayController@storeFile');
+
+  // upload speech
+  Route::get('speech/{type}','SpeechController@showUploadFOrm')->name('speech.file');
+  Route::post('speech/{type}','SpeechController@storeFile');
+
+  // upload pdf
+  Route::get('pdf/{type}','PDFController@showUploadFOrm')->name('pdf.file');
+  Route::post('pdf/{type}','PDFController@storeFile');
+  // adding blog and update delete
+  Route::resource('blog', 'blogController');
+});
 
 
 
@@ -69,16 +90,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-//change later
 Route::get('/index_home', 'FaceController@index');
-// Route::get('/index_home', function () {
-// 	$blogs = DB::table('blogs')
-//             ->select('blogs.id','blog_img','title','content', 'created_at')
-// 			->orderBy('created_at', 'DESC')
-//             ->paginate(5);
-
-//     return view('index_home')->with('blogs', $blogs);
-// });
 Route::get('/index_camp_description', function () {
     return view('index_camp_description');
 });
@@ -88,9 +100,6 @@ Route::get('/index_jr_camp', function () {
 Route::get('/index_family_camp', function () {
     return view('index_family_camp');
 });
-Route::get('index_experience/{page}', 'ExperienceController@index')->name('experience');
-Route::post('experience/confirm', 'ExperienceController@confirm');
-Route::post('experience/complete', 'ExperienceController@complete');
 
 Route::get('/index_contact', 'ContactsController@index');
 Route::post('contact/confirm', 'ContactsController@confirm');
@@ -99,10 +108,6 @@ Route::post('contact/complete', 'ContactsController@complete');
 Route::get('/index_registration_agency', 'RegiAgencyController@index');
 Route::post('registration_agency/confirm', 'RegiAgencyController@confirm');
 Route::post('registration_agency/complete', 'RegiAgencyController@complete');
-
-// Route::get('/password_forget', function () {
-//     return view('password_forget');
-// });
 
 Route::get('/index_movie', function () {
     return view('index_movie');
@@ -114,83 +119,38 @@ Route::post('/main/checklogin', 'MainController@checklogin');
 Route::get('main/successlogin', 'MainController@successlogin');
 Route::get('main/logout', 'MainController@logout');
 
-
-// display all contacts
-// Route::get('/allcontacts', 'ContactsController@listallcontact');
-
-// upload photo
-Route::get('file/{type}','FileController@showUploadFOrm')->name('upload.file');
-Route::post('file/{type}','FileController@storeFile');
-
-// upload eassay photo
-Route::get('eassayphoto','eassayController@showUploadFOrm')->name('essay.file');
-Route::post('eassayphoto','eassayController@storeFile');
-
-// for display image
-Route::get('/mypicture', 'FileController@innerjoin');
-
-// upload speech
-Route::get('speech/{type}','SpeechController@showUploadFOrm')->name('speech.file');
-Route::post('speech/{type}','SpeechController@storeFile');
-
-// upload pdf
-Route::get('pdf/{type}','PDFController@showUploadFOrm')->name('pdf.file');
-Route::post('pdf/{type}','PDFController@storeFile');
-
-// adding blog and update delete
-/*
-Route::get('blog','blogController@showUploadFOrm')->name('blog.file');
-Route::post('blog','blogController@storeFile');
-Route::get('blog/show', 'blogController@show');
-Route::get('/blog/{id}/edit', 'blogController@edit');
-Route::post('/blog/{id}', 'blogController@update');
-*/
-// adding blog and update delete
-Route::resource('blog', 'blogController');
-// adding route for mystory
-Route::resource('mystory','mystoryController');
-
-// display all blogs
-
+// display blog
 Route::get('allblog/{id}', 'blogController@listallblog');
 
 //change language
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+Route::group(['middleware' => ['auth', 'can:official-student']], function () {
   // for official website
-  Route::get('/official-home', 'OfficialHomeController@index');
+  Route::get('/official-home', 'OfficialController@index');
   // Route::get('/official-experience', 'ExperienceController@index');
   Route::get('/official-speech', 'SpeechController@showVideos');
 
+  //mail request sending 
+  Route::get('contactmail', 'mailController@getContact');
+  Route::post('contactmail', 'mailController@postContact');
+  Route::get('contactmail/{id}/edit', 'mailController@edit');
 
-//for official website
-/*
-Route::get('/official/home', function () {
-    return view('official/home');
+  //mail absent request form
+
+  Route::get('absentform', 'absentController@getForm');
+  Route::post('absentform', 'absentController@postForm');
+
+  // mail travel request form
+  Route::get('travelform', 'travelController@getTravel');
+  Route::post('travelform', 'travelController@postTravel');
+
+  // mail academic request form
+
+  Route::get('academicform', 'academicController@getAcademic');
+  Route::post('academicform', 'academicController@postAcademic');
+
+  // rout for cea dashboard
+  Route::get('officialdashboard', 'OfficialController@dashboard');
 });
-*/
-//Route::get('ceaofficial', 'officialController@index');
-
-//mail request sending 
-Route::get('contactmail', 'mailController@getContact');
-Route::post('contactmail', 'mailController@postContact');
-Route::get('contactmail/{id}/edit', 'mailController@edit');
-
-//mail absent request form
-
-Route::get('absentform', 'absentController@getForm');
-Route::post('absentform', 'absentController@postForm');
-
-// mail travel request form
-Route::get('travelform', 'travelController@getTravel');
-Route::post('travelform', 'travelController@postTravel');
-
-// mail academic request form
-
-Route::get('academicform', 'academicController@getAcademic');
-Route::post('academicform', 'academicController@postAcademic');
-
-// rout for cea dashboard
-Route::get('officialdashboard', 'officialController@ceaDashboard');

@@ -18,42 +18,18 @@ class blogController extends Controller
     	return view('blog')->with('blogs', $blogs);
     	//return $request->all();
     }
-     /*
-     function storeFile(Request $request){
-    	$this->validate($request, [
-    			'blog_img' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-    			'content' => 'required',
-    			'title' => 'required'
-    	]);
-    	$blog_image = $request->file('blog_img');
-    	$filesize = $blog_image->getClientSize();
-    	$content = $request->input('content');
-        $user_id = $request->input('user_id');
-    	$title = $request->input('title');
-    	$new_name = rand(). '.'.$blog_image->getClientOriginalExtension();
-    	$blog_image->move(public_path("images/blog"), $new_name);
-    	$blog = new Blog;
-    	$blog->blog_img = $new_name;
-    	$blog->size = $filesize;
-    	$blog->content = $content;
-    	$blog->title = $title;
-        $blog->user_id = $user_id;
-    	$blog->save();
-    	return back()->with('success', 'Uploaded Blog successfully')->with('path',$new_name);
-    }
-    */
 
 
     function create(){
         $blogs = Blog::all();
-        return view('addblog');
+        return view('dashboard_addblog');
     }
 
     function store(Request $request){
 
         $this->validate($request, [
                 'blog_img' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
-                'content' => 'required',
+                // 'content' => 'required',
                 'title' => 'required',
                 'sub_img1' => 'image|mimes:jpeg,jpg,png,gif|max:2048',
                 'sub_img2' => 'image|mimes:jpeg,jpg,png,gif|max:2048',
@@ -64,7 +40,6 @@ class blogController extends Controller
 
         $blog_image = $request->file('blog_img');
         $filesize = $blog_image->getClientSize();
-        $content = $request->input('content');
         $user_id = $request->input('user_id');
         $title = $request->input('title');
         $new_name = rand(). '.'.$blog_image->getClientOriginalExtension();
@@ -125,7 +100,6 @@ class blogController extends Controller
         $blog = new Blog;
         $blog->blog_img = $new_name;
         $blog->size = $filesize;
-        $blog->content = $content;
         $blog->title = $title;
         $blog->user_id = $user_id;
         
@@ -170,7 +144,6 @@ class blogController extends Controller
 
         $blog_image = $request->file('blog_img');
         $filesize = $blog_image->getClientSize();
-        $content = $request->input('content');
         $user_id = $request->input('user_id');
         $title = $request->input('title');
         if($blog_image != NULL){
@@ -288,7 +261,7 @@ class blogController extends Controller
     public function listallblog($id){
         $bloglists = DB::table('users')
                      ->join('blogs', 'users.id', '=', 'blogs.user_id')
-                     ->select('users.id','users.name','blogs.blog_img', 'blogs.title', 'blogs.content', 'blogs.created_at',
+                     ->select('users.id','users.name','blogs.blog_img', 'blogs.title', 'blogs.created_at',
                         'blogs.subtile1',
                         'blogs.subtile2',
                         'blogs.subtile3',
@@ -307,7 +280,7 @@ class blogController extends Controller
                         'blogs.subimg5')
                      ->where('blogs.id', '=', $id)
                      ->get();
-        return view('blogall')->with('bloglists',$bloglists);
+        return view('index_blogall')->with('bloglists',$bloglists);
     }
 
 }

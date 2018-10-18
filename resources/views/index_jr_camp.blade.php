@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-4 col-md-4 col-lg-4">
-        <img src="{{asset('images/juniorgroup.jpg') }}" class="img-responsive zoomable" width="100%">
+        <img src="{{asset('images/juniorgroupb.jpg') }}" class="img-responsive zoomable" width="100%">
     </div>
     <div class="col-xs-4 col-md-4 col-lg-4">
         <img src="{{asset('images/Play Room (2).jpg') }}" class="img-responsive zoomable" width="100%">

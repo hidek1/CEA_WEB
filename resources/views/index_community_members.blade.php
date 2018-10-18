@@ -21,12 +21,12 @@
             @foreach($essaydailyphoto as $dailyphoto)
                 @if($dailyphoto->user_id == auth::user()->id)
                     <div class="slide1 gal1">
-                        <img src="{{ asset('/images/'.$dailyphoto->img_name) }}" style="width:100%" class="aligncenter size-full wp-image-425" data-toggle="modal" data-target="#image-modal">
+                        <img src="{{ asset('/upload_pictures/'.$dailyphoto->name) }}" style="width:100%" class="aligncenter size-full wp-image-425" data-toggle="modal" data-target="#image-modal">
                     </div>
                     <div class="modal fade" id="image-modal">
                       <div class="modal-dialog">
                           <div class="modal-body">
-                          <img src="{{ asset('/images/'.$dailyphoto->img_name) }}" alt="baby-1151351_1920" width="100%" class="aligncenter size-full wp-image-425" />
+                          <img src="{{ asset('/upload_pictures/'.$dailyphoto->name) }}" alt="baby-1151351_1920" width="100%" class="aligncenter size-full wp-image-425" />
                           </div>
                       </div>
                    </div>
@@ -47,12 +47,12 @@
             @foreach($photopictures as $picture)
                 @if($picture->user_id == auth::user()->id)
                 <div class="slide2 gal2">
-                    <img src="{{ asset('/images/'.$picture->name) }}" style="width:100%" class="aligncenter size-full wp-image-425" data-toggle="modal" data-target="#image-modal">
+                    <img src="{{ asset('/upload_pictures/'.$picture->name) }}" style="width:100%" class="aligncenter size-full wp-image-425" data-toggle="modal" data-target="#image-modal">
                 </div>
                 <div class="modal fade" id="image-modal">
                   <div class="modal-dialog">
                       <div class="modal-body">
-                      <img src="{{ asset('/images/'.$picture->name) }}" alt="baby-1151351_1920" width="100%" class="aligncenter size-full wp-image-425" />
+                      <img src="{{ asset('/upload_pictures/'.$picture->name) }}" alt="baby-1151351_1920" width="100%" class="aligncenter size-full wp-image-425" />
                       </div>
                   </div>
                </div>
@@ -72,12 +72,18 @@
       @if($first_speech != null)
         <video src="{{ asset('/community_videos/'.$first_speech->name) }}"   controls width="100%">
       </video>
+      @else
+        <video src=""   controls width="100%">
+      </video>
       @endif
     </div>
     <div class="col-xs-12 col-md-12 col-lg-6">
       <h4 class="member_title">{{ __('messages.Co_content4') }}</h4>
       @if($graduation_speech != null)
         <video src="{{ asset('/community_videos/'.$graduation_speech->name) }}"   controls width="100%">
+      </video>
+      @else
+        <video src=""   controls width="100%">
       </video>
       @endif
     </div>

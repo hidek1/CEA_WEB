@@ -74,6 +74,9 @@
                             <a href="/dashboard_survey_list" target="_surveylist"><i class="fa fa-user"></i> Surveys </a>
                         </li>
                         <li>
+                            <a href="/dashboard_blog_list"><i class="fa fa-user"></i> Blogs </a>
+                        </li>
+                        <li>
                             <a href="{{ route('dashboard_experience', "camp") }}" target="_surveylist"><i class="fa fa-user"></i> Experiences </a>
                         </li>
                         <li>
@@ -83,10 +86,10 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>Blogs & Photo<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{ route('upload.file', "camp") }}" target="upload_photo"><i class="fa fa-upload"></i> Upload Photo </a>
+                                    <a href="{{ route('upload.file', "camp-picture") }}" target="upload_photo"><i class="fa fa-upload"></i> Upload Photo </a>
                                 </li>
                                 <li>
-                                     <a href="/eassayphoto" target="Daily"><i class="fa fa-upload"></i>Photo Daily Essay </a>
+                                     <a href="{{ route('upload.file', "camp-essay") }}" target="Daily"><i class="fa fa-upload"></i>Daily Essay </a>
                                 </li>
                                 <li>
                                      <a href="{{ route('speech.file', "first") }}" target="Daily"><i class="fa fa-upload"></i>Entrance Speech </a>
