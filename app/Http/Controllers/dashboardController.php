@@ -40,8 +40,8 @@ class DashboardController extends Controller
 
     public function bloglist()
     {
-        $bloglist = User::join('blogs', 'blogs.user_id', '=', 'users.id')->paginate(5);
-        return view('dashboard_blog_list', compact('bloglist'));
+        $blogs = User::join('blogs', 'blogs.user_id', '=', 'users.id')->paginate(5);
+        return view('dashboard_blog_list', compact('blogs'));
     }
 
     public function experiencelist($type)

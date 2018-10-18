@@ -280,7 +280,7 @@ class blogController extends Controller
                         'blogs.subimg5')
                      ->where('blogs.id', '=', $id)
                      ->get();
-        return view('blogall')->with('bloglists',$bloglists);
+        return view('index_blogall')->with('bloglists',$bloglists);
     }
 
 }

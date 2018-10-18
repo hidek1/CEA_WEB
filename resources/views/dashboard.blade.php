@@ -74,6 +74,9 @@
                             <a href="/dashboard_survey_list" target="_surveylist"><i class="fa fa-user"></i> Surveys </a>
                         </li>
                         <li>
+                            <a href="/dashboard_blog_list"><i class="fa fa-user"></i> Blogs </a>
+                        </li>
+                        <li>
                             <a href="{{ route('dashboard_experience', "camp") }}" target="_surveylist"><i class="fa fa-user"></i> Experiences </a>
                         </li>
                         <li>

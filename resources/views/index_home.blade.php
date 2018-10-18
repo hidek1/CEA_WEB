@@ -4,7 +4,7 @@
   <ul>
     <li><a href=""><img src="images/mantoman.jpg" alt="" width="640" height="400" /></a></li>
     <li><a href=""><img src="images/mantoman2.jpg" alt="" width="640" height="400" /></a></li>
-    <li><a href=""><img src="images/Juniorgroup5.jpeg" alt="" width="640" height="400" /></a></li>
+    <li><a href=""><img src="images/IMG_8202.png"  style="  background-color: #f2f3e8;" alt="" width="640" height="400" /></a></li>
   </ul>
 </div>
 <div style="text-align:center">
@@ -37,17 +37,15 @@
         <div class="row">
           <div class="gallery col-md-4">
             <div class="desc">{{ __('messages.Meal') }}</div>
-              <img src="{{asset('images/meal.jpg') }}" class="zoomable" alt="5Terre">
+              {{-- <img src="{{asset('images/meal.jpg') }}" class="zoomable" alt="5Terre"> --}}
           </div>
           <div class="gallery col-md-4">
             <div class="desc">{{ __('messages.Picture') }}</div>
-              <a target="_blank" href="img_forest.jpg">
-              </a>
+              <img src="{{asset('images/hotelbuilding@nyt.jpg') }}" class="zoomable" alt="5Terre">
           </div>
           <div class="gallery col-md-4">
             <div class="desc">{{ __('messages.Picture') }}</div>
-            <a target="_blank" href="img_lights.jpg">
-            </a>
+              <img src="{{asset('images/Juniorgroup5.jpeg') }}" class="zoomable" alt="5Terre">
           </div>
         </div>
       </div>

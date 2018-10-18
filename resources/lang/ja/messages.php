@@ -20,7 +20,7 @@ return [
     'Price' => '値段',
     'Schedule' => 'スケジュール',
     'Facility' => '施設',
-    'Meal' => 'ご飯',
+    'Meal' => '食事',
     'Picture' => '写真',
     'experience' => '体験談',
     'NewArticles' => '新着記事',

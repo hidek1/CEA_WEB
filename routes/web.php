@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth', 'can:staff']], function () {
   Route::get('/dashboard_angecy_list', 'DashboardController@agencylist');
   Route::get('/dashboard_contact_list', 'DashboardController@contactlist');
   Route::get('/dashboard_survey_list', 'DashboardController@surveylist');
+  Route::get('/dashboard_blog_list', 'DashboardController@bloglist');
   Route::get('/dashboard_experience_list/{type}', 'DashboardController@experiencelist')->name('dashboard_experience');
 
   Route::get('user/{id}/edit', 'UserEditController@edit');
@@ -89,7 +90,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-//change later
 Route::get('/index_home', 'FaceController@index');
 Route::get('/index_camp_description', function () {
     return view('index_camp_description');
@@ -119,7 +119,7 @@ Route::post('/main/checklogin', 'MainController@checklogin');
 Route::get('main/successlogin', 'MainController@successlogin');
 Route::get('main/logout', 'MainController@logout');
 
-// display all blogs
+// display blog
 Route::get('allblog/{id}', 'blogController@listallblog');
 
 //change language
