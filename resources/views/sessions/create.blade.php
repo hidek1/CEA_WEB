@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.bookingdash')
 
 @section('title')
     Login
@@ -19,13 +19,13 @@
         </div>
     @endif
 
-    <form action="/login" method="post">
+    <form action="/bookinglogin" method="post">
 
         {{ csrf_field() }}
 
         <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
             <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" id="email" value="javed@mail.com">
+            <input type="email" name="email" class="form-control" id="email" value="">
             <span class="text-danger">{{ $errors->has('email') ? $errors->first('email') : '' }}</span>
         </div>
 

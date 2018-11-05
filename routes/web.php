@@ -114,6 +114,13 @@ Route::post('/main/checklogin', 'MainController@checklogin');
 Route::get('main/successlogin', 'MainController@successlogin');
 Route::get('main/logout', 'MainController@logout');
 
+//this route for booking login page and log out page
+Route::get('/bookinglogin','SessionsController@create')->name('bookinglogin');
+Route::post('/bookinglogin','SessionsController@store');
+Route::get('/bookinglogout','SessionsController@destroy');
+
+// User
+Route::get('/user','UserController@index');
 
 // display all contacts
 // Route::get('/allcontacts', 'ContactsController@listallcontact');
@@ -208,6 +215,11 @@ Route::post('booking/{room_id}/{booking_id}','BookingController@cancel')->name('
 // Canceled Bookings
 Route::get('bookings/canceled','BookingController@canceledBookings')->name('booking.canceled');
 
+// todaybooks
+Route::get('todaybook', 'BookingController@today');
+
 // Clients
 Route::resource('clients','ClientsController');
 Route::get('/clients/data','ClientsController@data')->name('clients.data');
+
+

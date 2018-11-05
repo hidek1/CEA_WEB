@@ -1,20 +1,20 @@
 @extends('layouts.bookingdash')
 
 @section('title')
-    Clients
+    Students
 @endsection
 
 @section('search')
     <form class="navbar-form navbar-left">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search In Clients">
+            <input type="text" class="form-control" placeholder="Search In Students">
         </div>
         <button type="submit" class="btn btn-default">Search</button>
     </form>
 @endsection
 
 @section('content')
-    <h2><i class="fa fa-users"></i>Clients</h2>
+    <h2><i class="fa fa-users"></i>Students</h2>
     <hr>
     <a href="/clients/create" class="btn btn-primary">Create</a>
     <br><br>
@@ -51,6 +51,31 @@
         </tbody>
 
     </table>
+    <script type="text/javascript">
+            /*
+            $(document).ready(function(){
+            $('#ajaxSubmit').click(function(e){
+               e.preventDefault();
+               $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                  }
+              });
+               $.ajax({
+                  url: "{{ url('/grocery/post') }}",
+                  method: 'post',
+                  data: {
+                     name: $('#name').val(),
+                     type: $('#type').val(),
+                     price: $('#price').val()
+                  },
+                  success: function(result){
+                     console.log(result);
+                  }});
+               });
+            });
+            */
+    </script>
 @endsection
 
 @section('script')

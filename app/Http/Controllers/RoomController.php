@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Room;
-
+use DB;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -10,7 +10,10 @@ class RoomController extends Controller
      public function index()
     {
         $rooms = Room::all();
-        
+        $available_room = DB::table('rooms')
+                            ->select('roomnumber')
+                            ->where('start_date', '<=', '2018-10-17')
+                            ->get();
         return view('rooms.index', compact('rooms'));
     }
 
@@ -20,13 +23,13 @@ class RoomController extends Controller
         $room_numbers = array();
 
         for($i = 1; $i<= 350; $i++){
-            if($i >= 101 && $i <= 110){
+            if($i >= 101 && $i <= 120){
                 $room_numbers[$i] = $i;
             }
-            else if($i >= 201 && $i <= 210){
+            else if($i >= 201 && $i <= 220){
                 $room_numbers[$i] = $i;
             }
-            else if($i >= 301 && $i <= 310){
+            else if($i >= 301 && $i <= 320){
                 $room_numbers[$i] = $i;
             }
 
@@ -37,26 +40,19 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'categoryname' => 'required',
             'gender' => 'required',
-            'group' => 'required',
             'typeofroom' => 'required',
             'roomnumber' => 'required'
             
         ]);
         if(isset($request->group)){
-            if($request->group =='Family'){
+            if($request->group =='Family' || $request->group =='Group'){
                 $request->validate([
                     'start_date'=>'required',
                     'end_date'=>'required'
                 ]);
             }
-            else if($request->group =='Group'){
-                $request->validate([
-                    'start_date'=>'required',
-                    'end_date'=>'required'
-                ]);
-            }
+          
         }
         Room::create($request->all());
 

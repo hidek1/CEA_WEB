@@ -26,3 +26,21 @@
     {!! Form::date('end_date', $booking->end_date ,['class'=>'form-control datepicker']) !!}
     <span class="text-danger">{{ $errors->has('end_date') ? $errors->first('end_date') : '' }}</span>
 </div>
+    <script type="text/javascript">
+            var mealsByCategory = {
+    country: ["America", "Canada", "New York", "Mexico"],
+    B: ["Commercial Shops ", "Commercial Showrooms ", "Commercial Office/Space ", "Commercial Land/Inst. Land ","Industrial Lands/Plots "],
+    C: ["Residential Apartment ", "Independent/Builder Floor ", "Independent House/Villa ", "Residential Land ", "Studio Apartment "]
+}
+
+    function changecat(value) {
+        if (value.length == 0) document.getElementById("category").innerHTML = "<option></option>";
+        else {
+            var catOptions = "";
+            for (categoryId in mealsByCategory[value]) {
+                catOptions += "<option>" + mealsByCategory[value][categoryId] + "</option>";
+            }
+            document.getElementById("category").innerHTML = catOptions;
+        }
+    }
+        </script>

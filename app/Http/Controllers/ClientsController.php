@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 use App\Booking;
 use Illuminate\Http\Request;
 use App\Client;
+use DB;
 class ClientsController extends Controller
 {
    	public function index()
     {
-
         // Find All clients and passing to clients
         $clients = Client::all();
-
         // Redirect to Clients page
         return view('clients.index', compact('clients'));
     }
@@ -22,9 +21,22 @@ class ClientsController extends Controller
     {
         // Instance of Client
         $client = new Client();
-
-        // Redirect to client page, along with passing client object into Array
-        return view('clients.create', compact('client'));
+        $categoryst = array('Individual','Family','Groups');
+        $category =array();
+        foreach($categoryst as $key => $country) {
+            $category[$country]=$country;
+        }
+        $typeofrooms = array('Single', 'Double','Triple','Quad','Fifth','Six');
+        $roomtype = array();
+        foreach($typeofrooms as $key => $room){
+            $roomtype[$room] = $room;
+        }
+        $booking = Booking::all();
+        $available = DB::select("SELECT r.id AS roomID, r.roomnumber as typeroom FROM rooms AS r LEFT JOIN 
+        ( SELECT room_id FROM bookings WHERE `start_date` < '2018-10-31' AND `end_date` > '2018-11-01' GROUP BY room_id ) AS t 
+        ON r.id = t.room_id");
+        return view('clients.create', compact('client','category', 'roomtype', 'available'));
+        
     }
 
     public function store(Request $request)
@@ -32,23 +44,27 @@ class ClientsController extends Controller
         // Validate the form
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-            'image' => 'required|image'
+            'typeofroom' =>'required',
+            'gender'=>'required',
+            'birthday'=>'required',
+            'categoryst'=>'required',
+            'course'=>'required',
+            'check_in'=>'required',
+            'check_out'=>'required'
         ]);
-
-        // Check if there is any file
-        if ($request->hasFile('image')) {
-            $image = $request->image;
-            $image->move("uploads", $image->getClientOriginalName());
-        }
 
         // Store into Database
         Client::create([
             'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'image' => $request->image->getClientOriginalName()
+            'user_id'=>$request->user_id,
+            'gender'=>$request->gender,
+            'birthday'=>$request->birthday,
+            'categoryofstudents'=>$request->categoryst,
+            'course'=>$request->course,
+            'typeofroom'=>$request->typeofroom,
+            'checkin'=>$request->check_in,
+            'checkout'=>$request->check_out,
+            'reserveroom'=>$request->reserveroom
         ]);
 
         // Stored a Message in session
@@ -74,9 +90,19 @@ class ClientsController extends Controller
     {
         // Find the client
         $client = Client::find($id);
-
+        
         // Redirect to Edit client
-        return view('clients.edit', compact('client'));
+        $categoryst = array('Individual','Family','Groups');
+        $category =array();
+            foreach($categoryst as $key => $country) {
+                $category[$country]=$country;
+            }
+        $typeofrooms = array('Single', 'Double','Triple','Quad','Fifth','Six');
+        $roomtype = array();
+            foreach($typeofrooms as $key => $room){
+                $roomtype[$room] = $room;
+            }
+        return view('clients.edit', compact('client','category', 'roomtype'));
     }
 
     public function update(Request $request, $id)
@@ -87,31 +113,29 @@ class ClientsController extends Controller
         // Validate the form
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
+            'typeofroom' =>'required',
+            'gender'=>'required',
+            'birthday'=>'required',
+            'categoryst'=>'required',
+            'course'=>'required',
+            'check_in'=>'required',
+            'check_out'=>'required'
         ]);
 
         // Check if there is any image,
-        if ($request->hasFile('image')) {
-            // Check if file exists
-            if (file_exists(public_path('uploads/') . $client->image)) {
-                // Delete an old image
-                unlink(public_path('uploads/') . $client->image);
-            }
-
-            // Get and Upload new image
-            $image = $request->image;
-            $image->move("uploads", $image->getClientOriginalName());
-
-            $client->image = $request->image->getClientOriginalName();
-        }
+       
 
         // Updating Clients
         $client->update([
             'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'image' => $client->image,
+            'user_id'=>$request->user_id,
+            'gender'=>$request->gender,
+            'birthday'=>$request->birthday,
+            'categoryofstudents'=>$request->categoryst,
+            'course'=>$request->course,
+            'typeofroom'=>$request->typeofroom,
+            'checkin'=>$request->check_in,
+            'checkout'=>$request->check_out
         ]);
 
         // Store a message in session

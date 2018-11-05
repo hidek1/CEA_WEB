@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/bookingdashboard">Cebu English Academy </a>
+           <a class="navbar-brand" href="/bookingdashboard"> <img src="{{ asset('images/cea_logo.png')}}" style="width:150px;height:50px;"> </a>
         </div>
 
         @if ( auth()->check() )
@@ -29,6 +29,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="/rooms/create"><i class="fa fa-plus-square-o"></i> Add Room</a></li>
                             <li><a href="/rooms/"><i class="fa fa-table"></i> View Rooms</a></li>
+                            <li><a href="/rooms/"><i class="fa fa-hotel"></i> Available Rooms</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -37,19 +38,21 @@
                             <li><a href="/booking/create"><i class="fa fa-calendar-plus-o"></i> Book Room</a></li>
                             <li><a href="/booking"><i class="fa fa-calendar-check-o"></i> View Bookings</a></li>
                             <li><a href="/bookings/canceled"><i class="fa fa-calendar-check-o"></i> Canceled Bookings</a></li>
+                             <li><a href="/todaybook"><i class="fa fa-calendar-check-o"></i>Today Books</a></li>
+                            
                         </ul>
                     </li>
                 </ul>
 
                 @yield('search')
-
+                
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{   auth()->user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/user"><i class="fa fa-user-circle-o"></i> Profile</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                            <li><a href="/bookinglogout"><i class="fa fa-sign-out"></i> Logout</a></li>
                         </ul>
                     </li>
                 </ul>

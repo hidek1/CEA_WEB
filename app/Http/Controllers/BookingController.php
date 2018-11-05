@@ -1,26 +1,32 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Booking;
 use App\CanceledBooking;
 use App\Client;
 use App\Room;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
+use DB;
 class BookingController extends Controller
 {
     public function index()
     {
         $bookings = Booking::all();
-        return view('bookings.index', compact('bookings'));
+        /*
+        Users::where('status_id', 'active')
+           ->where( 'created_at', '>', Carbon::now()->subDays(30))
+           ->get();
+        */
+        return view('bookings.index', compact('bookings', 'todaybooking'));
     }
 
     public function create()
     {
         $booking = new Booking();
         $clients = Client::all();
-        $rooms = Room::where('status', 1)->get();
+        $rooms = Room::where('status', '=', 1)->get();
         return view('bookings.create', compact('clients', 'rooms', 'booking'));
+        
     }
 
     public function store(Request $request)
@@ -82,11 +88,13 @@ class BookingController extends Controller
         return redirect('booking');
     }
 
-    public function cancel($room_id, $booking_id) {
+    public function cancel(Request $request, $room_id, $booking_id) {
         $booking = Booking::find($booking_id);
         $room = Room::find($room_id);
+        return compact('booking', 'room');
+        $room = Room::find($room_id);
         $booking->status = 0;
-        $booking->user_id = auth()->id();
+        $booking->user_id = $request->user_id;
         $booking->save();
         $room->status = 1;
         $room->save();
@@ -97,5 +105,11 @@ class BookingController extends Controller
     public function canceledBookings() {
         $canceledBookings = Booking::where('status', 0)->get();
         return view('bookings.canceled', compact('canceledBookings'));
+    }
+
+    public function today(){
+         //$todaybooking = DB::table('bookings')->whereRaw('DATEDIFF(start_date,end_date)')->get();
+         $todaybooking = Booking::where('start_date', '>', \Carbon\Carbon::today()->subDays(5))->get();
+         return view('bookings.todaybook', compact('todaybooking'));
     }
 }

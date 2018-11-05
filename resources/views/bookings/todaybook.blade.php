@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-    <h2><i class="fa fa-calendar"></i> View Bookings</h2>
+    <h2><i class="fa fa-calendar"></i> Today Bookings</h2>
     <hr>
 
     @include('errors.errors')
@@ -35,7 +35,8 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($bookings as $booking)
+        @foreach ($todaybooking as $booking)
+        
             <tr>
                 <td>{{ $booking->id }}</td>
                 <td><a href="clients/{{ $booking->client->id }}">{{ $booking->client->name }}</a></td>

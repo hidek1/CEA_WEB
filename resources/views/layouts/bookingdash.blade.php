@@ -30,6 +30,8 @@
      <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datepicker.standalone.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datepicker3.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datepicker3.standalone.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/media/layout.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/icons/style.css')}}">
 
     @yield('style')
     <title>@yield('title')</title>
@@ -59,13 +61,12 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset('dist/js/sb-admin-2.js') }}"></script>
-    
-    
+    <script src="{{ asset('js/daypilot/daypilot-all.min.js') }}"></script>
+   
 </body>
 @yield('script')
-<script>
- 
-</script>
+
+
 
 </body>
 </html>

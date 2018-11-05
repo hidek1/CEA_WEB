@@ -1,3 +1,4 @@
+@if(Auth::check())
 @extends('layouts.bookingdash')
 
 @section('title')
@@ -18,7 +19,7 @@
                             <i class="fa fa-users fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">Client 0</div>
+                            <div class="huge">{{ $client->count() }}</div>
                             <div>Total Clients</div>
                         </div>
                     </div>
@@ -41,7 +42,7 @@
                             <i class="fa fa-table fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">Room 0</div>
+                            <div class="huge">{{ $room->count() }}</div>
                             <div>Total Rooms</div>
                         </div>
                     </div>
@@ -64,7 +65,7 @@
                             <i class="fa fa-calendar fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">Booking 5</div>
+                            <div class="huge">{{ $booking->count() }}</div>
                             <div>Total Bookings</div>
                         </div>
                     </div>
@@ -87,7 +88,7 @@
                             <i class="fa fa-clock-o fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"> <!--$room->where('status', 1)->count() --> </div>
+                            <div class="huge"> {{$room->where('status', 1)->count() }} </div>
                             <div>Available Rooms</div>
                         </div>
                     </div>
@@ -110,7 +111,7 @@
                             <i class="fa fa-calendar-check-o fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><!--$room->where('status', 0)->count() --></div>
+                            <div class="huge">{{ $room->where('status', 0)->count() }}</div>
                             <div>Booked Rooms</div>
                         </div>
                     </div>
@@ -133,12 +134,13 @@
                             <i class="fa fa-calculator fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><!--$booking->where('start_date', \Carbon\Carbon::today()->format('Y-m-d'))->count() --></div>
+                            <div class="huge">{{$booking->where('start_date', '>', \Carbon\Carbon::today()->subDays(7))->count() }}</div>
                             <div>Today Bookings</div>
+
                         </div>
                     </div>
                 </div>
-                <a href="/booking">
+                <a href="/todaybook">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -148,5 +150,10 @@
             </div>
         </div>
     </div>
-
+ 
 @endsection
+@else
+<script>
+    window.location.href = "/bookinglogin";
+</script>
+@endif
